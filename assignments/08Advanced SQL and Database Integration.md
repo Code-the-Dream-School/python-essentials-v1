@@ -20,7 +20,9 @@ You have already experimented with the `sqlcommand.py` program.  Run it again, a
 
 For each of the following tasks, you first use the sqlcommand command line to get the right SQL statement.  Then you add it to your program.
 
-**Help Available!** This lesson combines a lot of concepts that have been presented only briefly. Get as far as you can with each step of the code.  But, if you get stuck (not unlikely if your are new to SQL), an example answer is available in your python_homework folder, in `./examples/advanced_sql.py`.  Don't copy/paste from this file.  Just review it, and then write the code on your own.  Of course, your answer may differ.  Even if you don't get stuck, you may want to review this example.
+**Help Available!**  
+
+This lesson combines a lot of concepts that have been presented only briefly. You may find these tasks a little challenging.  If you get stuck, 1:1 mentors are available to answer your questions.  Appointments are available in the [1:1 Mentor Table](https://airtable.com/appoSRJMlXH9KvE6w/shrQinGb1phZYwdiL)
 
 ### **Task 1: Understanding Subqueries**
 

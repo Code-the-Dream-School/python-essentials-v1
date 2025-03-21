@@ -1,1 +1,1 @@
-TBD
+Thanks for mentoring in CTD's Python class! Use the `assignment-solution-examples` folder to access rubrics and sample code for each lesson. Group instructors can use the `group-session-slides` folder to access sample weekly slide decks for their sessions.

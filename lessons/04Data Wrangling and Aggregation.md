@@ -73,12 +73,20 @@ print(df.loc[[0,2]]) # This prints row 0 and row 2.  You specify a list of the r
 ```
 In each of the cases above, what is returned is a new DataFrame that is a subset of the old one.
 
-One can also specify a filter.
+One can also specify a filter.  For example:
 
 ```python
-print(df.loc[])
+print(df[df['Age'] > 24])
+# print(df[df['Age'] > 24 and df['Score'] >=88])         Doesn't work!  'and' is not a valid operator for Series!
+print(df[(df['Age'] > 24) & (df['Score'] >=88)])        # This one does work! It does the boolean AND of corresponding series elements.
+# print(df["a" in df['Name']])                          Doesn't work!  The "in" operator doesn't work for Series!
+print(df[df['Name'].str.contains("a")])                 # This does work!  
+# There are a bunch of useful str functions for Series.  While we're at it:
+# df['Name'] = df['Name'].upper()                       Doesn't work!!
+df['Name'] = df['Name'].str.upper()                     # Does work! 
+print(df)
+```
 
----
 
 ## **4.3 Data Aggregation**
 
@@ -258,7 +266,7 @@ The map() method takes one parameter, a function that does the conversion.  In t
 You can rename one or more columns as follows:
 
 ```python
-joined_df.rename({'Score':'Test Score'}, inplace=True)
+joined_df.rename(columns={'Score':'Test Score'}, inplace=True)
 print(joined_df)
 ```
 

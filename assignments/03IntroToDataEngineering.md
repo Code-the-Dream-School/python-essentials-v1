@@ -43,10 +43,8 @@ Homework for this assignment is created within your `python_homework` folder.  C
    - Load the CSV file from Task 1 into a new DataFrame saved to a variable `task2_employees`.
    - Print it and run the tests to verify the contents.
 
-2. **Write data to a JSON file:**
-   - 
-3. **Read data from a JSON file:**
-   - Create a JSON file (`additional_employees.json`).  The file adds two new employees.  Eve, who is 28, lives in Miami, and has a salary of 60000, and Frank, who is 28, lives in Seattle, and has a salary of 95000.
+2. **Read data from a JSON file:**
+   - Create a JSON file (`additional_employees.json`).  The file adds two new employees.  Eve, who is 28, lives in Miami, and has a salary of 60000, and Frank, who is 40, lives in Seattle, and has a salary of 95000.
    - Load this JSON file into a new DataFrame and assign it to the variable `json_employees`.
    - Print the DataFrame to verify it loaded correctly and run the tests.
 

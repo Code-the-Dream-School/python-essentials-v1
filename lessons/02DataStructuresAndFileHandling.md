@@ -54,7 +54,7 @@ colors = ('red', 'green', 'blue')
 Strings are also immutable in Python.  This would cause an error:
 ```
 capital = "raleigh"
-raleigh[0] = "R"
+capital[0] = "R"
 ```
 
 ### Lists
