@@ -213,6 +213,8 @@ try:
 except Exception as e:
     print("couldn't get the web page")
     print(f"Exception: {type(e)__name__} {e}")
+finally:
+    driver.quit()
 ```
 
 **Note:** Selenium is not used only for web scraping.  It can automate interaction with a browser page. One common use is to do end-to-end testing.  You can type into the fields of forms, you can click on submit buttons, you can refresh the page, you can hit the back button, and so on.  We won't do any of this for this lesson.
@@ -306,6 +308,8 @@ When scraping large numbers of web pages, managing requests responsibly is essen
         driver.get('https://acme.com/another.html')
     except Exception as e:
         print(f"An exception occurred: {type(e).__name__} {e}")
+    finally:
+        driver.quit()
 
     ```
 ---
