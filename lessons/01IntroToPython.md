@@ -580,7 +580,7 @@ If you need to split a line for readability, you put a backslash `\` at the end 
 
 ## 🎬 Video 1.5: Loops and Conditionals
 
-Our next video is a breakdown breakdown of  common situations in which someone might use loops, how to control loop behavior with `break` and `continue`, and loop nesting.
+Our next video is a breakdown of  common situations in which someone might use loops, how to control loop behavior with `break` and `continue`, and loop nesting.
 
 **[Watch the video here](https://youtu.be/VUwzi5TVMzM).**
 
