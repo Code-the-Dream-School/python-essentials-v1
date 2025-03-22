@@ -53,3 +53,6 @@ try:
     
 except Exception as e:
     print(f"An exception occurred getting the page: {type(e).__name__} {e}")
+
+finally:
+    driver.quit()
