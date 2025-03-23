@@ -224,11 +224,11 @@ combined_df = pd.concat([data, more_data], ignore_index=True)
 You can select entries, rows and columns from a DataFrame in various ways. 
 ```python
 # Select an entry by index label and column
-print(combined_df.loc[1,'Name])
+print(combined_df.loc[1,'Name'])
 # Output: Bob
 
 # Select an entry by position
-print(combined_df.iloc(1, 1))
+print(combined_df.iloc[1, 1])
 # Output: 27
 ```
 
@@ -283,7 +283,7 @@ print(df['City'].nunique())
 ```
 
 ### Data Cleaning
-Handling missing data and cleaning data is essential in data analysis.  These are some examples of the data cleaning methods which are available.
+Handling missing data and cleaning data is essential in data analysis.  These are some examples of the data cleaning methods which are available. We will cover data cleaning in more detail in future lessons.
 
 #### Converting Columns to Numeric
 
