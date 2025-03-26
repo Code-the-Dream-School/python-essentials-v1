@@ -95,9 +95,159 @@ print(df)
 
 ---
 
-## **6.3 Using Regular Expressions
+## **6.3 Using Regular Expressions**
 
-### To be added
+### A brief introduction to regular expressions
+
+#### History
+- Invented as a theoretical framework in 1951 by Stephen Cole Kleene
+- First used in 1968 for the QED text editor (Ken Thompson)
+- Used in a variety of Unix tools in the 1970's (ed, lex, vi, grep, awk, emacs)
+- Now the most popular string pattern matching language, available in almost all programming languages
+- Most standardized on the perl version which is more powerful and less verbose than other standards
+
+#### Regular expression syntax and matching
+- Python provide regular expressions through the standard library [re module](https://docs.python.org/3/library/re.html)
+- The [regex HOWTO](https://docs.python.org/3/howto/regex.html#regex-howto) provides a tutorial on usage
+- For more practice with regexes [regex101](https://regex101.com/) is a useful site.
+- Raw strings (`r''`) are preferred for regexes in python to avoid excessive `'\'` characters
+- All regular characters match themselves
+- Meta characters extend patterns for more complex matches
+  - Meta-characters can be included in patterns by escaping with `‘\’`
+  - `<pattern>*` : match 0 or more copies of pattern
+  - `<pattern>+` : match 1 or more copies of pattern
+  - `<pattern>?` : match 0 or 1 times
+  - `^<pattern>` : match only at the beginning
+  - `<pattern>$` : match only at the end
+  - Character sets: `[a-z0-9]` – match any of the characters in the set
+  - Excluding characters: `[^A-Z]` `^` means match characters not in the set (e.g. anything but capital letters)
+    - `^` has a different meaning in this context, specifying a character exclusion rather than the start of the string
+  - `\d` : match digits (short for `[0-9]`), `\D` not a digit
+  - `\w` : match any alphanumeric (word - short for `[a-zA-Z0-9_]`), `\W` not a word character
+  - `\s` : match whitespace, `\S` not a whitespace character
+  - `.` : match any character except newline. Use `\.` to match a period.  I general `\` escapes special characters.
+  - Use `|` to specify alternates: `[0-9]+|[a-z]+`:  e.g. match digits or lowercase letters
+    - Surrounding the alternative by `()` limits the scope of the alternatives e.g. `r'start ([0-9]+|[a-z]+) end'`.  This also introduces a match group which is not necessarily used.
+  - Group using `()` to capture substrings
+
+#### Examples
+- `^[a-zA-Z]\w+`   # Must start at the beginning of the string with a letter followed by any word character
+- `[0-9]+|[a-z]+`  # Match either one or more digits or one or more lowercase letters (but not both)
+- `[a-z]|[0-9]+`   # Match one lowercase letter or one or more digits (but not both)
+- `^\s*(\w+)\s*$`  # Capture a word which may have whitespace before or after
+
+#### Debugging regular expressions
+
+Regular expressions are greedy
+- Eeach part of the pattern matches as many characters as possible
+- Bugs often involve a part of the pattern matching too much (or all) of the rest of the string
+- e.g. putting ^.+ at the beginning of the pattern will match all the characters
+  - Leaving nothing for the rest of the pattern
+
+
+### Using regular expressions with the Python Standard Library
+
+In the python standard library [re module](https://docs.python.org/3/library/re.html), regular expressions are precompiled into a [pattern object](https://docs.python.org/3/library/re.html#re-objects).  The pattern object can then be matched against entire strings using the [match() method](https://docs.python.org/3/library/re.html#re.Pattern.match) or the [search() method](https://docs.python.org/3/library/re.html#re.Pattern.search) can be used to scan for the pattern in a string.  These methods return `None` if there is no match.  If there is a successful match, a [match object](https://docs.python.org/3/library/re.html#re.Match) is returned.  The [group() method](https://docs.python.org/3/library/re.html#re.Match.group) can be used to retrieve the entire match or subgroups defined using parentheses.  For this class, we will be using regular expressions with Pandas as describe below, however it can be helpful to use the standard library regular expressions to develop and test a pattern.  It's also an important part of the Python ecosystem.  Here are some examples:
+
+```python
+import re
+# compile the regular expression
+# This regex captures the username from a gmail address as a subgroup
+# It requires one or more word chacaters at the beginning, then any number of words, digits, periods and '-''s
+# The first `()` will be available a group(1) if there is a match
+gmail = re.compile(r'(\w+[\w\d\.\-]*)@gmail.com')
+search_target = 'Boa-Dreamcode.public@gmail.com'
+# match the entire string
+match = gmail.match(search_target)
+# print the group and subgroup
+print(match.group()) # => Boa-Dreamcode.public@gmail.com (same as group(0))
+print(match.group(1)) # => Boa-Dreamcode.public
+# now serch within a longer string
+search_target = 'My email is Boa-Dreamcode.public@gmail.com, what is yours?'
+match = gmail.search(search_target)
+print(match.group()) # => Boa-Dreamcode.public@gmail.com (same as group(0))
+print(match.group(1)) # => Boa-Dreamcode.public
+```
+
+### Using regular expressions with Pandas
+  
+ Pandas [Series.str](https://pandas.pydata.org/pandas-docs/stable/reference/series.html#string-handling) provides a variety of methods which access or manipulate the values of a Series as strings.  Many of these methods support regular expressions.  All of the examples below assume you have imported `pandas as pd`.  The [Series.filter](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.filter.html#pandas.Series.filter) method also supports regular expressions.  The methods available with `Series.str` are different from those provided by the builtin `str` type.
+
+ #### Using `replace`
+
+ Sometimes phone numbers or ID fields can contain non-numeric characters (such as dashes, parentheses, or letters) that you want to remove.
+
+ ```python
+ df = pd.DataFrame({
+    'phone_number': ['(123) 456-7890', '+1-555-123-4567', '555.456.7890']
+})
+# Remove all non-digit characters
+df['phone_number_clean'] = df['phone_number'].str.replace(r'\D', '', regex=True)
+print(df)
+```
+
+Removing html tags from scraped data.
+
+```python
+df = pd.DataFrame({
+    'html_content': [
+        '<p>This is a paragraph.</p>',
+        '<div>Some <strong>bold</strong> text</div>'
+    ]
+})
+# <.*?> matches <, then any characters as few as possible (.*? is a non-greedy match), then >
+df['text_only'] = df['html_content'].str.replace(r'<.*?>', '', regex=True)
+print(df)
+```
+
+#### Using `extract`
+
+Capture the domain name from email addresses.  Note that the `extract` method only uses regular expressions, whereas they are optional and must be specified for `replace`.
+
+```python
+df = pd.DataFrame({
+    'email': [
+        'john.doe@example.com',
+        'jane_smith@my-domain.org',
+        'user123@anotherdomain.net'
+    ]
+})
+df['domain'] = df['email'].str.extract(r'@(\w+[\w\.-]+)')
+print(df)
+```
+
+#### Using `contains`
+
+Get all rows which contain valid emails.
+
+```python
+df = pd.DataFrame({
+    'email': ['test@example.com', 'invalid-email', 'hello@mydomain.org']
+})
+valid_emails = df[df['email'].str.contains(r'^\w+[\w\.-]+@\w+[\w\.-]+\.\w+$')]
+print(valid_emails)
+```
+
+#### Using `filter`
+
+Instead of specifying columns one by one, you can select or drop columns whose names match a pattern using DataFrame.filter.
+
+```python
+df = pd.DataFrame({
+    'col_2021': [1, 2, 3],
+    'col_2022': [4, 5, 6],
+    'col_other': [7, 8, 9]
+})
+# Select columns that end with digits
+df_year = df.filter(regex=r'\d+$')  
+print(df_year)
+```
+  
+  
+  
+  
+
+
 
 ## **6.4 Removing Duplicates**
 
