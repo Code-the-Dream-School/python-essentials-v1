@@ -217,18 +217,18 @@ more_data = pd.DataFrame({
   'City': ['Bedrock', 'Bedrock']
 })
 
-combined_df = pd.concat([data, more_data], ignore_index=True)
+df = pd.concat([data, more_data], ignore_index=True)
 ```
 
 #### Data Selection
 You can select entries, rows and columns from a DataFrame in various ways. 
 ```python
 # Select an entry by index label and column
-print(combined_df.loc[1,'Name'])
+print(df.loc[1,'Name'])
 # Output: Bob
 
 # Select an entry by position
-print(combined_df.iloc[1, 1])
+print(df.iloc[1, 1])
 # Output: 27
 ```
 
