@@ -68,15 +68,22 @@ Ok, deep breath.  Start by copying `lesson12_c.py` to `gdp_growth.py`. We can re
    - Multiple charts displayed simultaneously (e.g., line and bar charts side by side).
 2. Document your extended dashboard setup and discuss its applications in business or research.
 
-### **Submit the Notebook for Your Assignment**  
+### Submit Your Assignment on GitHub**  
 
 📌 **Follow these steps to submit your work:**  
 
-#### **1️⃣ Get a Sharing Link for Your Assignment**  
-- On the upper right of the Kaggle page, click on Save Version and save, accepting all defaults.  You can just do a quick save.
-- On the upper right, click on Share.  Choose Public, make sure that Allow Comments is on, and copy the public URL to your clipboard.
+#### **1️⃣ Add, Commit, and Push Your Changes**  
+- Within your python_homework folder, do a git add and a git commit for the files you have created, so that they are added to the `assignment12` branch.
+- Push that branch to GitHub. 
 
-#### **2️⃣ Submit Your Kaggle Link**  
-- Paste the URL into the **assignment submission form**.  
+#### **2️⃣ Create a Pull Request**  
+- Log on to your GitHub account.
+- Open your `python_homework` repository.
+- Select your `assignment12` branch.  It should be one or several commits ahead of your main branch.
+- Create a pull request.
+
+#### **3️⃣ Submit Your GitHub Link**  
+- Your browser now has the link to your pull request.  Copy that link. 
+- Paste the URL into the **assignment submission form**. 
 
 ---
