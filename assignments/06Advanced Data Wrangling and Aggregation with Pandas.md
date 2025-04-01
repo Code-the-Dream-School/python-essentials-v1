@@ -137,7 +137,58 @@ Validation of the final result, and failure analysis for whatever isn't working 
 
 ## Task 8: Regular Expressions for Data Cleaning
 
-**To Be Added**
+1. Given the following data, use the `Series.str.extract` method to create a `DataFrame` with columns for 'timestamp', 'level', and 'message'.  Assign it to the variable `extracted_logs` and print it.  Note that each capture group will create a separate column in the `DataFrame` returned by the `extract` method.
+
+```python
+log_entries = pd.Series([
+    "[2023-10-26 10:00:00] INFO: User logged in",
+    "[2023-10-26 10:05:30] WARNING: Invalid input",
+    "[2023-10-26 10:10:15] ERROR: Database connection failed",
+    "[2023-10-26 10:12:45] DEBUG: Processing request"
+])
+```
+
+2. Given the following `Series` change all of the placeholders to the string `<VALUE>` using the `replace` method.  Save the result in the variable `standardized_text` and print it.  Special characters in the pattern will need to be escaped.
+
+```python
+text_data = pd.Series([
+    "Value is {amount}.",
+    "The price is [value].",
+    "Cost: (number)",
+    "Quantity = <qty>"
+])
+```
+
+3. Given the data provided below, use the `DataFrame.filter` method to select columns ending in `_at`.  Save the result in a variable called `time_columns` and print it.
+
+```python
+df = pd.DataFrame({
+    "order_id": [123, 124, 125, 126],
+    "customer_name": ["Alice", "Bob", "Charlie", "Diana"],
+    "order_status": ["shipped", "cancelled", "shipped", "delivered"],
+    "created_at": ["2021-01-05", "2021-01-06", "2021-01-06", "2021-01-07"],
+    "updated_at": ["2021-01-07", "2021-01-07", "2021-01-08", "2021-01-08"]
+})
+```
+
+4. Given the provided data, use the `Series.str.contains` method to create a subset for orders which have shipped.  You can us `case=False` to make matches case-insensitive.  Save it in the variable `shipped_orders` and print it.
+
+```python
+order_data = [
+    "Order #123 has been shipped on 2021-01-05 (Tuesday)",
+    "Order #124 has been cancelled",
+    "shipment confirmation #125 on 02/06/2021",
+    "Order #126 delivered on 01 07 2021",
+    "Canceled order #127, refund pending",
+    "order #128 - Shipped 2021/03/10"
+]
+orders = pd.Series(order_data)
+```
+
+5. Using the same `orders` `Series`, create a `DataFrame` with columns for `order number`, `date`, and `shipped`.  `shipped` is a `boolean` value. 
+ Convert the dates to `datetime` which can convert mixed formats.  Note that the modifier `{n}` can be used to specify an exact number of matched characters.  Don't include lines which don't contain a date.  Save the `DataFrame` in a variable called `order_table` and print it.
+
+
 
 ---
 

@@ -19,8 +19,8 @@ Last week, we introduced Pandas, a powerful tool for data analysis. If you want 
 
 *Note: The podcast references two sources, linked below.*
 
-  * (PDF) [Introduction to Pandas](https://github.com/Code-the-Dream-School/python-essentials/blob/main/resources/Pandas%201%20PDF.pdf)
-  * (Slide Deck) [Pandas for Dummies](https://github.com/Code-the-Dream-School/python-essentials/blob/main/resources/Pandas%20for%20Dummies%20Client%20Name.pdf)
+  * (PDF) [Introduction to Pandas](https://github.com/Code-the-Dream-School/python-essentials/blob/ff583aac6befdb1e008b4d149527bc0dd5c437ef/lessons/resources/Pandas%201%20PDF.pdf)
+  * (Slide Deck) [Pandas for Dummies](https://www.qrious.co.nz/hubfs/pandas4dummies.pdf)
 
 ## **4.2 Data Selection**
 
