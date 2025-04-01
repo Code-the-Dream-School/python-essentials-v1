@@ -147,6 +147,7 @@ log_entries = pd.Series([
     "[2023-10-26 10:12:45] DEBUG: Processing request"
 ])
 ```
+
 2. Given the following `Series` change all of the placeholders to the string `<VALUE>` using the `replace` method.  Save the result in the variable `standardized_text` and print it.  Special characters in the pattern will need to be escaped.
 
 ```python
@@ -172,7 +173,6 @@ df = pd.DataFrame({
 
 4. Given the provided data, use the `Series.str.contains` method to create a subset for orders which have shipped.  You can us `case=False` to make matches case-insensitive.  Save it in the variable `shipped_orders` and print it.
 
-
 ```python
 order_data = [
     "Order #123 has been shipped on 2021-01-05 (Tuesday)",
@@ -185,10 +185,9 @@ order_data = [
 orders = pd.Series(order_data)
 ```
 
-5. Using the same `orders` `Series`, create a `DataFrame` with columns for `order number`, `date`, and `shipped`.  `shipped` is a `boolean` value.  Convert the dates to `datetime` which can convert mixed formats.  Note that the modifier `{n}` can be used to specify an exact number of matched characters.  Don't include lines which don't contain a date.  Save the `DataFrame` in a variable called `order_table` and print it.
+5. Using the same `orders` `Series`, create a `DataFrame` with columns for `order number`, `date`, and `shipped`.  `shipped` is a `boolean` value. 
+ Convert the dates to `datetime` which can convert mixed formats.  Note that the modifier `{n}` can be used to specify an exact number of matched characters.  Don't include lines which don't contain a date.  Save the `DataFrame` in a variable called `order_table` and print it.
 
-
-```
 
 
 ---
