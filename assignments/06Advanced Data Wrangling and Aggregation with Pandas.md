@@ -60,16 +60,16 @@ except ImportError:
 
 ## Task 3: Clean Up Spelling Errors
 
-We know that some of the names are misspelled.  We are going to assume that 3 of the spellings are correct, and that the remainder is bad.  Of course, several people have the same name, and some people have the same address, so that for a given name, or a given address, there may be more than 4 rows.  But, we'll assume that if a name or address is spelled the same way 3 or more times, that's the correct spelling.
+We know that some of the names are misspelled.  We are going to assume that 3 of the spellings are correct, and that the remainder is bad.  Of course, several people have the same name, and some people have the same address, so that for a given name, or a given address, there may be more than 4 rows.  But, we'll assume that if a name or address is spelled the same way 3 or more times, that's the correct spelling.  (This assumption may well be false -- but, as we'll see, it still helps to fix up the majority of cases)
 
-1. Find the list of correct names.  You use the value_counts() method, which returns a Series.  In the Series, the index is the list of names, and the values are the count for each.  As follows:
+1. Find the list of probably correct names.  You use the value_counts() method, which returns a Series.  In the Series, the index is the list of names, and the values are the count for each.  As follows:
    ```python
    df_names = df.value_counts('Name')
    names = list(df_names[df_names > 2].index)
    ```
    Print out the first 10 entries of the list of names.
 
-2. Ok, now we have the list of good names.  What do we do about the bad ones?  We want to replace each with the good name that is most similar to it, using the `thefuzz` package. As follows:
+2. Ok, now we have the list of probably good names.  What do we do about the bad ones?  We want to replace each with the good name that is most similar to it, using the `thefuzz` package. As follows:
    ```python
    df['Name'] = df['Name'].map(lambda x : x if x in names else process.extractOne(x, names)[0])
    ```
@@ -134,6 +134,10 @@ Validation of the final result, and failure analysis for whatever isn't working 
 2. Also, in the markdown cell, explain why the approach failed for "Charles Smith".
 
 3. What could be done to make the data valid?  Put your ideas into the markdown cell.  Hint: The solution is often not more code.
+
+4. The assumption that a name is not correct unless it is spelled the same way 3 or more times has introduced problems.  "Mrs. Gail Perez" was misspelled twice, so all 4 instances were replaced by "Mrs. Taylor Johnson DDS".  That's dead wrong. The name and address fixing algorithm is really not very good. How could we avoid errors like this?  Also, since this assignment was created, someone thought of a check you can perform to find nearly all errors, but it must be done before you remove duplicates.  What is that check?
+
+You see that data cleaning often involves assumptions.  Those require careful thought. Such assumptions are necessary, but they might be wrong.
 
 ## Task 8: Regular Expressions for Data Cleaning
 
