@@ -192,6 +192,8 @@ This ensures that `department_id` is treated as a parameter and not part of the 
 cursor.execute(f"SELECT * FROM Employees WHERE department_id = {department_id};")
 # or, equally bad:
 cursor.execute("SELECT * FROM Employees WHERE department_id = " + department_id + ";")
+```
+
 ---
 
 ## **8.8 Window Functions**
