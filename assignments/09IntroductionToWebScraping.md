@@ -13,7 +13,7 @@ You create the code for this assignment in the assignment9 folder within your py
 ## **Overview**
 This lesson introduces web scraping concepts and practices, including:
 1. Understanding HTML and the DOM structure in a live web page.
-2. Extracting content using BeautifulSoup.
+2. Extracting content using Selenium.
 3. Storing data in CSV and JSON files.
 4. Ethical considerations in web scraping.
 
@@ -48,13 +48,11 @@ You are going to find where in the HTML page the data you want is located.
 
 ### **Task 3: Write a Program to Extract this Data**
 
-1. Within the assignment9 diretory of your python_homework folder, create a program called `get_books.py`. The program should import `requests`, `BeautifulSoup`, and `pandas`.
+1. `get_books.py`. The program should import from selenium and webdriver_manager, as shown in your lesson.  You also need pandas and json.
 
-2. Your program should then request the web page for the URL given in Task 2.
+2. Add code to load the web page given in task 2.
 
-3. Your program should then parse the web page with BeautifulSoup.
-
-4. Then, your program should find all the `li` entries in that page for the search list results.  You use the class values you stored in task 2 step 3.
+3. Find all the `li` elements in that page for the search list results.  You use the class values you stored in task 2 step 3.  Also use the tag name when you do the find, to make sure you get the right elements.
 
 5. Within your program, create an empty list called `results`.  You are going to add `dict` values to this list, one for each search result.
 
@@ -72,7 +70,6 @@ Modify your program to do the following:
 1. Write the DataFrame to a file called `get_books.csv`, within the assignment9 folder.  Examine the file to see if it looks right.
 
 2. Write the `results` list out to a file called `get_books.json`, also within the assignment9 folder.  You should write it out in JSON format.  Examine the file to see if it looks right.
-
 
 ### **Task 5: Ethical Web Scraping**
 
@@ -93,14 +90,17 @@ Understand the importance of ethical web scraping and `robots.txt` files.
 **Goal**:  
 Extract a web page section and store the information.
 
-1. Within your python_homework/assignment9 directory, write a script called `see_also.py` to find the **"See also"** section of the Wikipedia page for screen scraping.  You'll have to use your browser developer tools to figure out how to find that section.
+1. Use your browser developer tools to view this page: [https://owasp.org/www-project-top-ten/].  You are going to extract the top 10 security risks reported there.  Figure out how you will find them.
 
-2. Once you have the tag for this section within your soup, Use the BeautifulSoup prettify() method to format the contents of that tag.  Print it out, and also write the resulting string to a file in the assignment9 folder called `see_also.html`.  Verify that this file appears correct.
+2. Within your python_homework/assignment9 directory, write a script called `owasp_top_10.py`.  Use selenium to read this page.
 
-3. Create a file, `challenges.txt`, also within your lesson9 directory.  In this file, describe any challenges you faced in completing this assignment and how you resolved them.
+3. Find each of the top 10 vulnerabilities.  Hint: You will need XPath.  For each of the top 10 vulnerabilites, keep the vulnerability title and the href link in a dict.  Accumulate these dict objects in a list.
+
+4. Print out the list to make sure you have the right data.  Then, add code to the program to write it to a file called `owasp_top_10.csv`.  Verify that this file appears correct.
+
+5. Create a file, `challenges.txt`, also within your lesson9 directory.  In this file, describe any challenges you faced in completing this assignment and how you resolved them.
 
 ---
-
 
 
 ### Submit Your Assignment on GitHub**  
@@ -125,9 +125,8 @@ Extract a web page section and store the information.
 
 ## **Resources**
 
-- [BeautifulSoup Documentation](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
-- [Python Requests Library](https://docs.python-requests.org/en/latest/)
+- [Selenium Documentation](https://www.selenium.dev/documentation/webdriver/)
 - [MDN Web Docs: Understanding the DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model)
-- [Wikipedia Robots.txt](https://en.wikipedia.org/robots.txt)
+- [OWASP robots.txt](https://owasp.org/robots.txt)
 
 ---  
