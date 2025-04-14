@@ -429,8 +429,6 @@ print(df_encoded)
 
 ### **Explanation:**
 - **Label Encoding** maps the `Color` column's categories to integer values.
-- **One-Hot Encoding** creates binary columns for each unique value in the `Color` column.
-
 ---
 
 ## **6.9 Handling Inconsistent Data**
@@ -473,11 +471,14 @@ print(df)
 ## **6.10 Feature Engineering**
 
 ### **Overview**
-Feature engineering involves creating new features from existing ones to enhance the dataset and provide more insights.
+Feature engineering involves creating new features from existing ones in raw data. 
+This is typically used as a first step before the data is fed to machine
+learning algorithms. We will go over one way to extract features from data, *binning*
+into discrete categories, but [feature engineering is a large subfield of its own](https://www.ibm.com/think/topics/feature-engineering).
 
 ### **Key Techniques:**
 - **Binning**: Categorizing continuous data into discrete bins.
-- **Polynomial Features**: Generating interaction terms or polynomial features for regression models.
+- **Principal components analysis**: for extracting important features from high dimensional datasets. 
 
 ### **Why Feature Engineering?**
 - New features can reveal hidden patterns and relationships.
