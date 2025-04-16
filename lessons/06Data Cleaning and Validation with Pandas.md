@@ -408,8 +408,9 @@ Handling categorical data involves encoding non-numeric values, which is especia
 - **One-Hot Encoding**: Creating binary columns for each category.
 
 ### **Why Handle Categorical Data?**
-- Many machine learning algorithms require numerical data.
-- Proper encoding helps preserve the relationships between categories.
+- Many machine learning algorithms require numerical data, so we need some way to convert categories into numbers.
+- Proper encoding helps preserve the categorical structure in the data. There are different ways to represent categorical data numerically: with [one hot encoding](https://www.datacamp.com/tutorial/one-hot-encoding-python-tutorial) each category is represented in a binary fashion as present or absent: this is a very popular technique in machine learning. 
+- In pandas, one-hot-encoding is implemented with the `get_dummies()` function. 
 
 ### **Code Example:**
 ```python
@@ -429,6 +430,7 @@ print(df_encoded)
 
 ### **Explanation:**
 - **Label Encoding** maps the `Color` column's categories to integer values.
+- - **One-Hot Encoding** use the `get_dummies()` function to create binary columns for each unique value in the `Color` column. 
 ---
 
 ## **6.9 Handling Inconsistent Data**
