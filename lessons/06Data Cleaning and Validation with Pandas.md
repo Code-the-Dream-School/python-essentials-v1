@@ -480,10 +480,11 @@ into discrete categories, but [feature engineering is a large subfield of its ow
 
 ### **Key Techniques:**
 - **Binning**: Categorizing continuous data into discrete bins.
-- **Principal components analysis**: for extracting important features from high dimensional datasets. 
+- **Principal component analysis (PCA)**: for automated extraction of important combinations of features from high dimensional datasets (this is a fairly advanced topic, but if you are interested in an intuitive overview of PCA see [this video](https://www.youtube.com/watch?v=ZgyY3JuGQY8)). 
 
 ### **Why Feature Engineering?**
 - New features can reveal hidden patterns and relationships.
+- Reduce noise in the raw data.
 - Improves model performance in machine learning.
 
 ### **Code Example:**
