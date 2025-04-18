@@ -306,7 +306,7 @@ SELECT * FROM Students ORDER BY age;
 - Find the students of a given age majoring in English:
 
 ```sql
-SELECT * from Students WHERE age = 22 AND major = 'History';
+SELECT * FROM Students WHERE age = 22 AND major = 'History';
 ```
 
 Within Python, SQL SELECT statements are executed like the INSERT statements, but you also need to retrieve the results.  Add the following to your school_b.py program:
@@ -443,12 +443,12 @@ Of course, any of the SQL above can be executed from Python.
 The UPDATE SQL statement changes one or more existing rows.  You specify the rows you want to change with a WHERE clause, like you would use in a SELECT statement.
 
 ```sql
-UPDATE Students name="Charles", age=20 WHERE name="Charlie";
+UPDATE Students SET name="Charles", age=20 WHERE name="Charlie";
 ```
 Note that the UPDATE statement updates all rows that match the WHERE clause.  You can also apply math functions to the update, as follows:
 
 ```sql
-UPDATE products price=price * 1.1;
+UPDATE products SET price=price * 1.1;
 ```
 This statement raises all the prices by 10%.  As there is no WHERE statement, every record is changed.
 
