@@ -234,7 +234,7 @@ Get all rows which contain valid emails.
 df = pd.DataFrame({
     'email': ['test@example.com', 'invalid-email', 'hello@mydomain.org']
 })
-valid_emails = df[df['email'].str.contains(r'^\w+[\w\.-]+@\w+[\w\.-]+\.\w+$')]
+valid_emails = df[df['email'].str.contains(r'^\w+[\w\.-]*@\w+[\w\.-]+\.\w+$')]
 print(valid_emails)
 ```
 #### Combining filters using bitwise operators
