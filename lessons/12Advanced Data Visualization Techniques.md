@@ -151,7 +151,7 @@ app = Dash(__name__) # This creates the app object, to wich various things are a
 # __name__ is the name of the running Python module, which is your main module in this case
 
 # Layout: This section creates the HTML components
-app.layout = html.Div([ # This div is for the dropdown you see at the top
+app.layout = html.Div([ # This div is for the dropdown you see at the top, and also for the graph itself
     dcc.Dropdown( # This creates the dropdown
         id="stock-dropdown", # and it needs an id
         options=[{"label": symbol, "value": symbol} for symbol in df.columns], # This populates the dropdown with the list of stocks

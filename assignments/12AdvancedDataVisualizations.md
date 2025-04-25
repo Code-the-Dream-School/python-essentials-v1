@@ -55,18 +55,14 @@ Ok, deep breath.  Start by copying `lesson12_c.py` to `gdp_growth.py`. We can re
 
 ---
 
-## **Task 4: Reflection**
+## **Task 5: Reflection**
+Create a file in the assignment12 folder called reflection.txt, and put in the following thoughts:
+
 1. Reflect on the differences between static and interactive visualizations.
 2. Write a short paragraph discussing the advantages of using dashboards for real-time data exploration.
 3. Explain how interactive tools like Plotly and Dash can improve data communication in professional settings.
 
 ---
-
-## **Task 5: Extension Task(Optional)**
-1. Extend the dashboard to include:
-   - A date range selector for filtering data.
-   - Multiple charts displayed simultaneously (e.g., line and bar charts side by side).
-2. Document your extended dashboard setup and discuss its applications in business or research.
 
 ### Submit Your Assignment on GitHub**  
 
