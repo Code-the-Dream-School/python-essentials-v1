@@ -174,8 +174,9 @@ def update_graph(symbol): # This function is what actually does the plot, by cal
 if __name__ == "__main__": # if this is the main module of the program, and not something included by a different module
     app.run(debug=True) # start the Flask web server
 ```
+We'll explain decorators in the next lesson, but here is some additional explanation on the `@app.callback` decorator.  That decorator is provided by Dash and is associated with the app object.  Within your `app.layout`, you can have one or several HTML controls, each with an ID.  In this case, you have just one, the dropdown.  When you use `app.@callback`, the function that follows (the function is update_graph() in this case) will be called any time one of the controls that is specified as an Input for that callback has a change in value, that is, each time the user enters or clicks on something.  The changed value or, in the case of multiple Inputs, the changed values, are then passed to the decorated function.  That function returns the Output, in this case a graph.  (It is also possible to have multiple Outputs for the callback, but that's beyond the scope of this lesson.)  You can have multiple `@app.callback` decorator statements within a Dash program, each decorating a different function.  So, for example, you could have several different graphs on the page, each of which is controlled by a different set of HTML controls.
 
-Whew, clear as mud, eh?  You could add other controls to the page, and for each you could cause appropriate changes to the graph.  To understand Dash and Plotly fully, you need to spend time studying the Plotly and Dash documentation, or perhaps by asking your friendly AI how to do this or that.
+Whew, clear as mud, eh?  To understand Dash and Plotly fully, you need to spend time studying the Plotly and Dash documentation, or perhaps by asking your friendly AI how to do this or that.
 ---
 
 ## **12.4 Reflection**
