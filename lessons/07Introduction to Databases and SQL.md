@@ -398,7 +398,7 @@ SELECT * FROM Courses WHERE course_name LIKE "math%";
 
 A join is used within a SELECT statement to combine two or more tables.  The records returned from the SELECT include columns from both tables.  Joins use an ON clause to pair up the entries from each table.  The following SELECT gets the pairs of student name and course name, according to Enrollments, which is the join table.
 ```sql
-SELECT Students.name, Course.course_name FROM Students JOIN Enrollments ON Students.student_id = Enrollments.student_id JOIN Courses ON Enrollments.course_id = Courses.course_id
+SELECT Students.name, Courses.course_name FROM Students JOIN Enrollments ON Students.student_id = Enrollments.student_id JOIN Courses ON Enrollments.course_id = Courses.course_id
 ```
 The statement creates a combined row.  For each Student record, the Enrollments for that student are retrieved, and a combined record is created for any matches that are found.  The `ON` clause gives the matching logic.  Then, for each of these combined records, the corresponding Course record is retrieved, and added to the row.  The SELECT returns the name from the Students table and course_name from the Course table.  We can use 'AS' to save typing:
 
@@ -416,7 +416,7 @@ SELECT c.customer_name, o.order_id FROM customers c LEFT JOIN orders o on c.cust
 ```
 If there are customers without orders, this statement will include them in the list, but the order_id column will be empty.  Similarly, one can do a RIGHT JOIN to show the orders without customers ... but there won't be any.  Why? Because the foreign key constraint is on, so you can't have an order record that doesn't belong to a customer.  You can also do a FULL JOIN to get both customers without orders and orders without a corresponding customer.
 
-Suppose we want to list all the students with the corresponding courses for which they are enrolled.  There is, in this case, a many-to-many association between customers and courses -- but there is no foreign key in either table that points to the other table.  We need to use the Enrollments table as a join table, combining information from all three tables.  This is a compound join.  You may join three or more tables in this way.
+Suppose we want to list all the students with the corresponding courses for which they are enrolled.  There is, in this case, a many-to-many association between students and courses -- but there is no foreign key in either table that points to the other table.  We need to use the Enrollments table as a join table, combining information from all three tables.  This is a compound join.  You may join three or more tables in this way.
 
 ```sql
 SELECT Students.name, Courses.course_name 
