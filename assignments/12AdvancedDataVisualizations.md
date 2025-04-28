@@ -9,7 +9,7 @@ This assignment is to be created in the `assignment12` folder of your `python_ho
 1. Create a file called employee_results.py.
 2. Load a DataFrame called employee_results using SQL.  You connect to the `../db/lesson.db` database.  You use SQL to join the employees table with the orders table with the line_items table with the products table.  You then group by employee_id, and you SELECT the last_name and revenue, where revenue is the sum of price * quantity.  Ok, that's a lot of SQL to mess with, so here is the statement you need:
    ```SQL
-   SELECT last_name, SUM(price * quantity) AS revenue FROM employees e JOIN Orders o ON e.employee_id = o.employee_id JOIN line_items l ON o.order_id = l.order_id JOIN products p ON l.product_id = p.product_id GROUP BY e.employee_id;
+   SELECT last_name, SUM(price * quantity) AS revenue FROM employees e JOIN orders o ON e.employee_id = o.employee_id JOIN line_items l ON o.order_id = l.order_id JOIN products p ON l.product_id = p.product_id GROUP BY e.employee_id;
    ```
 3. Use the Pandas plotting functionality to create a bar chart where the x axis is the employee last name and the y axis is the revenue.
 4. Give appropriate titles, labels, and colors.
@@ -25,7 +25,10 @@ This assignment is to be created in the `assignment12` folder of your `python_ho
 
    df['cumulative'] = df.apply(cumulative, axis=1)
    ```
-   Because axis=1, apply calls the cumulative function once per row.  Do you see why this gives cumulative revenue?
+   Because axis=1, apply() calls the cumulative function once per row.  Do you see why this gives cumulative revenue?  One can instead use cumsum() for the cumulative sum:
+   ```python
+   df['cumulative'] = df['total_price'].cumsum()
+   ```
 3. Use Pandas plotting to create a line plot of cumulative revenue vs. order_id.
 4. Show the Plot.
 

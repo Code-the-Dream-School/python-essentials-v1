@@ -8,5 +8,5 @@ with sqlite3.connect("../db/lesson.db") as conn:
     ON o.order_id = l.order_id JOIN products p ON l.product_id = p.product_id GROUP BY e.employee_id;"""
     df = pd.read_sql_query(sql_statement, conn)
 
-df.plot(x="last_name", y="revenue", kind="bar", color="skyblue", title="Employee Resuts")
+df.plot(x="last_name", y="revenue", kind="bar", color="skyblue", title="Employee Results")
 plt.show()
