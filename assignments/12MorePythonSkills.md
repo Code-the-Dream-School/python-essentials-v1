@@ -13,11 +13,17 @@ You create the code for this assignment in your python_homework/assignment12 fol
 ## **Task 1: Writing and Testing a Decorator**
 
 1. Within the assignment12 folder, create a file called `log-decorator.py`.  It should contain the following.
-2. Declare a decorator called logger_decorator.  This should log the input parameters of the called function as well as the value it returns, to a file `./decorator.log`.  (Logging was described in lesson 1, so review this if you need to do so.)
+2. Declare a decorator called logger_decorator.  This should log the name of the called function (`func.__name__`), the input parameters of that were passed, and the value the function returns, to a file `./decorator.log`.  (Logging was described in lesson 1, so review this if you need to do so.)  Functions may have positional arguments, keyword arguments, both, or neither.  So for each invocation of a decorated function, the log would have:
+```
+function: <the function name>
+positional parameters: <a list of the positional parameters, or "none" if none are passed>
+keyword parameters: <a dict of the keyword parameters, or "none" if none are passed>
+return: <the return value>
+```
 3. Declare a function that takes no parameters and returns nothing.  Maybe it just prints "Hello, World!".  Decorate this function with your decorator.
-4. Declare a function that takes a variable number of arguments and returns `True`.  Decorate this function with your decorator.
-5. Declare a function that uses `**kwargs` and returns `logger_decorator`.  Decorate this function with your decorator.
-6. Within the mainline code, call each of these three functions.  Run the program, and verify that the log file contains the information you want.
+4. Declare a function that takes a variable number of positional arguments and returns `True`.  Decorate this function with your decorator.
+5. Declare a function that takes no positional arguments and a variable number of keyword arguments, and that returns `logger_decorator`.  Decorate this function with your decorator.
+6. Within the mainline code, call each of these three functions, passing parameters for the functions that take positional or keyword arguments.  Run the program, and verify that the log file contains the information you want.
 
 ---
 
@@ -38,8 +44,8 @@ You create the code for this assignment in your python_homework/assignment12 fol
    try:
       y = return_string()
       print("shouldn't get here!")
-   except TypeError:
-      print("can't convert a string to an integer!") # This is what should happen
+   except ValueError:
+      print("can't convert that string to an integer!") # This is what should happen
    ```
 
 ---
@@ -47,37 +53,122 @@ You create the code for this assignment in your python_homework/assignment12 fol
 ## **Task 3: List Comprehensions Practice**
 
 1. Within the assignment12 folder, create a file called `list-comprehensions.py`. Add code that reads the contents of `../csv/employees.csv` into a DataFrame.
-2. Using a list comprehension, create a list of the employee names, first_name + space + last_name.  The list comprehension should iterate through the rows of the DataFrame.  Print the resulting list.
+2. Using a list comprehension, create a list of the employee names, first_name + space + last_name.  The list comprehension should iterate through the rows of the DataFrame.  Print the resulting list.  Hint: If df is your dataframe, df.iterrows() gives an iterable list of rows.  Each row is a tuple, where the first element of the tuple is the index, and the second element is a dict with the key/value pairs from the row.
 3. Using a list comprehension, create another list from the previous list of names.  This list should include only those names that contain the letter "e".  Print this list.
 
 ---
 
 ## **Task 4: Closure Practice**
 
-1. Within the assignment12 folder, create a file called `hangman_closure.py`.
+1. Within the assignment12 folder, create a file called `hangman-closure.py`.
 2. Declare a function called `make_hangman()` that has one argument called secret_word.  It should also declare an empty array called guesses.  Within the function declare a function called hangman_closure() that takes one argument, which should be a letter.  Within the inner function, each time it is called, the letter should be appended to the guesses array.  Then the word should be printed out, with underscores substituted for the letters that haven't been guessed.  So, if secret_word is "alphabet", and guesses is ["a", "h"], then "a__ha__" should be printed out.  The function should return `True` if all the letters have been guessed, and `False` otherwise.  `make_hangman()` should return `hangman_closure`.
-3. Within hangman_closure.py, implement a hangman game that uses make_hangman().  Use the input() function to prompt for the secret word.  Then use the input() function to prompt for each of the guesses, until the full word is guessed.
+3. Within hangman-closure.py, implement a hangman game that uses make_hangman().  Use the input() function to prompt for the secret word.  Then use the input() function to prompt for each of the guesses, until the full word is guessed.
 4. Test your program by playing a few games.
 
 ## **Task 5: Extending a Class**
 
-1. Within the assignment12 folder, create a file called `print-whole-dataframe.py`.
+1. Within the assignment12 folder, create a file called `print-dataframe-with-headers.py`.
 2. Create a class called DFPlus.  It should inherit from the Pandas DataFrame class.  You are going to add a single method to the class.  You do not need an `__init__` method, because you are going to use the one already provided.
-3. Within DFPlus, declare a function called print_everything().  It only takes one argument, self.  You may have noticed that when you print a big DataFrame, you only get some of the rows.  This function will provide a way to print the whole thing.  The function will print the whole DataFrame in a loop, printing 10 rows at a time.
-4. Well, how to do this? You need to know the length of the DataFrame.  That's easy: `len(self)`.  Now, how do you get a given 10 rows?  That's easy too.  You have access to `super().iloc`.  And then you just print what you get back, looping until you get to the bottom.
-5. Create a DFPlus instance by reading in `../csv/products.csv`.  You do this the same way as for a normal DataFrame.  You have created a subclass, so it will still do everything the parent can do.
-6. Use `print()` to print your DFPlus instance.  You notice that you don't get every row, just a summary.  Then use the `.print_everything()` method of your DFPlus instance to print the whole darn thing.
+3. You want to create a DFPlus instance by reading in `../csv/products.csv`.  Now we have a problem. pd.read_csv() creates a DataFrame, not a DFPlus.  So here's the sneak path.  This creates a from_csv class method so that you can do `dfp = DFPlus.from_csv("../csv/products.csv")`
+```python
+class DFPlus(pd.DataFrame):
+    @property
+    def _constructor(self):
+        return DFPlus
+
+    @classmethod
+    def from_csv(cls, filepath, **kwargs):
+        df = pd.read_csv(filepath, **kwargs)
+        return cls(df)
+```
+4. Within the DFPlus class, declare a function called print_with_headers().  It only takes one argument, self.  When you print a big DataFrame, you can't see the column headers because they scroll up.  This function will provide a way to print the DataFrame giving column headers every 10 lines.  The function will print the whole DataFrame in a loop, printing 10 rows at a time.
+5. Well, how to do this? You need to know the length of the DataFrame.  That's easy: `len(self)`.  Now, how do you get a given 10 rows?  That's easy too.  You have access to `super().iloc` so you can specify the ten line slice you want. And then you just print what you get back, looping until you get to the bottom.
+6. Using the from_csv() class method, create a DFPlus instance from "../csv/products.csv".
+7. Use the `print_with_headers()` method of your DFPlus instance to print the DataFrame.
 
 ## **Task 6: More on Classes**
 
 1. Within the assignment12 folder, create a file called `tictactoe.py`.
-2. Within this file, declare a class called TictactoeException.  This should inherit from the Exception class.  For the body of this class, you only need the single statement `pass`.  You are creating a class that is exactly the same as Exception, except for the name of the class, so you don't need to declare any methods.  (This is a very common practice for exception handling.)
-3. Declare also a class called Board.  This should have an `__init__` function that only has the `self` argument.  It creates a list of lists, 3x3, all containing " " as a value.  This is stored in the valriable self.board_array.  Create instance variables self.turn, which is initialized to "X", and self.last_move, which is initialized to "".
+2. Within this file, declare a class called TictactoeException.  This should inherit from the Exception class.  Add an `__init__` method that stores an instance variable called `message` and then calls the `__init__` method of the superclass.  This is a common way of creating a new type of exception.
+3. Declare also a class called Board.  This should have an `__init__` function that only has the `self` argument.  It creates a list of lists, 3x3, all containing " " as a value.  This is stored in the variable self.board_array.  Create instance variables self.turn, which is initialized to "X", and self.last_move, which is initialized to "".  The Board class should have a class variable called valid_moves, with the value:
+```python
+   valid_moves=["upper left", "upper center", "upper right", "middle left", "center", "middle right", "lower left", "lower center", "lower right"]
+```
 4. Add a `__str__()` method.  This converts the board into a displayable string.  You want it to show the current state of the game. The rows to be displayed are separated by newlines ("\n") and you also want some "|" amd "-" characters.  Once you have created this method, you can display the board by doing a `print(board)`.
 4. Add a move() method.  This has two arguments, `self` and `move_string`.  The following strings are valid in TicTacToe: "upper left", "upper center", "upper right", "middle left", "center", "middle right", "lower left", "lower center", and "lower right".  When a string is passed, the move() method will check if it is one of these, and if not it will raise a TictactoeException with the message "That's not a valid move.".  Then the move() method will check to see if the space is taken.  If so, it will raise an exception with the message "That spot is taken."  If neither is the case, the move is valid, the corresponding entry in board_array is updated with X or O, and the turn value is changed from X to O or from O to X.  It also updates last_move, which might make it easier to check for a win.
 5. Add a whats_next() method.  This will see if the game is over.  If there are 3 X's or 3 O's in a row, it returns a tuple, where the first value is True and the second value is either "X has won" or "O has won".  If the board is full but no one has won, it returns a tuple where the first value is True and the second value is "Cat's Game".  Otherwise, it returns a tuple where the first value is False and the second value is either "X's turn" or "O's turn".
-6. Implement the game within the mainline code of `tictactoe.py`.  At the start of the game, an instance of the board class is created, and then the methods of the board class are used to progress through the game.  Use the `input()` function to prompt for each move, indicating whose turn it is.  Note that you need to call board.move() within a try block, with an except block for TictactoeException.
+6. Implement the game within the mainline code of `tictactoe.py`.  At the start of the game, an instance of the board class is created, and then the methods of the board class are used to progress through the game.  Use the `input()` function to prompt for each move, indicating whose turn it is.  Note that you need to call board.move() within a try block, with an except block for TictactoeException.  Give appropriate information to the user.
 7. Test your program by playing a few games.
+
+On assembling this program, the assignment author found that it was too time consuming to write some of the methods.  So, here are some pieces to reuse.  Please make sure you understand them.
+```python
+    def __str__(self):
+        lines=[]
+        lines.append(f" {self.board_array[0][0]} | {self.board_array[0][1]} | {self.board_array[0][2]} \n")
+        lines.append("-----------\n")
+        lines.append(f" {self.board_array[1][0]} | {self.board_array[1][1]} | {self.board_array[1][2]} \n")
+        lines.append("-----------\n")
+        lines.append(f" {self.board_array[2][0]} | {self.board_array[2][1]} | {self.board_array[2][2]} \n")
+        return "".join(lines)
+    
+    def move(self, move_string):
+        if not move_string in Board.valid_moves:
+            raise TictactoeException("That's not a valid move.")
+        move_index = Board.valid_moves.index(move_string)
+        row = move_index // 3 # row
+        column = move_index % 3 #column
+        if self.board_array[row][column] != " ":
+            raise TictactoeException("That spot is taken.")
+        self.board_array[row][column] = self.turn
+        if self.turn == "X":
+            self.turn = "O"
+        else:
+            self.turn = "X"
+        self.last_move = move_string
+    
+    def whats_next(self):
+        cat = True
+        for i in range(3):
+            for j in range(3):
+                if self.board_array[i][j] == " ":
+                    cat = False
+                else:
+                    continue
+                break
+            else:
+                continue
+            break
+        if (cat):
+            return (True, "Cat's Game.")
+        win = False
+        for i in range(3): # check rows
+            if self.board_array[i][0] != " ":
+                if self.board_array[i][0] == self.board_array[i][1] and self.board_array[i][1] == self.board_array[i][2]:
+                    win = True
+                    break
+        if not win:
+            for i in range(3): # check columns
+                if self.board_array[0][i] != " ":
+                    if self.board_array[0][i] == self.board_array[1][i] and self.board_array[1][i] == self.board_array[2][i]:
+                        win = True
+                        break
+        if not win:
+            if self.board_array[1][1] != " ": # check diagonals
+                if self.board_array[0][0] ==  self.board_array[1][1] and self.board_array[2][2] == self.board_array[1][1]:
+                    win = True
+                if self.board_array[0][2] ==  self.board_array[1][1] and self.board_array[2][0] == self.board_array[1][1]:
+                    win = True
+        if not win:
+            if self.turn == "X": 
+                return (False, "X's turn.")
+            else:
+                return (False, "O's turn.")
+        else:
+            if self.turn == "O":
+                return (True, "X wins!")
+            else:
+                return (True, "O wins!")
+```
 
 ---
 
