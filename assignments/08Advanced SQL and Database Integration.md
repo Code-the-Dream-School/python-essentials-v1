@@ -24,23 +24,25 @@ For each of the following tasks, you first use the sqlcommand command line to ge
 
 This lesson combines a lot of concepts that have been presented only briefly. You may find these tasks a little challenging.  If you get stuck, 1:1 mentors are available to answer your questions.  Appointments are available in the [1:1 Mentor Table](https://airtable.com/appoSRJMlXH9KvE6w/shrQinGb1phZYwdiL)
 
-### **Task 1: Understanding Subqueries**
+---
+
+### **Task 1: Complex JOINs with Aggregation**
 
 1. **Problem Statement**:  
-   For each of the first 5 orders (as ordered by order_id), find the each of the product names for the order.  Return a list that includes the order_id, the line_item_id, and the product name.  There are several steps here.  You need a subquery to retrieve the order_id for the first 5 orders.  In this subquery, you use `ORDER BY order_id` and `LIMIT 5`.  In the main query, you need to select the order_id, line_item_id, and product_name from the orders table, the line_items table, and the products table.  Then you need a WHERE clause: `WHERE o.order_id IN (...)`.  The subquery is what returns the set of order_ids you want to check.
+   Find the total price of each of the first 5 orders.  There are several steps.  You need to join the orders table with the line_items table and the products table.  You need to GROUP_BY the order_id.  You need to select the order_id and the SUM of the product price times the line_item quantity.  Then, you ORDER BY order_id and LIMIT 5.  You don't need a subquery. Print out the order_id and the total price for each of the rows returned.
 
 2. **Deliverable**: 
-   - Within the python_homework folder, create an `assignment8` branch.
+   - Within the python_homework folder, create an `assignment8` branch.  Change to the `assignment8` folder.
    - Get the SQL statement working in sqlcommand.
-   - Within the python_homework directory, create `advanced_sql.py`. This opens the database, issues the SQL statement, prints out the result, and closes the database.
+   - Within the `assignment8` folder, create `advanced_sql.py`. This should open the database, issue the SQL statement, print out the result, and close the database.
    - test your program.
 
 ---
 
-### **Task 2: Complex JOINs with Aggregation**
+### **Task 2: Understanding Subqueries**
 
 1. **Problem Statement**:  
-   Find the total price of each of the first 5 orders.  Again, there are several steps.  You need to join the orders table with the line_items table and the products table.  You need to GROUP_BY the order_id.  You need to select the order_id and the SUM of the product price times the line_item quantity.  Then, you ORDER BY order_id and LIMIT 5.  You don't need a subquery. Print out the order_id and the total price for each of the rows returned.
+   For each customer, find the average price of their orders.  This can be done with a subquery. You compute the price of each order as in part 1, but you return the customer_id and the total_price.  That's the subquery. You need to return the total price using `AS total_price`, and you need to return the customer_id with `AS customer_id_b`, for reasons that will be clear in a moment.  In your main statement, you left join the customer table with the results of the subquery, using `ON customer_id = customer_id_b`.  You aliased the customer_id column in the subquery so that the column names wouldn't collide.  Then group by customer_id -- this `GROUP BY` comes *after* the subquery -- and get the average of the total price of the customer orders.  Return the customer name and the average_total_price.
 
 2. **Deliverable**:  
    - Again, get the SQL statement working in sqlcommand.

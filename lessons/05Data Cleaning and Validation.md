@@ -279,7 +279,7 @@ data = {'Name': ['Alice', 'Bob', 'Charlie'],
 df = pd.DataFrame(data)
 
 # Increase the age by 1 as a new year has passed
-df['Age'] = df['Age'] += 1
+df['Age'] = df['Age'] + 1
 print(df)
 ```
 
