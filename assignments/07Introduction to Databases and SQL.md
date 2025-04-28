@@ -47,7 +47,7 @@ We have publishers that publish magazines.  Each publisher has a unique name, an
 
 ---
 
-## **Task 6: Read Data into a DataFrame**
+## **Task 5: Read Data into a DataFrame**
 
 You will now use Pandas to create summary data from the `../db/lesson.db` database you populated as part of the lesson.  We want to find out how many times each product has been ordered, and what was the total price paid by product.
 
