@@ -31,7 +31,6 @@ class Board:
             self.turn = "O"
         else:
             self.turn = "X"
-        self.last_move = move_string
     
     def whats_next(self):
         cat = True
