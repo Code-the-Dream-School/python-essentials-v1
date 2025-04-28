@@ -90,7 +90,7 @@ class DFPlus(pd.DataFrame):
 
 1. Within the assignment12 folder, create a file called `tictactoe.py`.
 2. Within this file, declare a class called TictactoeException.  This should inherit from the Exception class.  Add an `__init__` method that stores an instance variable called `message` and then calls the `__init__` method of the superclass.  This is a common way of creating a new type of exception.
-3. Declare also a class called Board.  This should have an `__init__` function that only has the `self` argument.  It creates a list of lists, 3x3, all containing " " as a value.  This is stored in the variable self.board_array.  Create instance variables self.turn, which is initialized to "X", and self.last_move, which is initialized to "".  The Board class should have a class variable called valid_moves, with the value:
+3. Declare also a class called Board.  This should have an `__init__` function that only has the `self` argument.  It creates a list of lists, 3x3, all git containing " " as a value.  This is stored in the variable self.board_array.  Create instance variables self.turn, which is initialized to "X", and self.last_move, which is initialized to "".  The Board class should have a class variable called valid_moves, with the value:
 ```python
    valid_moves=["upper left", "upper center", "upper right", "middle left", "center", "middle right", "lower left", "lower center", "lower right"]
 ```
