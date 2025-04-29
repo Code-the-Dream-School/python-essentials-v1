@@ -241,7 +241,7 @@ app = Dash(__name__)
 
 df = pd.read_csv("some csv file")
 
-app.layout(html.div([dash_table.DataTable(df.to_dict('records'), [{"name": i, "id": i} for i in df.columns], id='tbl')))
+app.layout = html.div([dash_table.DataTable(df.to_dict('records'), [{"name": i, "id": i} for i in df.columns], id='tbl')])
 ```
 And you can make the table interactive, for example by having a callback any time a cell is clicked.
 
