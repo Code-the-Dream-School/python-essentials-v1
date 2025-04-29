@@ -132,7 +132,7 @@ Try it out!  The interactive plot comes up in your browser, and you can hover ov
 ## **11.3 Building Dashboards with Dash**
 
 ### **Overview**
-Dash is a framework for creating interactive web applications in Python. It leverages Plotly for visualizations and allows you to create dashboards that update in real-time based on user input.  When you install Dash, you also install Flask as a dependency.  Flask is a web application server framework, like Node or Rails, but in Python.  When you run a Dash dashboard, the Flask server runs.  Dash pages are dynamic, in that you can add dropdown lists or other controls to affect what is displayed.  Within the `assignment11` folder, create a file `lesson11_c.py, with the following content:
+Dash is a framework for creating interactive web applications in Python. It leverages Plotly for visualizations and allows you to create dashboards that update in real-time based on user input.  When you install Dash, you also install Flask as a dependency.  Flask is a web application server framework, like Node or Rails, but in Python.  When you run a Dash dashboard, the Flask server runs.  Dash pages are dynamic, in that you can add dropdown lists or other controls to affect what is displayed.  Within the `assignment11` folder, create a file `lesson11_c.py`, with the following content:
 
 ### **Example Code: Simple Dashboard**
 ```python
@@ -243,9 +243,10 @@ df = pd.read_csv("some csv file")
 
 app.layout = html.div([dash_table.DataTable(df.to_dict('records'), [{"name": i, "id": i} for i in df.columns], id='tbl')])
 ```
-And you can make the table interactive, for example by having a callback any time a cell is clicked.
+And you can make the table interactive, for example by having a callback any time a cell is clicked.  
 
 To understand Dash and Plotly fully, you need to spend time studying the Plotly and Dash documentation, or perhaps by asking your friendly AI how to do this or that.
+
 ---
 
 ## **11.4 Reflection**
