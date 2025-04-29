@@ -214,7 +214,38 @@ if __name__ == "__main__": # if this is the main module of the program, and not 
 ```
 We'll explain decorators in the next lesson, but here is some additional explanation on the `@app.callback` decorator.  That decorator is provided by Dash and is associated with the app object.  Within your `app.layout`, you can have one or several HTML controls, each with an ID.  In this case, you have just one, the dropdown.  When you use `app.@callback`, the function that follows (the function is update_graph() in this case) will be called any time one of the controls that is specified as an Input for that callback has a change in value, that is, each time the user enters or clicks on something.  The changed value or, in the case of multiple Inputs, the changed values, are then passed to the decorated function.  That function returns the Output, in this case a graph.  (It is also possible to have multiple Outputs for the callback, but that's beyond the scope of this lesson.)  You can have multiple `@app.callback` decorator statements within a Dash program, each decorating a different function.  So, for example, you could have several different graphs on the page, each of which is controlled by a different set of HTML controls.
 
-Whew, clear as mud, eh?  To understand Dash and Plotly fully, you need to spend time studying the Plotly and Dash documentation, or perhaps by asking your friendly AI how to do this or that.
+Whew, clear as mud, eh?  Let's give a summary of how Dash works.
+
+### **A Summary of Dash**
+
+1. The app: You always create an app, with `app = Dash(__name__)`.  This gives you access to `app.layout()` and `@app.callback()`.
+2. HTML components: You declare these with `html.something()`.  This is the usual list of html components: div, container, paragraph, whatever, nested as you choose, and styled as you choose.  (Styling is out of scope for this lesson, but there is, for example, a Bootstrap package for Dash.)
+3. Dynamic components and controls: You declare these with `dcc.something()`.  These are (a) components you want to modify in response to user input, or (b) controls that catch that user input.  For controls, you have the usual list: radio buttons, dropdowns, input, sliders, tabs, etc.  For components you update, one is `dcc.graph`, but you can update a paragraph or div or whatever you like.  One useful thing to update is a data table, You import dash_table from dash, and then do a `dash_table.DataTable(...)`.  You can create pandas DataFrames, convert them to dicts, and display them in the table.
+4. Callbacks.  If you have controls, you will have one or more functions that are decorated with @app.callback.  As follows:
+    ```python
+    @app.callback(Output(id, what), [Input(id, value), Input(id2, value2), ...])
+    update_function(value, value2, ...):
+        # logic depending on the values passed
+        ...
+        return what
+    ```
+    Let's break this down.  The Output specifies the id of the HTML element to update, and the attribute (what) of that component that is to be changed.  You have a list of one or more inputs, and for each, you have the id of the HTML control and the value it has.  (Note that for a multi-select list, `value` may be a list.)  Any time the value of one of these controls changes as a result of user input, the update_function() will be called so that it can do its thing and return the updated stuff.  Several different update functions might be registered for the same input, so as to update different HTML elements when a particular control or set of controls changes.
+
+That's Dash in a nutshell.  Your homework doesn't include DataTable, but maybe it should, as DataTable provides a way to display DataFrames.  The DataTable works like:
+
+```python
+import pandas as pd
+import dash_table, Dash, html from dash
+
+app = Dash(__name__)
+
+df = pd.read_csv("some csv file")
+
+app.layout(html.div([dash_table.DataTable(df.to_dict('records'), [{"name": i, "id": i} for i in df.columns], id='tbl')))
+```
+And you can make the table interactive, for example by having a callback any time a cell is clicked.
+
+To understand Dash and Plotly fully, you need to spend time studying the Plotly and Dash documentation, or perhaps by asking your friendly AI how to do this or that.
 ---
 
 ## **11.4 Reflection**
