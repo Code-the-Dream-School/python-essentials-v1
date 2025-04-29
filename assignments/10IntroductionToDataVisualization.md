@@ -50,7 +50,7 @@ Suppose you decide that the data you care about most is in the "Diabetes_012", "
 5. Sort the matrix again on the "GenHlth" column in descending order, and again show heat maps for the first and last 10 rows.
 6. Notice the factors that are most consequential for diabetes and health, according to this dataset.  Add a markdown cell that describes these.
 
-## **Task 7: A Pair Plot: Body Mass Index vs. Age
+## **Task 7: A Pair Plot: Body Mass Index vs. Age**
 
 1. Using the `diabetes` DataFrame, create a pair plot for "BMI" and "Age", with a `hue` of "Diabetes_012".  I find that `palette=['#FF5733', '#33FF57', '#3357FF']` gives a helpful display.
 2. Give the pair plot a descriptive title and show it.
