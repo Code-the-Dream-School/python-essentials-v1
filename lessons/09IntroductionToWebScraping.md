@@ -212,7 +212,7 @@ try:
     driver.get("https://nonsense.never.com")
 except Exception as e:
     print("couldn't get the web page")
-    print(f"Exception: {type(e)__name__} {e}")
+    print(f"Exception: {type(e).__name__} {e}")
 finally:
     driver.quit()
 ```
