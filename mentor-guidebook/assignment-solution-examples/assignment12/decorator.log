@@ -1,0 +1,12 @@
+function name: hello_world
+positional arguments: none
+keyword arguments: none
+return value: None
+function name: pos_args
+positional arguments: ('first_arg', 'second_arg')
+keyword arguments: none
+return value: True
+function name: kw_args
+positional arguments: none
+keyword arguments: {'first': 'first_kw_arg', 'second': 'second_kw_arg'}
+return value: <function log_decorator at 0x7fc7197b3d90>
