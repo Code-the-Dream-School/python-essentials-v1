@@ -1,5 +1,5 @@
 
-# **Lesson 12 — More Python Skillsl**
+# **Lesson 12 — More Python Skills**
 
 ## **Lesson Overview**
 **Learning objective:** In this lesson, students learn several key Python topics not covered in the Python introduction.  These include:
@@ -20,10 +20,11 @@
 
 ### **Overview**
 Python classifies functions as first class citizens, which means that you are able to apply one function to another function. Decorators allow this to be clearer and easier to read.
+
 ### **Key techniques**
 Decorators are functions that can be called in a unique way, and accept a function as an input.
 
-```Python
+```python
 
 def decorator(func):
     def wrapper():
@@ -42,13 +43,14 @@ John
 World!
 ```
 
-Why did we get this result? The answer is because @decorator called the function using the decorator function. It is effectively equivelent to calling
+Why did we get this result? The answer is because @decorator called the function using the decorator function. It is effectively equivalent to calling
 ```python
 decorator(name())
 ```
 but is much clearer and easier to understand.
 
 In this example the function is fairly trivial, however in the next section we can dig into a more useful way to use this.
+
 ### **Example code**
 
 Here is an example of a decorator that allows us to benchmark different sections of code. We need to allow all functions to go into this decorator, and it will print out the time it took for a function to complete.
@@ -212,7 +214,7 @@ game1("magic") # Prints nope, bad guesses 2
 
 ## **10.4 Declaring Custom Classes in Python**
 
-Just about everything in Python is an object, which is an instance of a class.  Most of the Python libraries you have used so far are implemented as collections of classes.  You need to be able to declare your own classes, so that you can minimize code repetition by implenting capabilites once for collections of objects that share the same set of attributes and methods.  Each such object is an instance of the class.  You declare them as follows:
+Just about everything in Python is an object, which is an instance of a class.  Most of the Python libraries you have used so far are implemented as collections of classes.  You need to be able to declare your own classes, so that you can minimize code repetition by implementing capabilites once for collections of objects that share the same set of attributes and methods.  Each such object is an instance of the class.  You declare them as follows:
 
 ```Python
 class Dog:
@@ -281,7 +283,7 @@ print(Dog.__dict__) # prints stuff for the Dog class, including its methods
 print(dog1.__dict__) # prints the attributes of the instance and their values.
 ```
 
-You can also create classes from system classes, viz:
+You can also create classes from system classes:
 
 ```Python
 class Shout(str):
