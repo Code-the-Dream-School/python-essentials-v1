@@ -277,7 +277,7 @@ if (see_also_h2):
     parent_div = see_also_h2.find_element(By.XPATH, '..') # up to the parent div
     if parent_div:
         see_also_div = parent_div.find_element(By.XPATH,'following-sibling::div' ) # over to the div with all the links
-        link_elsements = see_also_div.find_elements(By.CSS_SELECTOR, 'a')
+        link_elements = see_also_div.find_elements(By.CSS_SELECTOR, 'a')
         for link in link_elements:
             print(f"{link.text}: {link.get_attribute('href')}")
             name = link.text.strip()
