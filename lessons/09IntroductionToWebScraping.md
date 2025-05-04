@@ -332,7 +332,7 @@ with open('scraped_data.csv', 'w', newline='') as file:
     writer = csv.writer(file)
     writer.writerow(["Name", "Link"])
     for link in links:
-        writer.writerow([link])
+        writer.writerow([link["name"], link["url"]])
 ```
 
 ### **Saving Data to JSON:**
