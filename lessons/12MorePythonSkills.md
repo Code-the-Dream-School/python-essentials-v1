@@ -1,5 +1,5 @@
 
-# **Lesson 12 — More Python Skillsl**
+# **Lesson 12 — More Python Skills**
 
 ## **Lesson Overview**
 **Learning objective:** In this lesson, students learn several key Python topics not covered in the Python introduction.  These include:
