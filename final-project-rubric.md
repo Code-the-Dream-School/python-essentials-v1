@@ -1,5 +1,10 @@
 # I. Kaggle Project Rubric
 
+### Project Description
+Students will create a Kaggle notebook that loads CSV files from one or several datasets. These may be datasets that are publicly available on Kaggle, or they might be datasets the students have uploaded to Kaggle for the purpose of the project. The project should demonstrate data cleaning, data organization, and data presentation, showing interesting correlations or insights to be learned from the data, and demonstrating those correlations or insights with tables, charts, and graphs.
+
+### Project Evaluation
+
 * **Lesson 01 & 02: Python Fundamentals and Data Structures**
 
     * [ ]  Code demonstrates a strong understanding of Python basics. Variables, data types, operators, control flow (if/else, loops), and functions are used correctly and efficiently.
