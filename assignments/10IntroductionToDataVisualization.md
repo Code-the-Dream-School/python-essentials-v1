@@ -18,7 +18,7 @@ This assignment is to be implemented in a Kaggle notebook, using a Kaggle datase
 2. Load the one that has "diabetes_012" in the name into a `diabetes` DataFrame.
 3. Print out the first 5 lines of the DataFrame.
 
-## **Task 3: A Bar Plot For Age Distributions**
+## **Task 3: A Histogram For Age Distributions**
 
 1. Use Matplotlib to create a histogram of age distributions in the `diabetes` DataFrame, where the X axis is "Age" and the Y axis is "Count". Give the plot a meaningful title, and give the axes meaningful labels.
 2. Show the plot to see if it is as you expect.
