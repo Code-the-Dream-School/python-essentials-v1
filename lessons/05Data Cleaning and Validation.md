@@ -3,7 +3,7 @@
 
 **Lesson Overview**
 
-**Learning objective:** SStudents will learn essential data cleaning and transformation techniques in Pandas, including handling missing values, outliers, and duplicates. They will also use pivot tables, the `apply()` method, and column-wise operations to reshape and enrich datasets.
+**Learning objective:** Students will learn essential data cleaning and transformation techniques in Pandas, including handling missing values, outliers, and duplicates. They will also use pivot tables, the `apply()` method, and column-wise operations to reshape and enrich datasets.
 
 
 ### Topics
