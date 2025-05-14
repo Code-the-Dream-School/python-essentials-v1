@@ -4,7 +4,7 @@
 ## **Lesson Overview**
 **Learning objective**: Students will gain foundational knowledge of SQL databases using Python and SQLite. They will define relational schemas, insert and query data using SQL, handle many-to-many relationships, and interact with databases directly from Pandas for analysis and reporting.
 
-Topics:
+**Topics**:
 1. Introduction to SQL: What SQL is, why relational databases matter, and how constraints, associations, and transactions work.
 2. SQLite Setup: Installing dependencies (Windows only) and connecting to a local SQLite database.
 3. Defining Tables: Creating tables with `CREATE TABLE` statements and specifying primary keys, foreign keys, and constraints.
