@@ -212,7 +212,7 @@ try:
     driver.get("https://nonsense.never.com")
 except Exception as e:
     print("couldn't get the web page")
-    print(f"Exception: {type(e)__name__} {e}")
+    print(f"Exception: {type(e).__name__} {e}")
 finally:
     driver.quit()
 ```
@@ -272,14 +272,18 @@ driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install())
 driver.get("https://en.wikipedia.org/wiki/Web_scraping")  # this much you've seen before
 
 see_also_h2 = driver.find_element(By.CSS_SELECTOR,'[id="See_also"]') # our starting point
+links = []
 if (see_also_h2):
     parent_div = see_also_h2.find_element(By.XPATH, '..') # up to the parent div
     if parent_div:
         see_also_div = parent_div.find_element(By.XPATH,'following-sibling::div' ) # over to the div with all the links
-        links = see_also_div.find_elements(By.CSS_SELECTOR, 'a')
-        for link in links:
+        link_elements = see_also_div.find_elements(By.CSS_SELECTOR, 'a')
+        for link in link_elements:
             print(f"{link.text}: {link.get_attribute('href')}")
-
+            name = link.text.strip()
+            url = link.get_attribute("href")
+            if name and url:
+                links.append({"name": name, "url": url})
 
 
 driver.quit()
@@ -328,7 +332,7 @@ with open('scraped_data.csv', 'w', newline='') as file:
     writer = csv.writer(file)
     writer.writerow(["Name", "Link"])
     for link in links:
-        writer.writerow([link])
+        writer.writerow([link["name"], link["url"]])
 ```
 
 ### **Saving Data to JSON:**
