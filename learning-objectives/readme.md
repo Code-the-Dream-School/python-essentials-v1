@@ -12,136 +12,20 @@ By the end of this course, students will be able to:
  - Apply ethical considerations when working with data, including privacy, bias, and fairness.
  - Collaborate effectively with others on data-driven projects.
 
-### Lesson 01 - Introduction to Python
-
-Students will learn the basics of Python programming, including variables, data types, operators, control flow statements, and functions. They will also practice debugging their code.
-
-Topics:
- - Python Basics: Variables, data types, operators.
- - Control Flow: Conditional statements (if, elif, else), loops (for, while).
- - Functions: Defining and calling functions, parameters, and return values.
- - Error Handling: Introduction to try, except for basic debugging.
- - Basic Debugging: Using print statements or logging for debugging.
-
-### Lesson 02 — Data Structures and File Handling
-
-Students will explore various data structures, such as lists, tuples, dictionaries, and sets. They will learn how to read and write data to files and use external modules.
-
-Topics: 
- - Lists, Tuples, Dictionaries, and Sets: Creating, accessing, and modifying data structures.
- - File Handling: Reading from and writing to text and CSV files.
- - Introduction to Modules: Importing and using Python libraries.
- - Keyboard Input
-
-### Lesson 03 — Introduction to Data Engineering
-
-Students will learn to load, preview, and inspect datasets in Pandas by reading data from common formats and summarizing data structure to facilitate efficient data analysis.
-
-Topics:
-- Introduction to Pandas: Creating and manipulating DataFrames.
-- Loading Data: Reading data from CSV, JSON, and dictionaries.
-- Data Inspection: Using head(), tail(), info() to inspect datasets.
-
-### Lesson 4 — Data Wrangling and Aggregation
-
-Students will learn how to use the Pandas library to create, manipulate, and analyze data. They will practice loading data from different sources and inspecting its structure.
-
-Topics:
-- Data Selection: Indexing and slicing DataFrames.
-- Data Aggregation: Grouping data using groupby(), aggregation functions like sum(), mean(), count().
-- Merging and Joining: Combining multiple DataFrames with merge() and join().
-
-### Lesson 05 — Data Cleaning and Validation I
-
-Students will learn how to select, filter, and transform data within DataFrames. They will also practice aggregating data using groupby() and other functions.
-
-Topics:
-- Handling Missing Data: Removing rows with dropna(), replacing values with fillna().
-- Data Transformation: Converting data types, reformatting dates.
-- Removing Duplicates: Identifying and removing duplicate records.
-
-### Lesson 06 - Data Cleaning and Validation II
-
-Students will learn how to identify and handle missing data, convert data types, and remove duplicates.
-
-Topics:
-- Advanced Data Cleaning: Using regular expressions for string manipulation, correcting inconsistent data.
-- Data Validation: Ensuring data accuracy and consistency, handling outliers.
-- Data Imputation: Using median, mode, and custom logic for filling missing values.
-
-### Lesson 07 - Introduction to Databases and SQL
-
-Students will learn advanced data cleaning techniques, including regular expressions and data validation. They will also practice imputing missing values.
-
-Topics:
-- Introduction to Relational Databases: Basic concepts of relational databases, SQL syntax.
-- Basic SQL Queries: SELECT, WHERE, ORDER BY, JOIN.
-- Setting Up a Local Database: Introduction to SQLite.
-
-### Lesson 08 - Advanced SQL and Database Integration
-
-Students will learn the basics of relational databases and SQL. They will practice writing SQL queries to select, filter, and sort data.
-
-Topics:
-- Advanced SQL: Subqueries, complex joins, aggregation (GROUP BY, HAVING).
-sqlite3 for Database Operations: Basics of SQLite without using ORM.
-- Intro to SQLAlchemy (optional for advanced learners or Python 200).
-
-### Lesson 09 - Introduction to Web Scraping
-
-Students will learn advanced SQL concepts, such as subqueries and joins. They will also practice using the sqlite3 module to interact with SQLite databases.
-
-Topics:
-- Basics of HTML and DOM: Understanding web page structures.
-- Web Scraping Tools: Introduction to BeautifulSoup and Requests.
-- Ethical Web Scraping: Legal and ethical considerations, robot.txt.
-
-### Lesson 10 - Data Storage and Retrieval
-
-Students will learn about HTML and the DOM, and how to use libraries like BeautifulSoup and Requests to scrape data from websites.
-
-Topics:
-- Storing Scraped Data: Saving data to databases, CSV, and JSON files.
-- Retrieving Data: Accessing and manipulating stored data using SQL and Pandas.
-- Optimizing Data Storage: Choosing between relational and non-relational databases.
-
-### Lesson 11 - Introduction to Data Visualization
-
-Students will learn how to store scraped data in various formats and retrieve it using SQL and Pandas. They will also explore different data storage options.
-
-Topics:
-- Introduction to Matplotlib: Creating basic plots (line, bar, histogram).
-- Customizing Plots: Labels, titles, legends, and colors.
-- Introduction to Seaborn: Creating advanced visualizations (heatmaps, pair plots).
-
-### Lesson 12 -  Advanced Data Visualization Techniques
-
-Students will learn how to create basic data visualizations using Matplotlib and customize them with labels, titles, legends, and colors. They will also be introduced to Seaborn for more advanced visualizations.
-
-Topics:
-- Plotting with Pandas: Visualizing data directly from DataFrames.
-- Interactive Visualizations: Introduction to Plotly for interactive plotting.
-- Dashboards: Creating simple dashboards with Plotly and Dash.
-
-### Lesson 13 - Capstone Project: End-to-End Data Pipeline
-
-Students will learn how to create visualizations directly from DataFrames, create interactive visualizations using Plotly, and build simple dashboards using Plotly and Dash.
-
-Topics:
-- Project Design: Define the scope and requirements of a data pipeline project.
-- Data Collection: Scraping or loading data from an external source.
-- Data Cleaning and Storage: Cleaning and storing data in a database.
-
-### Lesson 14 - Capstone Project: Data Analysis and Visualization
-
-Students will work on a capstone project where they will design, implement, and execute a complete data pipeline.
-
-Topics:
-- Data Analysis: Using Pandas to perform data analysis on the cleaned data.
-- Data Visualization: Creating visualizations to present findings.
-- Presentation: Presenting the final project, including code, analysis, and visualizations.
-
-### Lesson 15 — Capstone Project Completion and Presentations
-
-Students will finalize their capstone projects, present their findings, and receive feedback from their peers and instructors.
-
+| Week | Topic                                 | Learning Objective                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+|------|---------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 1    | Intro to Python                       | Students will learn foundational Python programming skills, including setting up a development environment, writing and executing Python code, and using core programming concepts such as variables, data types, operators, functions, and control flow structures. They will also be introduced to debugging techniques and error handling to help identify and resolve problems in their code.                                                                                                                               |
+| 2    | Data Structures and File Handling     | Students will explore core Python data structures such as lists, tuples, dictionaries, and sets. They will also learn how to read and write to text and CSV files, use external modules, capture keyboard input, interact with the operating system, and manage project dependencies using virtual environments.                                                                                                                                                                                                                |
+| 3    | Intro to Data Engineering             | Students will learn to load, preview, and inspect datasets in Pandas by reading data from common formats (CSV, JSON, dictionaries) and summarizing data structure using Pandas methods to support efficient data analysis.                                                                                                                                                                                                                                                                                                      |
+| 4    | Data Wrangling and Aggregation        | Students will learn to manipulate, summarize, and combine datasets in Pandas using selection, aggregation, merging, and transformation methods. They will practice accessing specific data, performing group-level calculations, and combining data from multiple sources.                                                                                                                                                                                                                                                      |
+| 5    | Data Cleaning and Validation I        | Students will learn essential data cleaning and transformation techniques in Pandas, including handling missing values, outliers, and duplicates. They will also use pivot tables, the `apply()` method, and column-wise operations to reshape and enrich datasets.                                                                                                                                                                                                                                                             |
+| 6    | Data Cleaning and Validation II       | Students will learn to clean and standardize real-world datasets using Pandas. They will handle missing data, outliers, duplicates, inconsistent formatting, and categorical variables, while also applying transformations and basic feature engineering techniques to prepare data for analysis or modeling.                                                                                                                                                                                                                  |
+| 7    | Intro to Databases and SQL            | Students will gain foundational knowledge of SQL databases using Python and SQLite. They will define relational schemas, insert and query data using SQL, handle many-to-many relationships, and interact with databases directly from Pandas for analysis and reporting.                                                                                                                                                                                                                                                       |
+| 8    | Advanced SQL and Database Integration | Students will deepen their understanding of SQL by learning advanced techniques such as subqueries, complex JOINs, aggregation with functions, and using HAVING for conditional filtering. This lesson also introduces performance optimization techniques, transactions, parameterized queries, window functions, and more.                                                                                                                                                                                                    |
+| 9    | Intro to Web Scraping                 | Students will gain a comprehensive understanding of web scraping, focusing on the fundamentals such as HTML structure, DOM representation, and using Python libraries like Selenium and WebDriver Manager to scrape and extract data from web pages. Additionally, students will explore the ethical aspects of web scraping, including adhering to guidelines provided by robots.txt and managing server requests responsibly.                                                                                                 |
+| 10   | Intro to Data Visualization           | Students will learn to create and customize both basic and advanced data visualizations using Python libraries such as Matplotlib and Seaborn. By the end of this lesson, students will be able to effectively tell stories with data using visual representation, enhancing their ability to communicate insights.                                                                                                                                                                                                           |
+| 11   | Advanced Data Visualization                    | Students will be able to create both static and interactive data visualizations using Python libraries such as Pandas, Plotly, and Dash. They will practice working in their own repositories, explore key chart types, and build a simple dashboard to support real-time data exploration. Optional materials introduce Streamlit as an alternative dashboarding tool.                                                                                                                                                         |
+| 12   | More Python Skills                    | Students will learn and apply key advanced Python concepts including decorators, list comprehensions, closures, and custom class definitions. They will learn how to write cleaner, more modular code using these features and gain insight into how such patterns are used in real-world frameworks like Dash.                                                                                                                                                                                                                 |
+| 13   | Kaggle Dataset Project                | By completing this project, students will demonstrate their ability to load, clean, analyze, and visualize real-world data using Python. They will apply core programming skills, data wrangling techniques, and effective visualization practices to extract and communicate insights. Students will also build fluency with project structure, code clarity, and reproducibility standards in preparation for real-world data work.                                                                                           |
+| 14   | Final Project Week 1                  | By completing this project, students will build a complete data pipeline—from extracting raw data via web scraping to delivering an interactive dashboard. They will develop skills in using Selenium for automated data collection, cleaning and transforming scraped data with Pandas, and building user-facing data visualizations with tools like Streamlit or Dash. The project emphasizes robust scraping practices, code clarity, and effective communication of insights through a responsive, well-documented web app. |
+| 15   | Final Project Week 2                  | Students will articulate the goals, methods, and insights of their web scraping projects through a presentation, demonstrating both technical understanding and communication skills. They will also complete a summative Python assessment to reinforce core concepts such as functions, data structures, file handling, and data analysis, ensuring readiness for independent work or continued study in data-driven projects.                                                                                                |

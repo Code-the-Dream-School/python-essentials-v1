@@ -3,6 +3,9 @@
 ## Lesson Overivew
 In the final 3 weeks, student will create two capstone projects to demonstrate the skills learned in the class in a portfolio suitable for presentation.
 
+**Learning Objective:** 
+By completing this project, students will demonstrate their ability to load, clean, analyze, and visualize real-world data using Python. They will apply core programming skills, data wrangling techniques, and effective visualization practices to extract and communicate insights. Students will also build fluency with project structure, code clarity, and reproducibility standards in preparation for real-world data work.
+
 **Projects**
 1. A data pipeline which demonstrates cleaning, aggregation, analysis and visualization in a Kaggle Notebook
 2. A local project published in github which demonstrates web scraping, cleaning, analysis and presentation using plotly and Dash or Streamlit
