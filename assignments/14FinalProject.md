@@ -1,126 +1,96 @@
 # Lesson 14 — Web Scraping and Dashboard Project
 
-## **Lesson Overview**
-In this lesson, students will scrape baseball history data from the **Major League Baseball History** website and display the results in an interactive dashboard. The project will demonstrate the student's ability to use **Selenium** for web scraping, clean and transform the data, and present it using **Streamlit** or **Dash** with interactive visualizations.
+## Lesson Overview
+In this lesson, students will create **four distinct programs** that retrieve baseball history data from the **Major League Baseball History** website and display the results in an interactive dashboard. The project will involve **Selenium** for web scraping, data cleaning, transforming the data into a structured format, storing it in a MySQL database, querying it via command line, and presenting it using **Streamlit** or **Dash** with interactive visualizations.
 
-**Learning Objective:** 
+**Learning Objective:**  
 By completing this project, students will:
 - Use **Selenium** to scrape data from a website.
 - Clean and transform the raw data into a structured format.
+- Store the data in a **MySQL** database, with each CSV file as a separate table.
+- Query the database using **joins** via command line.
 - Build an interactive dashboard using **Streamlit** or **Dash** to display the insights.
-- Apply effective data visualization techniques to communicate their findings.
-- Implement interactivity in visualizations to allow users to explore the data.
 
-## **Project Description:**
-You will scrape historical baseball data from the [Major League Baseball History](https://www.baseball-almanac.com/yearmenu.shtml) website and present it in a dashboard. The dashboard should include at least three visualizations, and these visualizations should respond to user input such as dropdowns or sliders.
+## Projects
 
-### **Web Scraping:**
-1. **Extracting Data:**
-   - Use **Selenium** to scrape the data from the website: [Baseball Almanac Year Menu](https://www.baseball-almanac.com/yearmenu.shtml).
-   - Extract the relevant information, such as the year, event names, and notable achievements or statistics for each year.
-   - Save the raw data in a structured format, such as `.csv` or `.json`.
+### 1. **Web Scraping Program**  
+- **Goal**: Scrape data from [Major League Baseball History](https://www.baseball-almanac.com/yearmenu.shtml).
+- **Steps**:
+  - Use **Selenium** to retrieve the data.
+  - Extract relevant details (year, event names, statistics).
+  - Save the raw data into **CSV** format for each dataset.
+  - Handle challenges such as:
+    - Pagination
+    - Missing tags
+    - User-agent headers for mimicking a browser request.
 
-2. **Handling Challenges:**
-   - Handle common scraping challenges such as:
-     - Pagination: If the data is spread across multiple pages, ensure pagination is handled correctly.
-     - Missing Tags: Some years might have missing data. Handle missing or malformed tags gracefully.
-     - User-Agent Headers: Ensure the scraping script mimics a legitimate browser by using appropriate headers.
-   - Avoid scraping duplication or making redundant requests to the website.
+### 2. **Database Import Program**  
+- **Goal**: Import the CSV files into a **MySQL** database.
+- **Steps**:
+  - Create a program that imports each CSV as a separate table in the database.
+  - Ensure proper data types (numeric, date, etc.) during the import.
+  - Check for errors during the import process.
 
-### **Data Cleaning & Transformation:**
-1. **Cleaning Raw Data:**
-   - Load the raw data into a **Pandas DataFrame**.
-   - Clean the data by handling missing, malformed, or duplicate entries.
-   - Document the cleaning process in Markdown or inline comments.
-   - Example tasks:
-     - Remove unnecessary columns or rows.
-     - Standardize the year data format.
-     - Remove duplicates or redundant data points.
+### 3. **Database Query Program**  
+- **Goal**: Query the database via the command line.
+- **Steps**:
+  - Allow users to run queries, including at least **joins** (e.g., combining player stats with event data).
+  - Ensure the program can handle flexible querying, allowing for filtering by year, event, or player statistics.
+  - Handle errors and display results appropriately.
 
-2. **Data Transformation:**
-   - Create new columns or perform aggregations to enable meaningful analysis.
-   - For example, you can create new columns based on the event data, filter data based on year, or aggregate data to show year-over-year trends.
+### 4. **Dashboard Program**  
+- **Goal**: Build an interactive dashboard using **Streamlit** or **Dash**.
+- **Steps**:
+  - Display insights from the data using at least three visualizations.
+  - Implement interactive features like:
+    - Dropdowns to select years or event categories.
+    - Sliders to adjust the data view.
+  - Dynamically update the visualizations based on user input.
+  - Deploy the dashboard on **Render** or **Streamlit.io** for public access.
 
-### **Data Visualization:**
-1. **Creating Visualizations:**
-   - Create at least three visualizations using **Plotly**, **Streamlit**, or **Dash**.
-     - Examples include:
-       - Visualizing trends in notable achievements over time.
-       - Displaying distributions of event types across different years.
-       - Comparing statistics or rankings based on player performance or events.
-   - Ensure each visualization is relevant, well-labeled, and supports the data analysis.
+All four programs will be included in the **GitHub** repository, and the dashboard will be deployed for public access.
 
-2. **Interactive Components:**
-   - Implement interactive elements such as:
-     - Dropdowns for selecting different years or event categories.
-     - Sliders to adjust the data view (e.g., filter by year or event type).
-   - Ensure the visualizations dynamically update when the user interacts with these elements.
+## Data Sources
 
-### **Dashboard / App Functionality:**
-1. **Building the Dashboard:**
-   - Build the dashboard using **Streamlit** or **Dash**.
-   - Ensure the dashboard layout is clean, intuitive, and easy to navigate.
-   - Allow users to explore different aspects of the data, such as filtering by year, player performance, or event type.
-
-2. **User Instructions:**
-   - Provide clear titles, instructions, and descriptions to guide users on how to interact with the dashboard.
-   - Include tooltips or labels to help users understand the data and visualizations.
-
-### **Code Quality & Documentation:**
-1. **Organizing Code:**
-   - Organize the code into logical sections or functions (e.g., scraping, cleaning, transformation, and visualization).
-   - Ensure that the code is readable with inline comments explaining major steps or choices.
-   
-2. **Project Documentation:**
-   - Include a **README.md** file with the following:
-     - A summary of the project and its objectives.
-     - Instructions for setting up and running the project.
-     - A screenshot or demo of the dashboard.
-   - Include a link to your GitHub repository for submission.
+Students will scrape data from the **[Major League Baseball History Site](https://www.baseball-almanac.com/yearmenu.shtml)**. This site contains historical data such as notable events, player statistics, and achievements year by year.
 
 ---
 
 ## **Rubric for Lesson 14 - Web Scraping and Dashboard Project**
 
 ### **Web Scraping**
-
-- Uses appropriate libraries (Selenium) to retrieve data from the web
-- Handles common scraping challenges like missing tags, pagination, and user-agent headers
-- Saves raw data in a structured format such as `.csv` or `.json`
-- Avoids scraping duplication or redundant requests
+- Uses **Selenium** to retrieve data from the web.
+- Handles common scraping challenges like missing tags, pagination, and user-agent headers.
+- Saves raw data as a **CSV**.
+- Avoids scraping duplication or redundant requests.
 
 ### **Data Cleaning & Transformation**
-
-- Loads raw data into a Pandas DataFrame or equivalent structure
-- Cleans missing, duplicate, or malformed entries effectively
-- Applies appropriate transformations, groupings, or filters
-- Shows before/after stages of cleaning or reshaping
+- Loads raw data into a **Pandas DataFrame**.
+- Cleans missing, duplicate, or malformed entries effectively.
+- Applies appropriate transformations, groupings, or filters.
+- Shows before/after stages of cleaning or reshaping.
 
 ### **Data Visualization**
-
-- Includes at least three visualizations using Plotly, Streamlit, or Dash
-- Visuals are relevant, well-labeled, and support the data story
-- User interactions such as dropdowns or sliders are implemented
-- Visualizations respond correctly to user input or filters
+- Includes at least three visualizations using **Streamlit** or **Dash**.
+- Visuals are relevant, well-labeled, and support the data story.
+- User interactions such as dropdowns or sliders are implemented.
+- Visualizations respond correctly to user input or filters.
 
 ### **Dashboard / App Functionality**
-
-- Built with Streamlit or Dash to display data and insights
-- Features clean layout and responsive components
-- Allows users to explore different aspects of the data
-- Provides clear titles, instructions, and descriptions for user guidance
+- Built with **Streamlit** or **Dash** to display data and insights.
+- Features clean layout and responsive components.
+- Allows users to explore different aspects of the data.
+- Provides clear titles, instructions, and descriptions for user guidance.
 
 ### **Code Quality & Documentation**
-
-- Code is well-organized and split into logical sections or functions
-- Inline comments or markdown cells explain major steps or choices
-- All dependencies are listed and environment setup is reproducible
-- Comments or markdown cells explain logic
-- README.md includes summary, setup steps, and a screenshot
+- Code is well-organized and split into logical sections or functions.
+- Inline comments or markdown cells explain major steps or choices.
+- All dependencies are listed and environment setup is reproducible.
+- Comments or markdown cells explain logic.
+- **README.md** includes summary, setup steps, and a screenshot.
 
 ---
 
 ## **Submission Instructions:**
-1. **Submit the Link**: Submit the link to your GitHub repository with all code files, data files (if applicable), and the README.md.
+1. **Submit the Link**: Submit the link to your GitHub repository with all code files, data files, and the **README.md**.
 2. **Final Project Presentation**: Provide a brief explanation of your dashboard functionality and insights during the presentation. Presentations will be recorded.
-
