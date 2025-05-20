@@ -11,6 +11,9 @@
 4. Advanced Customization: Advanced interactivity, subplots, and real-time updates.
 5. Dash and Streamlit compared.
 
+Note:
+For your final project, you will create a dashboard using one of these tools.  Which one you use is up to you.  Check out the optional Streamlit information and assignment if you are interested in Streamlit.
+
 ### **Setup**
 
 You are using your own repository, both for the lesson and for the assignment.  If you do the Streamlit portions, these are also to be done within the repository.  The steps are these:
@@ -262,27 +265,6 @@ To understand Dash and Plotly fully, you need to spend time studying the Plotly 
 
 ---
 
-## **11.5 Dash and Streamlit**
-
-Streamlit, like Dash, is a way of creating a web based dashboard for data presentation.
-
-Advantages of Dash:
-- Widely used
-- Gives you a lot of control, all the power that you have in any front end framework
-- Better for large complicated projects
-
-Disadvantages of Dash:
-- Steep learning curve
-
-Advantages of Streamlit:
-- Pretty easy as compared with Dash
-
-Disadvantages:
-- Not as widely used
-- Doesn't give you quite as much control
-
-For your final project, you will create a dashboard using one of these tools.  Which one you use is up to you.  Check out the optional Streamlit information and assignment if you are interested in Streamlit.
-
 # Building Interactive Apps with Streamlit
 
 ## Lesson Overview
@@ -512,6 +494,26 @@ streamlit run dashboard_app.py
 - Create basic Streamlit apps
 - Add input forms, layouts, and sidebars
 - Build simple dashboards with metrics and charts
+
+## ** Dash and Streamlit**
+
+Streamlit, like Dash, is a way of creating a web based dashboard for data presentation.
+
+Advantages of Dash:
+- Widely used
+- Gives you a lot of control, all the power that you have in any front end framework
+- Better for large complicated projects
+
+Disadvantages of Dash:
+- Steep learning curve
+
+Advantages of Streamlit:
+- Pretty easy as compared with Dash
+
+Disadvantages:
+- Not as widely used (though gaining popularity)
+- In a production environment, it is not very scalable
+
 
 ## **Summary**
 
