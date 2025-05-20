@@ -97,7 +97,9 @@ Create a file in the assignment11 folder called reflection.txt, and put in the f
 
 ---
 
-#  Optional Assignment on Streamlit 
+#  Optional Assignment on Streamlit
+
+You can use either Dash or Streamlit for your capstone project.
 
 ## Overview
 This assignment is to be implemented using **Streamlit**.  
@@ -111,7 +113,7 @@ You will **import a dataset**, **build a dashboard**, **visualize insights**, **
 
 ## Task 1: Project Setup
 
-1. Create a new folder for your project on your local machine.
+1. Create a new folder called ``streamlit-assignment`` for your project on your local machine.  It will be initialized as a git repository, so make sure it is outside of any other git repository.  
 
 2. Initialize a Git repository inside this folder:
 ```bash
@@ -206,8 +208,8 @@ pip install streamlit pandas matplotlib plotly
 ## Task 4: Submit Your Assignment
 
 ### Required Submissions
-- Your **Streamlit Community Cloud app URL** (deployment link)
-- Your **GitHub repository URL**
+- Your **Streamlit Community Cloud app URL** (deployment link), this link is added to the ``service_urls.txt`` file
+- Your **GitHub repository URL**, this link is added to the second link field on the **assignment submission form**
 
 ### Resources
 - [Streamlit Cheat Sheet](https://cheat-sheet.streamlit.app/)
@@ -228,7 +230,7 @@ pip install streamlit pandas matplotlib plotly
 📌 **Follow these steps to submit your work:**  
 
 #### **1️⃣ Add, Commit, and Push Your Changes** 
-- Create a file called `service_urls.txt`.  In it, paste the URL for your Render.com service.  If you created a Streamlit service on streamlit.io, put that URL in this file as well. 
+- Create a file called `service_urls.txt` in the assignment11 folder.  In it, paste the URL for your Render.com service.  If you created a Streamlit service on streamlit.io, put that URL in this file as well. 
 - Within your python_homework folder, do a git add and a git commit for the files you have created, so that they are added to the `assignment11` branch.
 - Push that branch to GitHub. 
 
@@ -240,6 +242,9 @@ pip install streamlit pandas matplotlib plotly
 
 #### **3️⃣ Submit Your GitHub Link**  
 - Your browser now has the link to your pull request.  Copy that link. 
-- Paste the URL into the **assignment submission form**. 
+- Paste the URL into the **assignment submission form**.
+- if you did the optional Streamlit assignment, paste the link for that repository into the second link submission field
+
+To summarize, a pull request for assignment11 is pasted into the first link submission field.  If you do the streamlit assignment, the link for that repository is pasted into the second link field on the assignment submission form.  You create and commit a file inside the ``assignment11`` folder called ``service_urls.txt``.  This file contains a URL for your render.com service.  If you do the Streamlit lesson, add a second URL for streamlit.io service.
 
 ---
