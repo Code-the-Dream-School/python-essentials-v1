@@ -9,7 +9,8 @@
 2. Interactive Visualizations: Using Plotly for interactive plotting.
 3. Dashboards: Creating dynamic dashboards with Plotly and Dash.
 4. Advanced Customization: Advanced interactivity, subplots, and real-time updates.
-5. Dash and Streamlit compared.
+5. Optional lesson on Streamlit
+6. Dash and Streamlit compared.
 
 Note:
 For your final project, you will create a dashboard using one of these tools.  Which one you use is up to you.  Check out the optional Streamlit information and assignment if you are interested in Streamlit.
@@ -266,6 +267,8 @@ To understand Dash and Plotly fully, you need to spend time studying the Plotly 
 ---
 
 # Building Interactive Apps with Streamlit
+
+This portion of the lesson supports the optional assignment on Streamlit.  For the capstone final project, you can use either Dash or Streamlit.
 
 ## Lesson Overview
 
