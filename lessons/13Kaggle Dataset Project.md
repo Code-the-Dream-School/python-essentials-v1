@@ -24,9 +24,9 @@ By completing this project, students will demonstrate their ability to load, cle
 
     Find the factors which influence movie performance to find factors which influence success.
 
-  ****Life Expectancy (WHO)**
+  **Life Expectancy (WHO)**
 
-    Find the factors which influence happiness worldwide.
+    Find the factors which influence life expectancy.
 
   **Seattle Airbnb Open Data**
 
