@@ -108,7 +108,7 @@ Perform at least three aggregations to help drive insights.  For example:
 
 * Global life-expectancy trend
 * Trends for developing vs developed
-* Life expectancy deciles vs various driving factors
+* Life expectancy deciles (10 buckets) vs various driving factors
 
 4. **Analyze, Document, and Visualize**
 
