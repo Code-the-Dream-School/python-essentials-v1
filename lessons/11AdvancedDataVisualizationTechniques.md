@@ -235,7 +235,7 @@ That's Dash in a nutshell.  Your homework doesn't include DataTable, but maybe i
 
 ```python
 import pandas as pd
-import dash_table, Dash, html from dash
+from dash import dash_table, Dash, html
 
 app = Dash(__name__)
 
