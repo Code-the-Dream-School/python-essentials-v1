@@ -237,9 +237,7 @@ repeat_me(say_hello, 5)  # Will print "Hello!" 5x
 ```
 This simple example demonstrates how you can pass around functions such as `say_hello()` and call them dynamically in your scripts. 
 
-Decorators take advantage of this, and make such function application cleaner and easier to read. They let you add behavior to existing functions without changing their code. 
-
-Let's look at a simple example, your first hand-made decorator: 
+Decorators take advantage of this, and make such function application cleaner and easier to read. Let's look at a simple example, your first hand-made decorator: 
 
 ```python
 def my_decorator(func):
@@ -256,7 +254,7 @@ def print_name():
 print_name()
 ```
 
-The output of `printname()`, which is modified with the decorator, will be:
+The output of `print_name()`, which is modified with the decorator, will be:
 ```
 Hello!
 John
@@ -312,7 +310,7 @@ In more detail:
   
 
 ### Decorator with arguments: decorator factories
-Sometimes you want to pass arguments into a decorator — like how many times to repeat something, or what prefix to add to a message.  In this case, you need two levels of wrapping. This is because decorators are called with just one argument: the function being decorated. If you want to pass extra arguments, you need a *decorator factory* — a function that creates a customized decorator based on the parameters you provide. 
+Sometimes you want to pass *arguments* into a decorator — like how many times to repeat something, or what prefix to add to a message.  In this case, you need two levels of wrapping. This is because decorators are called with just one argument: the function being decorated. If you want to pass extra arguments, you need a *decorator factory* — a function that creates a customized decorator based on the parameters you provide. 
 
 Let's look at an example where we allow users to specify how many times a message is repeated, and what prefix to add:
 
