@@ -12,7 +12,137 @@
 
 ---
 
-## **10.1 Python Decorators**
+## **10.1 Object-oriented programming in Python**
+Everything in Python is an object, and objects are instances of *classes*. Hence, before finishing Python 100 it will be useful to discuss what all this means.
+
+Until now we have been following principles of *functional programming*: writing standalone functions that take in inputs, return outputs, and typically don't remember anything between calls. But sometimes we want to bundle together data and the functions that operate on that data. This is the core idea of object-oriented programming (OOP). This bundling -- sometimes called *encapsulation* -- helps keep related code organized and reusable. If you are creating a new data type, OOP lets you define not only what that data type is, but what you can do with it. 
+
+In the context of OOP, a *method* is  a function that lives inside of a class: when we use the word 'method' below we, just just mean funcions defined inside a class. So OOP has to do with defining classes and their associated methods.
+
+> If you want to go a little deeper, there is a nice overview of OOP at [Real Python](https://realpython.com/python3-object-oriented-programming/). 
+
+### Basic class definition
+Let’s look at a very simple example — a class that represents dogs:
+
+```Python
+class Dog:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+    def call_dog(self):
+        print(f"Come here, {self.name}!")
+    def speak(self):
+        print("bark bark bark")
+
+dog1 = Dog("Spot", 2)
+dog1.call_dog()
+dog1.speak()
+print("dog1's name is {dog1.name}.")
+
+dog2 = Dog("Wally", 4)
+dog2.call_dog()
+dog2.age += 1
+print(dog2.age)
+```
+
+In the above, we have:
+- The declaration of a class named `Dog`.  Unlike functions, class names are capitalized in Python.
+- An initialization method `__init__()` that runs automatically when you create a new dog. Here, the method is used to set the initial values of the object's attributes (`name` and `age`). 
+- You can access an object's attributes using *dot notation*: this includes both instance variables and methods.
+- The object's instance variables are `self.name` and `self.age` are used to store data for each instance of the class.
+- The two methods, `call_dog()` and `speak()` are always passed the value  `self`, which give them access to attributes like `name` or `age`. 
+- We were able to modify `dog2`'s age -- there is nothing private about the data encapsulated in the attributes. We will say more about this below. 
+
+#### What is `self`?
+Within a class definition, `self` refers to the current instance of the class — the specific dog being worked with. It can be a little confusing because when *defining* a method it is always the first parameter, but you don’t actually pass it in as a parameter when invoking the method; Python does that automatically behind the scenes. 
+
+Put another way: the methods of a class always have at least one argument, `self`, although they may have more.  When the method is *invoked*, `self` is not included. For instance, above we have `dog1.call_dog()`, which doesn't include the `self` argument explicitly. 
+
+### Expanding the class: class attributes and class methods
+We can add more bells and whistles to our simple Dog class to show that it’s not just about storing data — we can also track shared behavior or state across all dogs.
+
+For example, suppose we want to count how many dogs have been created. Instead of storing that information in each individual dog, we can store it once at the class level:
+
+```Python
+class Dog:
+    _species = "Canis lupus familiaris" #single underscore
+    __count = 0  # double underscore: name mangling
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+        Dog._Dog__count += 1 
+
+    def call_dog(self):
+        print(f"Come here, {self.name}!")
+
+    def speak(self):
+        print("bark bark bark")
+
+    @classmethod
+    def get_dog_count(cls):
+        return cls._Dog__count
+```
+There are quite a few new things going on here:
+- Every time a `Dog` object is created, two *class variables* are shared across all instances: `__count` and `_species`. Unlike the instance variables (`name` and `age`), these are not unique to each object -- they belong to the class itself. 
+- What about the weird naming conventions that we used on those class variables? Python doesn't support truly private methods or data within a class — everything is technically accessible. However, in Python there is are conventions to signal that something is meant to be internal:
+    -  The *single underscore* in front of a variable (like `_species`) is a soft warning: it indicates that it is meant for internal use: please don't modify it directly, and access it through a method if you can. 
+    -  The *double* underscore (like `__count`) sends an even stronger signal. Python will *name mangle* these variables to help prevent accidental access or modifications.For example, `__count ` will become `_Dog__count`. This is useful for values like the dog counter, as we don't want users to reset it by accident.
+- The method `get_dog_count()` is a *class method*. We don't need to have an instance of Dog to invoke it -- it is declared using the `@classmethod` decorator.
+- `get_dog_count()` doesn't take `self` as an argument, but `cls` (short for "class" because it is a method applied to the class itself, rather than a specific object). `cls` allows us to access the shared class attribute `__count` (and since it is name-mangled, we must refer to it as `cls._Dog__count`). 
+
+### Class inheritance
+Suppose you want to create a class that’s almost like Dog, but with a few differences — maybe a bigger bark, or a new behavior like fetching. Instead of rewriting everything from scratch, Python (and OOP in general) lets you *inherit* from your existing class and just customize the parts you want. This is called *class inheritance*.
+
+Here's an example where we create a class `BigDog` that explicitly inherits the attributes of `Dog`:
+
+```Python
+class BigDog(Dog): # inherits from Dog
+    def __init__(self, name, age): 
+        # Call the parent class's __init__ to set name/age
+        super().__init__(name, age) 
+
+    def fetch(self):
+        print("Got it.")
+
+    def speak(self):
+        print("Woof Woof Woof") # overrides Dog.speak()
+
+    def speak_verbose(self):
+        # call Dog.speak(), then BigDog.speak()
+        super().speak()
+        self.speak()
+
+dog3 = BigDog("Butch", 3)
+dog3.call_dog()
+dog3.speak()
+dog3.speak_verbose()
+```
+Here, the `BigDog` class inherits from the `Dog` class, meaning it gets all of `Dog`’s methods and attributes unless explicitly changed:
+- The `call_dog()` method is inherited from `Dog`, since we didn’t override it.
+- The `speak()` method is overridden to make big dogs sound different.
+- The `speak_verbose()` method shows how to call both the original `Dog.speak()` (using `super()`) and the new `BigDog.speak()`.
+
+### A few other facts about classes
+A useful attribute of every class and instance is `__dict__`.
+
+```python
+print(Dog.__dict__) # prints stuff for the Dog class, including its methods
+print(dog1.__dict__) # prints the attributes of the instance and their values.
+```
+
+You can also create classes from system classes:
+
+```Python
+class Shout(str):
+   def __new__(cls, content):
+      return str.__new__(cls, content.upper())
+
+x = Shout("hello there")
+print(x) # prints HELLO THERE
+```
+In this case, the subclass overrides the `__new__` method of the `str` class, and not the `__init__` method, because strings are immutable. 
+
+## **10.2 Python Decorators**
 
 ### **Overview**
 Python classifies functions as first class citizens, which means that you are able to apply one function to another function. Decorators allow this to be clearer and easier to read.
@@ -208,88 +338,6 @@ game1("magic") # Prints nope, bad guesses 2
 
 ---
 
-## **10.4 Declaring Custom Classes in Python**
-
-Just about everything in Python is an object, which is an instance of a class.  Most of the Python libraries you have used so far are implemented as collections of classes.  You need to be able to declare your own classes, so that you can minimize code repetition by implementing capabilites once for collections of objects that share the same set of attributes and methods.  Each such object is an instance of the class.  You declare them as follows:
-
-```Python
-class Dog:
-    count = 0
-    def __init__(self, name, age):
-        self.name=name
-        self._age = age
-        Dog.count+=1
-    def call_dog(self):
-        print(f"Come here, {self.name}!")
-    def speak(self):
-        print("bark bark bark")
-    @classmethod
-    def set_dog_count(cls,value):
-        cls.count=value
-
-dog1 = Dog("Spot", 2)
-dog1.call_dog()
-dog1.speak()
-print("dog1's name is {dog1.name}.")
-print(f"{Dog.count} dogs.")
-
-dog2 = Dog("Wally", 4)
-dog2.call_dog()
-
-Dog.set_dog_count(5)
-```
-We have:
-- The declaration of a class with name Dog.  Class names are capitalized.
-- An `__init__` function.  You don't have to have one for the class, but usually you'll want one, to set up the instance variables.
-- Instance variables `self.name` and `self._age`.  The values differ for each instance of the class.
-- A class variable called `Dog.count`.  There is one value for the class itself.
-- A couple of instance methods, call_dog() and speak().  Note that they are always passed the value of `self`, so as to give access to instance variables.
-- A class method, `set_dog_count`.  This is a class method, not an instance method, meaning that we don't need to have an instance of Dog to call the method.  It is declared using the `@classmethod` decorator.
-
-The methods of the class always have at least one argument, `self`, although they may have more.  When the method is invoked, though, `self` is not included.  So, you have `dog1.call_dog()`, which doesn't include the `self` argument.
-
-Python doesn't really have encapsulation of data within instances of a class.  You can read or change `dog1.name` and `dog1._age` from outside of the class.  However, the underscore for `_age` means that it would be poor form to access this variable from outside the class.  It is supposed to be "protected", so you shouldn't do such access.
-
-Suppose you want a class that is like the Dog class, but perhaps a little different in behavior.  You can use inheritance:
-
-```Python
-class BigDog(Dog):
-    def __init__(self, name, age): # The init function isn't necessary here, actually.  If you leave it out, Dog.__init__ is used.
-        super().__init__(name, age) # Or, BigDog could have other instance variables you initialize after calling the __init__ for super().
-    def fetch(self):
-        print("Got it.")
-    def speak(self):
-        print("Woof Woof Woof")
-    def speak_verbose(self):
-        super().speak()
-        self.speak()
-
-dog3 = BigDog("Butch", 3)
-dog3.call_dog()
-dog3.speak()
-dog3.speak_verbose()
-```
-
-Here, the `call_dog()` method is inherited from the Dog superclass.  The `speak()` method overrides the one in the superclass.  The `speak_verbose()` method calls the `speak()` method of the superclass and then the `speak()` method of the class.
-
-A useful attribute of every class and instance is `__dict__`.
-
-```python
-print(Dog.__dict__) # prints stuff for the Dog class, including its methods
-print(dog1.__dict__) # prints the attributes of the instance and their values.
-```
-
-You can also create classes from system classes:
-
-```Python
-class Shout(str):
-   def __new__(cls, content):
-      return str.__new__(cls, content.upper())
-
-x = Shout("hello there")
-print(x) # prints HELLO THERE
-```
-In this case, the subclass overrides the `__new__` method of the `str` class, and not the `__init__` method, because strings are immutable. 
 
 ## **Summary**
 
