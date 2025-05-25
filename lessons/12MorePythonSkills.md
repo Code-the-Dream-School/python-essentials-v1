@@ -60,12 +60,12 @@ We can add more bells and whistles to our simple Dog class. For example, suppose
 
 ```Python
 class Dog:
-    __count = 0  # double underscore: name mangling
+    _count = 0  
 
     def __init__(self, name, age):
         self.name = name
         self.age = age
-        Dog._Dog__count += 1 
+        Dog._count += 1 
 
     def call_dog(self):
         print(f"Come here, {self.name}!")
@@ -392,7 +392,7 @@ Here, the decorated functions, in their wrappered form, get registered for callb
 ## **10.3 Python List Comprehensions**
 
 ### **Overview**  
-A list comprehension is a fast way to generate a list.  For example, suppose you want a list of the integers from 0 to 19.  You could do
+A list comprehension is a fast and Pythonic way to generate a list.  For example, suppose you want a list of the integers from 0 to 19.  You could do
 
 ```Python
 integer_list=[]
@@ -471,9 +471,9 @@ game1("magic") # Prints nope, bad guesses 2
 
 
 ## **Summary**
-
 In this lesson, you learned:
-1. How to use Python Decorators
-2. How to use Python List Comprehensions
-3. Closures in Python
-4. Declaring and Using Custom Python Classes
+1. Declaring and Using Custom Python Classes
+2. How to use Python Decorators
+3. How to use Python List Comprehensions
+4. Closures in Python
+
