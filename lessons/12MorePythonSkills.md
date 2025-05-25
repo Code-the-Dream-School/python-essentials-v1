@@ -153,21 +153,101 @@ In this case, the subclass overrides the `__new__` method of the `str` class, an
 
 ---
 
-## **10.2 Python Decorators**
+## 10.2: Introduction to Decorators
+We’ve already seen some decorators like `@classmethod` in our class definitions. But what are these things? A decorator is syntactic sugar that says:
+“Take this function or class, and pass it through another function to modify it.” You will probably *use* decorators more than you write them in Python, so let's see them in action to see how useful they can be.   
 
-### **Overview**
-Python classifies functions as first class citizens, which means that you are able to apply one function to another function. Decorators allow this to be clearer and easier to read.
+#### Examples of decorators
+Python provides lots of built-in decorators. We've already seen one:
 
-### **Key techniques**
-Decorators are functions that can be called in a unique way, and accept a function as an input.
+```Python
+@classmethod
+def get_dog_count(cls):
+```
+This tells Python: “Don’t treat `get_dog_count()` like a normal method. Treat it as a method that applies the class itself.” That’s all a decorator is doing: changing the behavior of a function or method.  [SAY MORE]
+
+Sometimes, we want a method that acts like an attribute — it does a calculation, but we want to access it without parentheses:
+
+```Python
+class Circle:
+    def __init__(self, radius):
+        self.radius = radius
+
+    @property
+    def area(self):
+        return 3.14 * self.radius ** 2
+
+    @property
+    def diameter(self):
+        return 2 * self.radius
+```
+
+Now you can access those properties as if they were attributes of the object, using dot notation: 
+
+```Python
+c = Circle(3)
+print(c.area)    
+print(c.diameter)  
+```
+Another nice feature is that while `area` and `diameter` are calculated using methods, if you change the `radius`, they will automatically repopulate with the correct values without you having to re-run those methods:
+
+```Python
+c.radios = 5
+print(c.area)
+```
+You didn't have to re-assign anything: `area` (and `diamater`) are always recalculated based on the current radius. 
+
+`@property` and `@classmethod` are built-in Python decorators -- Python itself provides this functionality. Below, we will discuss how to write your own decorators. 
+
+So far we’ve seen decorators used with functions and methods, like `@property` and `@classmethod`. But decorators can also be used with classes. One useful example is the built-in `@dataclass` decorator, which lets you quickly and conveniently define simple classes for storing structured data, without needing an `__init__` method.
+
+```Python
+from dataclasses import dataclass
+
+@dataclass
+class Book:
+    title: str
+    author: str
+
+book1 = Book("Dune", "Frank Herbert")
+book2 = Book("Dune", "Frank Herbert")
+book3 = Book("Neuromancer", "William Gibson")
+
+print(book1)
+print(book2.title)          
+print(book1 == book2) # True — same data, so considered equal
+print(book1 == book3) # False — different data
+```
+There are a few things to notice about `dataclass` objects:
+- You didn’t have to write an `__init__` method or any other methods for the class: Python did it for you behind the scenes. You just declare the attribute names and their data types.
+- You can access the attributes of a book object using standard dot notation (`book2.title`). 
+- You can check if two different books are the same with `book1 == book2` without having to define your own `__eq__()` operator.  
+
+### Writing your own decorators
+Python classifies functions as first-class objects, which means you can treat them just like any other variable or object. That is, you can pass them as arguments to other functions. For instance:
+
+```Python
+def say_hello():
+    print("Hello!")
+
+def repeat_me(func, num_repeats):
+    for _ in range(num_repeats):
+        func()
+
+repeat_me(say_hello, 5)  # Will print "Hello!" 5x
+```
+This simple example demonstrates how you can pass around functions such as `say_hello()` and call them dynamically in your scripts. Decorators take advantage of this, and make such function application cleaner and easier to read.
+
+Here is a simple example: 
 
 ```python
-
 def decorator(func):
     def wrapper():
         print ("Hello!")
         func()
         print ("World")
+    return wrapper
+
 @decorator
 def name():
     print("John")
@@ -269,7 +349,7 @@ Here, the decorated functions, in their wrappered form, get registered for callb
 
 ---
 
-## **10.2 Python List Comprehensions**
+## **10.3 Python List Comprehensions**
 
 ### **Overview**  
 A list comprehension is a fast way to generate a list.  For example, suppose you want a list of the integers from 0 to 19.  You could do
@@ -308,7 +388,7 @@ for y in odd_squares_generator:
 
 ---
 
-## **10.3 Python Closures**
+## **10.4 Python Closures**
 
 A Python closure is a way of wrappering information by returning a function that has access to that information.  This provides some protection for the stuff you wrapper.  For example:
 
