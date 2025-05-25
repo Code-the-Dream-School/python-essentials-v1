@@ -154,8 +154,7 @@ In this case, the subclass overrides the `__new__` method of the `str` class, an
 ---
 
 ## 10.2: Introduction to Decorators
-We’ve already seen some decorators like `@classmethod` in our class definitions. But what are these things? A decorator is syntactic sugar that says:
-“Take this function or class, and pass it through another function to modify it.” You will probably *use* decorators more than you write them in Python, so let's see them in action to see how useful they can be.   
+We’ve already seen some decorators like `@classmethod` in our class definitions. But what are these things? A decorator is syntactic sugar that says, “Take this function or class, and pass it through another function to modify it.” You will probably *use* decorators more than you write them in Python, so let's see them in action to see how useful they can be.   
 
 #### Examples of decorators
 Python provides lots of built-in decorators. We've already seen one:
@@ -164,9 +163,9 @@ Python provides lots of built-in decorators. We've already seen one:
 @classmethod
 def get_dog_count(cls):
 ```
-This tells Python: “Don’t treat `get_dog_count()` like a normal method. Treat it as a method that applies the class itself.” That’s all a decorator is doing: changing the behavior of a function or method.  [SAY MORE]
+This tells Python: “Don’t treat `get_dog_count()` like a normal method. Treat it as a method that applies to the class itself.” That’s all a decorator is doing: changing the behavior of a function or method, without you having to rewrite that function.
 
-Sometimes, we want a method that acts like an attribute — it does a calculation, but we want to access it without parentheses:
+There are *many* useful built-in decorators. Sometimes, we want a method in a class to act like an attribute — it does a calculation, but we want to access it without parentheses:
 
 ```Python
 class Circle:
@@ -182,7 +181,7 @@ class Circle:
         return 2 * self.radius
 ```
 
-Now you can access those properties as if they were attributes of the object, using dot notation: 
+Now you can access those properties (area and diameter) as if they were attributes of the object, using dot notation: 
 
 ```Python
 c = Circle(3)
@@ -199,7 +198,7 @@ You didn't have to re-assign anything: `area` (and `diamater`) are always recalc
 
 `@property` and `@classmethod` are built-in Python decorators -- Python itself provides this functionality. Below, we will discuss how to write your own decorators. 
 
-So far we’ve seen decorators used with functions and methods, like `@property` and `@classmethod`. But decorators can also be used with classes. One useful example is the built-in `@dataclass` decorator, which lets you quickly and conveniently define simple classes for storing structured data, without needing an `__init__` method.
+So far we’ve seen decorators used with functions and methods, like `@property` and `@classmethod`. However, decorators can also be used with *classes*. One useful example is the built-in `@dataclass` decorator, which lets you quickly and conveniently define simple classes for storing structured data, without needing an `__init__` method.
 
 ```Python
 from dataclasses import dataclass
