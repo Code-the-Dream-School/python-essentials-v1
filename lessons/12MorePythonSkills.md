@@ -274,9 +274,9 @@ print_name = my_decorator(print_name)
 ```
 Decorators let you add behavior to a function without modifying its original code. You didn’t have to touch `print_name()` -- you just wrapped it.
 
-In this example the function is fairly trivial, however in the next section we can dig into a more useful way to use this.
+In this example the function is fairly trivial, however in the next section we can dig into some more useful examples. 
 
-### Example code
+### Decorator that will work with any function
 
 Here is an example of a decorator that allows us to benchmark different sections of code. We need to allow all functions to go into this decorator, and it will print out the time it took for a function to complete.
 ```python
@@ -289,33 +289,65 @@ def timer(func):
         value = func(*args, **kwargs)
         end_time = time.perf_counter()
         run_time = end_time - start_time
-        print ("Finished in {run_time:.4f} secs")
+        print (f"Finished in {run_time:.4f} secs")
         return value
     return wrapper_timer
 
 @timer
-def time_consuming_function(...):
-    ...
-```
+def wait_half_second():
+    time.sleep(0.5)
+    return "Done"
 
-Sometimes you need to have a decorator that itself has arguments.  In this case, you need two levels of wrapping:
+wait_half_second()
+```
+This provides a useful way to wrap any function to see how long it takes to run (here we are wrapping a function that simply waits for a half second to demonstrate how the decorator works). 
+
+In more detail:
+- `@timer` decorates the function `wait_half_second`.
+- Inside the wrapper, we:
+  - Record the start time
+  - Call the original function (`func(*args, **kwargs)`)
+  - Record the end time and complute the elapsed time.
+  - Print the elapsed time.
+- Why did we use `*args` and `**kwargs`? Those let the decorator work with *any* function, no matter how many arguments it takes. `*args` captures positional arguments, while `**kwargs` captures keyword arguments. This flexibility makes the wrapper reusable for any function. Go ahead and try it for other functions.
+  
+
+### Decorator with arguments: decorator factories
+Sometimes you want to pass arguments into a decorator — like how many times to repeat something, or what prefix to add to a message.  In this case, you need two levels of wrapping. This is because decorators are called with just one argument: the function being decorated. If you want to pass extra arguments, you need a *decorator factory* — a function that creates a customized decorator based on the parameters you provide. 
+
+Let's look at an example where we allow users to specify how many times a message is repeated, and what prefix to add:
 
 ```Python
-def wrap_output(before, after):
-    def decorator_wrap_output(func):
-        def wrapper(*args, **kwargs):
-            result = func(*args, **kwargs)
-            return before + result + after
+def repeat_with_prefix(prefix, num_repeats): # decorator factory
+    def decorator(func):  # The decorator: takes the function
+        def wrapper(*args, **kwargs):  # The wrapper: runs the function with extra behavior
+            for _ in range(num_repeats):
+                result = func(*args, **kwargs)  # Call the original function
+                print(f"{prefix} {result}")
         return wrapper
-    return decorator_wrap_output
+    return decorator
 
-@wrap_output("begin:", ":end")
-def hello():
-    return "Hello, World!"
+@repeat_with_prefix(">>", 3)  
+def greet(name):
+    return f"Hello, {name}!"
 
-print(hello()) # Will print "begin:Hello, World!:end"
+greet("Amanda")
 ```
+Breaking down the above. When you run `greet("Amanda")` you get:
 
+```Python
+>> Hello, Amanda!
+>> Hello, Amanda!
+>> Hello, Amanda!
+```
+Here's what happened behind the scenes:
+- The decorator factory is called: `@repeat_with_prefix(">>", 3)` creates and returns a decorator function customized with the appropriate arguments.
+- The decorator wraps the function: The `decorator` function (returned by the factory) is applied to `greet`.
+- The wrapper runs the function: When you call `greet("Amanda")`,  the wrapper function uses the `prefix` and `num_repeats` provided by the factory to add the prefix to each output and print the result (`num_repeat` times)
+
+Feel free to modify the code or the parameters (e.g., change ">>" to "**" or 3 to 5) to see how the decorator’s behavior changes. Parameterized decorators are a powerful but advanced concept, so take your time to experiment and build your intuition.
+
+### Callback to Dash application
 Decorators are often used in another way.  They register a function that is to be called by system code.  For example, in the lesson on Dash, you had the following lines:
 
 ```Python
