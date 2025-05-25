@@ -60,7 +60,6 @@ We can add more bells and whistles to our simple Dog class. For example, suppose
 
 ```Python
 class Dog:
-    _species = "Canis lupus familiaris" #single underscore
     __count = 0  # double underscore: name mangling
 
     def __init__(self, name, age):
@@ -76,28 +75,26 @@ class Dog:
 
     @classmethod
     def get_dog_count(cls):
-        return cls._Dog__count
+        return cls._count
 
+# Create a couple of dogs
 dog1 = Dog("Spot", 2)
 dog1.call_dog()
 dog1.speak()
 print(f"dog1's name is {dog1.name}.")
-print(f"Species: {dog1._species}")
 
 dog2 = Dog("Wally", 4)
 dog2.call_dog()
 dog2.age += 1
-print(dog2.age)
+print(f"dog2's new age: {dog2.age}")
 
-print(f"Total dogs created: {Dog.get_dog_count()}")     
+print(f"Total dogs created: {Dog.get_dog_count()}")  
 ```
 There are quite a few new things going on here:
-- This `Dog` class includes two *class variables*: `_species` and `__count`. Unlike the instance variables like `name` and `age`, these belong to the class itself — not to each individual dog. This means they are shared across all Dog objects, not unique to one. You can tell they are class variables because they are not inside the `__init__()` method.
-- What about the strange naming conventions on those class variables? As mentioned earlier, Python doesn't support truly private data within a class — everything is technically accessible. However, in Python there are conventions to signal that something is meant to be internal:
-    -  The *single underscore* in front of a variable (like `_species`) is a soft warning to developers. It indicates that the variables is for internal use: please don't modify it directly, and access it through a method if possible. 
-    -  The *double* underscore (like `__count`) sends an even stronger signal. Python will automatically *name mangle* these variables to help prevent accidental access or modifications. For example, `__count ` becomes `_Dog__count`. This is useful for values like the dog counter, as we don't want users to reset it by accident.
-- The method `get_dog_count()` is a *class method*, meaning it's called on the class itself rather than an individual dog object. Such methods are declared using the `@classmethod` decorator (we will talk more about decorators below).
-- Instead of taking `self` as the first parameter,  `get_dog_count()` uses `cls` -- short for "class". That's because it is a method applied to the class, rather than a specific object. `cls` allows us to access the shared class attribute `__count` (and since it is name-mangled, we must refer to it as `cls._Dog__count`). 
+- The variable `_count` is a *class variable*. Unlike the instance variables like `name` and `age`, it belongs to the class itself — not any individual dog. This means it is shared across all `Dog` objects. You can tell it is a class variables because it is defined outside the `__init__()` method.
+- The `_count` variable starts with a single underscore to signal that it’s intended for internal use. This is a common Python convention: it doesn’t make the variable truly private (it is still accessible), but it tells developers that it isn't meant to be directly accessed and modified. 
+- The method `get_dog_count()` is a *class method*, declared using the `@classmethod` decorator (we will talk more about decorators below). This tells Python that the method operates on the `Dog` class rather than individual objects.
+- Instead of taking `self` as the first parameter,  `get_dog_count()` takes in `cls` (short for *class*). `cls` allows us to access the class-level variable `_count`.
 
 ### Class inheritance
 Suppose you want to create a class that’s similar to `Dog`, but with a few differences — maybe a bigger bark, or a new behavior like fetching. Instead of rewriting everything from scratch, Python (and OOP in general) lets you *inherit* from an existing class and customize only the parts you want. This is called *class inheritance*.
@@ -138,7 +135,7 @@ You might try creating a `ShyDog` class that overrides `speak()` to say nothing 
 A useful attribute of every class and instance is `__dict__`.
 
 ```python
-print(Dog.__dict__) # prints stuff for the Dog class, including its methods
+print(Dog.__dict__) # prints attributes and methods for the Dog class
 print(dog1.__dict__) # prints the attributes of the instance and their values.
 ```
 
@@ -153,6 +150,8 @@ x = Shout("hello there")
 print(x) # prints HELLO THERE
 ```
 In this case, the subclass overrides the `__new__` method of the `str` class, and not the `__init__` method, because strings are immutable. 
+
+---
 
 ## **10.2 Python Decorators**
 
