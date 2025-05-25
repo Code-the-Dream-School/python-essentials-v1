@@ -26,15 +26,17 @@ class Dog:
     def __init__(self, name, age):
         self.name = name
         self.age = age
+
     def call_dog(self):
         print(f"Come here, {self.name}!")
+
     def speak(self):
         print("bark bark bark")
 
 dog1 = Dog("Spot", 2)
 dog1.call_dog()
 dog1.speak()
-print("dog1's name is {dog1.name}.")
+print(f"dog1's name is {dog1.name}.")
 
 dog2 = Dog("Wally", 4)
 dog2.call_dog()
@@ -46,24 +48,21 @@ In the above, we have:
 - The declaration of a class named `Dog`.  Unlike functions, class names are capitalized in Python.
 - An initialization method `__init__()` that runs automatically when you create a new dog. Here, the method is used to set the initial values of the object's attributes (`name` and `age`). 
 - You can access an object's attributes using *dot notation*: this includes both instance variables and methods.
-- The object's instance variables are `self.name` and `self.age` are used to store data for each instance of the class.
-- The two methods, `call_dog()` and `speak()` are always passed the value  `self`, which give them access to attributes like `name` or `age`. 
-- We were able to modify `dog2`'s age -- there is nothing private about the data encapsulated in the attributes. We will say more about this below. 
+- The object's instance variables `self.name` and `self.age` store data for each instance of the class.
+- The two methods, `call_dog()` and `speak()` are always passed the value  `self`, which gives them access to attributes like `name` or `age`. 
+- Notice that we were able to modify `dog2`'s age -- there is nothing truly private about the data stored in an object's attributes. We will say more about this below. 
 
 #### What is `self`?
-Within a class definition, `self` refers to the current instance of the class — the specific dog being worked with. It can be a little confusing because when *defining* a method it is always the first parameter, but you don’t actually pass it in as a parameter when invoking the method; Python does that automatically behind the scenes. 
-
-Put another way: the methods of a class always have at least one argument, `self`, although they may have more.  When the method is *invoked*, `self` is not included. For instance, above we have `dog1.call_dog()`, which doesn't include the `self` argument explicitly. 
+Within a class definition, `self` refers to the current instance of the class — the specific object the method is being called on. It can be a little confusing because when *defining* a method it is always the first parameter, but you don’t actually pass it in as a parameter when invoking the method; Python does that automatically behind the scenes. For instance, above we have `dog1.call_dog()`, which doesn't include the `self` argument explicitly. 
 
 ### Expanding the class: class attributes and class methods
-We can add more bells and whistles to our simple Dog class to show that it’s not just about storing data — we can also track shared behavior or state across all dogs.
-
-For example, suppose we want to count how many dogs have been created. Instead of storing that information in each individual dog, we can store it once at the class level:
+We can add more bells and whistles to our simple Dog class. For example, suppose we want to count how many dogs have been created. Instead of storing that information in each individual dog, we can store it once at the class level:
 
 ```Python
 class Dog:
     _species = "Canis lupus familiaris" #single underscore
     __count = 0  # double underscore: name mangling
+
     def __init__(self, name, age):
         self.name = name
         self.age = age
@@ -78,14 +77,27 @@ class Dog:
     @classmethod
     def get_dog_count(cls):
         return cls._Dog__count
+
+dog1 = Dog("Spot", 2)
+dog1.call_dog()
+dog1.speak()
+print(f"dog1's name is {dog1.name}.")
+print(f"Species: {dog1._species}")
+
+dog2 = Dog("Wally", 4)
+dog2.call_dog()
+dog2.age += 1
+print(dog2.age)
+
+print(f"Total dogs created: {Dog.get_dog_count()}")     
 ```
 There are quite a few new things going on here:
-- Every time a `Dog` object is created, two *class variables* are shared across all instances: `__count` and `_species`. Unlike the instance variables (`name` and `age`), these are not unique to each object -- they belong to the class itself. 
-- What about the weird naming conventions that we used on those class variables? Python doesn't support truly private methods or data within a class — everything is technically accessible. However, in Python there is are conventions to signal that something is meant to be internal:
-    -  The *single underscore* in front of a variable (like `_species`) is a soft warning: it indicates that it is meant for internal use: please don't modify it directly, and access it through a method if you can. 
-    -  The *double* underscore (like `__count`) sends an even stronger signal. Python will *name mangle* these variables to help prevent accidental access or modifications.For example, `__count ` will become `_Dog__count`. This is useful for values like the dog counter, as we don't want users to reset it by accident.
-- The method `get_dog_count()` is a *class method*. We don't need to have a dog object in order to invoke it. Such methods are declared using the `@classmethod` decorator.
-- `get_dog_count()` doesn't take `self` as an argument, but `cls` (short for "class" because it is a method applied to the class itself, rather than a specific object). `cls` allows us to access the shared class attribute `__count` (and since it is name-mangled, we must refer to it as `cls._Dog__count`). 
+- This `Dog` class includes two *class variables*: `_species` and `__count`. Unlike the instance variables like `name` and `age`, these belong to the class itself — not to each individual dog. This means they are shared across all Dog objects, not unique to one. You can tell they are class variables because they are not inside the `__init__()` method.
+- What about the strange naming conventions on those class variables? As mentioned earlier, Python doesn't support truly private data within a class — everything is technically accessible. However, in Python there are conventions to signal that something is meant to be internal:
+    -  The *single underscore* in front of a variable (like `_species`) is a soft warning to developers. It indicates that the variables is for internal use: please don't modify it directly, and access it through a method if possible. 
+    -  The *double* underscore (like `__count`) sends an even stronger signal. Python will automatically *name mangle* these variables to help prevent accidental access or modifications. For example, `__count ` becomes `_Dog__count`. This is useful for values like the dog counter, as we don't want users to reset it by accident.
+- The method `get_dog_count()` is a *class method*, meaning it's called on the class itself rather than an individual dog object. Such methods are declared using the `@classmethod` decorator (we will talk more about decorators below).
+- Instead of taking `self` as the first parameter,  `get_dog_count()` uses `cls` -- short for "class". That's because it is a method applied to the class, rather than a specific object. `cls` allows us to access the shared class attribute `__count` (and since it is name-mangled, we must refer to it as `cls._Dog__count`). 
 
 ### Class inheritance
 Suppose you want to create a class that’s almost like Dog, but with a few differences — maybe a bigger bark, or a new behavior like fetching. Instead of rewriting everything from scratch, Python (and OOP in general) lets you *inherit* from your existing class and just customize the parts you want. This is called *class inheritance*.
