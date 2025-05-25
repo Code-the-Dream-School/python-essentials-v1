@@ -236,39 +236,47 @@ def repeat_me(func, num_repeats):
 
 repeat_me(say_hello, 5)  # Will print "Hello!" 5x
 ```
-This simple example demonstrates how you can pass around functions such as `say_hello()` and call them dynamically in your scripts. Decorators take advantage of this, and make such function application cleaner and easier to read.
+This simple example demonstrates how you can pass around functions such as `say_hello()` and call them dynamically in your scripts. 
 
-Here is a simple example: 
+Decorators take advantage of this, and make such function application cleaner and easier to read. They let you add behavior to existing functions without changing their code. 
+
+Let's look at a simple example, your first hand-made decorator: 
 
 ```python
-def decorator(func):
+def my_decorator(func):
     def wrapper():
         print ("Hello!")
         func()
-        print ("World")
+        print ("World!")
     return wrapper
 
-@decorator
-def name():
+@my_decorator
+def print_name():
     print("John")
+
+print_name()
 ```
 
-Note in this example the output:
+The output of `printname()`, which is modified with the decorator, will be:
 ```
 Hello!
 John
 World!
 ```
+What's happening here?
+- The decorator function `my_decorator()` takes a function (`func`) as input. 
+- Inside this function, you define a new function called `wrapper()` that does three things: it prints "Hello!", calls the original function `func()` (which prints the name "John"), and then prints "World!". 
+- The decorator returns the new `wrapper()` function that includes this extra behavior that is wrapped around `func()`. 
+- When you add the `@my_decorator` above the `print_name()` function declaration, Python runs the following behind the scenes:
 
-Why did we get this result? The answer is because @decorator called the function using the decorator function. It is effectively equivalent to calling
-```python
-decorator(name())
+```Python
+print_name = my_decorator(print_name)
 ```
-but is much clearer and easier to understand.
+Decorators let you add behavior to a function without modifying its original code. You didn’t have to touch `print_name()` -- you just wrapped it.
 
 In this example the function is fairly trivial, however in the next section we can dig into a more useful way to use this.
 
-### **Example code**
+### Example code
 
 Here is an example of a decorator that allows us to benchmark different sections of code. We need to allow all functions to go into this decorator, and it will print out the time it took for a function to complete.
 ```python
