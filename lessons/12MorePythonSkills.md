@@ -1,23 +1,20 @@
 
-# **Lesson 12 — More Python Skills**
+# Lesson 12 — More Python Skills
 
-## **Lesson Overview**
-**Learning objective:** In this lesson, students will learn and apply key advanced Python concepts including decorators, list comprehensions, closures, and custom class definitions. They will learn how to write cleaner, more modular code using these features and gain insight into how such patterns are used in real-world frameworks like Dash.
+## Lesson Overview
+**Learning objective:** In this lesson, students will learn and apply key advanced Python concepts including object-oriented programming, decorators, list comprehensions, and closures. They will learn how to write cleaner, more modular code using these features, and gain insight into how such patterns are used in real-world frameworks like Dash.
 
-### **Topics:**
-1. Decorators
-2. List Comprehensions
-3. Closures
-4. Declaring Custom Classes
-
+### Topics
+1. Object-oriented programming (OOP)
+2. Decorators
+3. List comprehensions
+4. Closures
 ---
 
-## **10.1 Object-oriented programming in Python**
-Everything in Python is an object, and objects are instances of *classes*. Hence, before finishing Python 100 it will be useful to discuss what all this means.
+## 10.1 Object-oriented programming in Python
+Everything in Python is an object, and objects are instances of *classes*. That means when you create a variable like a string, list, or even a function — you’re actually creating an object. Before finishing Python 100, it's worth understanding what this actually means.  
 
-Until now we have been following principles of *functional programming*: writing standalone functions that take in inputs, return outputs, and typically don't remember anything between calls. But sometimes we want to bundle together data and the functions that operate on that data. This is the core idea of object-oriented programming (OOP). This bundling -- sometimes called *encapsulation* -- helps keep related code organized and reusable. If you are creating a new data type, OOP lets you define not only what that data type is, but what you can do with it. 
-
-In the context of OOP, a *method* is  a function that lives inside of a class: when we use the word 'method' below we, just just mean funcions defined inside a class. So OOP has to do with defining classes and their associated methods.
+Until now we have been following principles of *functional programming*: writing standalone functions that take in inputs, return outputs, and typically don't remember anything between calls. But sometimes we want to bundle together data and the functions -- called *methods* -- that operate on that data. This is the core idea of object-oriented programming (OOP). This bundling is called *encapsulation*, and helps keep related code organized in one place. If you are creating a new data type, OOP lets you define not only what that data type is, but what you can do with it. 
 
 > If you want to go a little deeper, there is a nice overview of OOP at [Real Python](https://realpython.com/python3-object-oriented-programming/). 
 
@@ -87,7 +84,7 @@ There are quite a few new things going on here:
 - What about the weird naming conventions that we used on those class variables? Python doesn't support truly private methods or data within a class — everything is technically accessible. However, in Python there is are conventions to signal that something is meant to be internal:
     -  The *single underscore* in front of a variable (like `_species`) is a soft warning: it indicates that it is meant for internal use: please don't modify it directly, and access it through a method if you can. 
     -  The *double* underscore (like `__count`) sends an even stronger signal. Python will *name mangle* these variables to help prevent accidental access or modifications.For example, `__count ` will become `_Dog__count`. This is useful for values like the dog counter, as we don't want users to reset it by accident.
-- The method `get_dog_count()` is a *class method*. We don't need to have an instance of Dog to invoke it -- it is declared using the `@classmethod` decorator.
+- The method `get_dog_count()` is a *class method*. We don't need to have a dog object in order to invoke it. Such methods are declared using the `@classmethod` decorator.
 - `get_dog_count()` doesn't take `self` as an argument, but `cls` (short for "class" because it is a method applied to the class itself, rather than a specific object). `cls` allows us to access the shared class attribute `__count` (and since it is name-mangled, we must refer to it as `cls._Dog__count`). 
 
 ### Class inheritance
