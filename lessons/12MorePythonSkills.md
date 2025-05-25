@@ -100,9 +100,9 @@ There are quite a few new things going on here:
 - Instead of taking `self` as the first parameter,  `get_dog_count()` uses `cls` -- short for "class". That's because it is a method applied to the class, rather than a specific object. `cls` allows us to access the shared class attribute `__count` (and since it is name-mangled, we must refer to it as `cls._Dog__count`). 
 
 ### Class inheritance
-Suppose you want to create a class that’s almost like Dog, but with a few differences — maybe a bigger bark, or a new behavior like fetching. Instead of rewriting everything from scratch, Python (and OOP in general) lets you *inherit* from your existing class and just customize the parts you want. This is called *class inheritance*.
+Suppose you want to create a class that’s similar to `Dog`, but with a few differences — maybe a bigger bark, or a new behavior like fetching. Instead of rewriting everything from scratch, Python (and OOP in general) lets you *inherit* from an existing class and customize only the parts you want. This is called *class inheritance*.
 
-Here's an example where we create a class `BigDog` that explicitly inherits the attributes of `Dog`:
+Here's an example where we create a class `BigDog` that explicitly inherits from `Dog`:
 
 ```Python
 class BigDog(Dog): # inherits from Dog
@@ -126,10 +126,13 @@ dog3.call_dog()
 dog3.speak()
 dog3.speak_verbose()
 ```
+
 Here, the `BigDog` class inherits from the `Dog` class, meaning it gets all of `Dog`’s methods and attributes unless explicitly changed:
-- The `call_dog()` method is inherited from `Dog`, since we didn’t override it.
+- The `call_dog()` method is inherited from `Dog`, because we didn’t override it.
 - The `speak()` method is overridden to make big dogs sound different.
-- The `speak_verbose()` method shows how to call both the original `Dog.speak()` (using `super()`) and the new `BigDog.speak()`.
+- The `speak_verbose()` method shows how to call both the original `Dog.speak()` (using `super()`) and `BigDog.speak()`.
+
+You might try creating a `ShyDog` class that overrides `speak()` to say nothing unless prompted by giving it a treat with a method `give_treat()`.
 
 ### A few other facts about classes
 A useful attribute of every class and instance is `__dict__`.
