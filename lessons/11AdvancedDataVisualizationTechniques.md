@@ -23,14 +23,17 @@ You are using your own repository, both for the lesson and for the assignment.  
 2. Do a `git init`.
 3. Create a `.gitignore` file.  You can copy the one from `python_homework`, but be sure you know why that one says what it does.
 4. Create a virtual environment called `.venv`.  See the README.md for `python_homework` if you don't remember how this is done.
-5. Create a `requirements.txt` file.  This should include the following packages.
+5. Create a `requirements.txt` file.  This should include the following packages.  These will aos cover the optional streamlit lesson.
+    - numpy
     - pandas
     - matplotlib
     - plotly
     - seaborn
     - dash
     - gunicorn
-    If you do the Streamlit assignment, some further setup is needed.  Note that pandas brings in plotly.  You can specify specific versions of these packages (see the requirements.txt for `python_homework`), but if you don't, you will get the latest version of each of these.
+    - streamlit
+    
+    If you do the Streamlit assignment, some further setup is needed sine a separate repo will be created.  Note that pandas brings in plotly.  You can specify specific versions of these packages (see the requirements.txt for `python_homework`), but if you don't, you will get the latest version of each of these.
 6.  **Important** Activate the virtual environment, with the command:
     ```bash
     source .venv/bin/activate
@@ -294,44 +297,7 @@ Streamlit is a Python library that makes it easy to create custom web apps for m
 
 First, let's set up a virtual environment and install Streamlit:
 
-1. Create a project folder named `streamlit_project`.  Create this outside of your
-
-2. Open the folder in **VSCode** (recommended) or any IDE of your choice.
-
-3. In the terminal, run:
-
-```bash
-# Create a virtual environment
-python -m venv .venv
-```
-
-4. After creating the virtual environment, open the Command Palette (Ctrl+Shift+P or Cmd+Shift+P), search for "Python: Select Interpreter", and choose the .venv environment.
-Once selected, VSCode will automatically activate the virtual environment in all new terminals. This removes the need to manually activate it every time.
-
-
-5. If you're not using VSCode, or prefer manual activation:
-
-# Activate the virtual environment
-# For Windows (Git Bash):
-```bash
-source .venv/Scripts/activate
-```
-
-# For macOS/Linux:
-```bash
-source .venv/bin/activate
-```
-6. Create requirements.txt file
-```bash
-streamlit==1.24.0
-pandas==1.5.3
-plotly==5.15.0
-numpy==1.24.3
-```
-7. Install the dependencies. Run following command in your vs code terminal.
-```bash
-pip install -r requirements.txt
-```
+1. Create a project folder named `streamlit_project` in the top level of your `assignment11` folder and change to that folder.
 
 ## Basic Streamlit Components
 ### Text and Data Display
@@ -492,6 +458,9 @@ in your terminal execute
 ```bash
 streamlit run dashboard_app.py
 ```
+
+If you completed the Streamlit lesson, add and commit the additional folder and files created.
+
 ## Conclusion
  You now know how to:
 - Create basic Streamlit apps
