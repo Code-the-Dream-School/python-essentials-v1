@@ -17,7 +17,7 @@ For your final project, you will create a dashboard using one of these tools.  W
 
 ### **Setup**
 
-You are using your own repository, both for the lesson and for the assignment.  If you do the Streamlit portions, these are also to be done within the repository.  The steps are these:
+You are using your own repository, both for the lesson and for the assignment.  If you do the Streamlit portions, these are also to be done within a second new repository.  The steps are these:
 
 1. Create a folder called  `python-assignment11`.  This should **not** be inside of the `python_homework` folder.  Change to this directory.
 2. Do a `git init`.
@@ -56,7 +56,7 @@ You are using your own repository, both for the lesson and for the assignment.  
     git commit -m "first commit"
     git push origin main
     ```
-10. Create a folder called `assignment11`.  This is for the exercises prior to the assignment.  Create an `assignment11` git branch.
+10. Create an `assignment11` git branch. Create a folder called `assignment11`.  This is for the exercises prior to the assignment and will also be used for the assignment.
 
 For the following code examples, you create programs in the `assignment11` folder.  Some of this code won't run correctly within the Python interactive shell.  As you do the lesson and assignment, periodically add and commit your changes and push the `assignment11` branch to GitHub.  This is to practice the procedures of a development shop.  When you use these procedures, you can be confident that you won't break something and have to start over.  You can just switch back to the last commit if something breaks.
 
@@ -77,7 +77,7 @@ Pandas simplifies data visualization by providing built-in plotting methods for 
 - **Bar Plots** are ideal when you need to compare quantities between different categories, such as the sales of different products or regions.
 - **Histograms** are useful for analyzing the distribution of numerical data, identifying patterns, skewness, or the range of values.
 
-Within the `assignment11` folder of your `python_homework` directory, create `lesson11_a.py`.  This code uses the DataFrame plot() method, which is part of Pandas, but, to actually display the plot, you also need Matplotlib, to do the `show()`.  Your program should contain the following code:
+Within the `assignment11` folder of your `python-assignment11` directory, create `lesson11_a.py`.  This code uses the DataFrame plot() method, which is part of Pandas, but, to actually display the plot, you also need Matplotlib, to do the `show()`.  Your program should contain the following code:
 
 ### **Example Code: Plotting with Pandas**
 
@@ -294,7 +294,7 @@ Streamlit is a Python library that makes it easy to create custom web apps for m
 
 First, let's set up a virtual environment and install Streamlit:
 
-1. Create a project folder named `streamlit_project`.
+1. Create a project folder named `streamlit_project`.  Create this outside of your
 
 2. Open the folder in **VSCode** (recommended) or any IDE of your choice.
 

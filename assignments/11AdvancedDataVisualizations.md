@@ -1,6 +1,6 @@
 # Assignment 11: Advanced Data Visualization
 
-This assignment is to be created in the `assignment11` folder of your `python_homework` directory. Be sure you create an `assignment11` branch before you start this work.
+This assignment is to be created in the `assignment11` folder of your `python_assignment11` directory which is a separate repository. Continue to work in the ``assignment11`` branch.
 
 ---
 
@@ -135,7 +135,18 @@ source .venv/bin/activate  # on macOS/Linux
 .venv\Scripts\activate     # on Windows
 ```
 
-5. Install necessary libraries:
+5. Create requirements.txt file.  You can use the same requirements.txt file which you used for the Streamlit lesson.
+```bash
+streamlit==1.24.0
+pandas==1.5.3
+plotly==5.15.0
+numpy==1.24.3
+```
+6. Install the dependencies. Run following command in your vs code terminal.
+```bash
+pip install -r requirements.txt
+
+```Install necessary libraries:
 ```bash
 pip install streamlit pandas matplotlib plotly
 ```
