@@ -9,6 +9,6 @@ Please refer to the assignment section below to review your project rubrics and 
 What happens next?
 Once you've submitted your finals and your video, your reviewer will check your work on your final projects and either declare them needing revisions or being successful, as they have with all your other assignments.  Watch you email for those results.  
 
-To view your and your classmates' final project presentations, you can visit your class gallery here: [Jamaican Boa Python Essentails Class - Video Demo Gallery](https://airtable.com/appoSRJMlXH9KvE6w/pagnB1IOVUJbWsOfD)
+To view your and your classmates' final project presentations, you can visit your class gallery here: [Jamaican Boa Python Essentails Class - Video Demo Gallery](https://airtable.com/appoSRJMlXH9KvE6w/shrqml5HWXby1FzEz/tblTvxLLUlqtgtfbq)
 
 As always, reach out to a mentor if you need help this week. You're almost there!
