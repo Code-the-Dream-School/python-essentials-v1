@@ -23,7 +23,7 @@ You are using your own repository, both for the lesson and for the assignment.  
 2. Do a `git init`.
 3. Create a `.gitignore` file.  You can copy the one from `python_homework`, but be sure you know why that one says what it does.
 4. Create a virtual environment called `.venv`.  See the README.md for `python_homework` if you don't remember how this is done.
-5. Create a `requirements.txt` file.  This should include the following packages.  These will aos cover the optional streamlit lesson.
+5. Create a `requirements.txt` file.  This should include the following packages.  These will also cover the optional streamlit lesson.
     - numpy
     - pandas
     - matplotlib
@@ -33,7 +33,7 @@ You are using your own repository, both for the lesson and for the assignment.  
     - gunicorn
     - streamlit
     
-    If you do the Streamlit assignment, some further setup is needed sine a separate repo will be created.  Note that pandas brings in plotly.  You can specify specific versions of these packages (see the requirements.txt for `python_homework`), but if you don't, you will get the latest version of each of these.
+    If you do the Streamlit assignment, some further setup is needed since a separate repo will be created.  You can specify specific versions of these packages (see the requirements.txt for `python_homework`), but if you don't, you will get the latest version of each of these.
 6.  **Important** Activate the virtual environment, with the command:
     ```bash
     source .venv/bin/activate

@@ -257,6 +257,6 @@ pip install -r requirements.txt
 - Paste the URL into the **assignment submission form**.
 - if you did the optional Streamlit assignment, make sure that repository link and the url for the streamlit.io service are included in the `service_urls.txt` file. 
 
-To summarize, a pull request for the `assignment11` branch in your new `python-assignment11` repository is pasted into the link submission field in the **assignment submission form**.  The `render.com` Dash service is published in `service_urls.txt` file. If you do the streamlit assignment, the link for the repository link and the url for the streamlit.io service are included in the `service_urls.txt` file.
+To summarize, a pull request for the `assignment11` branch in your new `python-assignment11` repository is pasted into the link submission field in the **assignment submission form**.  The `render.com` Dash service is published in `service_urls.txt` file. If you do the streamlit assignment, the link for the `streamlit-assignment` repository and the url for the `streamlit.io` service are included in the `service_urls.txt` file.
 
 ---
