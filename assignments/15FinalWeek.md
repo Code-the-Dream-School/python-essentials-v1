@@ -1,7 +1,8 @@
 ### Project Demo Details
 
 It is good practice to talk about what you have learned and know about project as you will be asked to talk about your experiences in job interviews.  This is why we ask all students to give a short demo of their final projects.  This demo is NOT graded and your performance in the demo will have no bearing on your graduation.  Please record a 3-5 minute presentation that touches on all of the following:
- - [ ] _... items to be determined once project rubrics are finalized_
+ - [ ] demonstrate the data visualizations you created with your Kaggle project
+ - [ ] demonstrate and describe the workings of your Local Data Scraping project done with Dash or Streamlit
 
 Rubric details for the Kaggle Project and Scraping Project can be seen below.  Be sure both your projects meet the requirements specified for each.
 
@@ -63,13 +64,12 @@ You can record your presentation in any of these three ways:
 </details>
 
 ### Submitting your recording
-Once you have recorded your presentation, please include the youtube link to your presentation in your Assignment Submission Form for this week.**
+**Once you have recorded your presentation, please include the youtube link to your presentation in your Assignment Submission Form for this week.  Your assignment submission form this week will have you share the link to your Kaggle Project, the link to your repo that holds your Local Data Scraping Project, and a place for you to share your video recording link.**
 
 ### See below for rubrics for your final projects:
 
 <details>
-<summary>Local Final Project Rubric</summary>
-
+<summary>Scraping Project Rubric</summary>
 * **Web Scraping**
 
     * [ ] Uses appropriate libraries (Selenium) to retrieve data from the web
@@ -104,6 +104,72 @@ Once you have recorded your presentation, please include the youtube link to you
     * [ ] Inline comments or markdown cells explain major steps or choices
     * [ ] All dependencies are listed and environment setup is reproducible
     * [ ] Comments or markdown cells explain logic
-    * [ ] `README.md` includes summary, setup steps, and a screenshot
-  
+    * [ ] `README.md` includes summary, setup steps, and a screenshot  
+</details>
+
+<details>
+<summary>Kaggle Final Project Rubric</summary>
+ ## Kaggle Project Rubric
+
+* **General Code Quality**
+
+    * [ ]  Code demonstrates a strong understanding of Python basics. 
+    * [ ]  Code is well organized and documented with comments.
+    * [ ]  Functions are used to structure and organize the code.
+
+* **File Handling and Data Loading**
+
+    * [ ]  Data is loaded from appropriate file formats (CSV, JSON, etc.) using Pandas.
+    * [ ]  File paths and loading procedures are clearly defined and handled robustly.
+    * [ ]  Demonstrates effective use of Pandas `read_csv()`, `read_json()`, or similar functions.
+    * [ ]  Uses `head()`, `tail()`, and `info()` effectively to preview and inspect the data.
+
+* **Data Wrangling and Transformation**
+
+    * [ ]  Demonstrates proficiency in using Pandas for data selection, filtering, and transformation.
+    * [ ]  Implements advanced data manipulation techniques, including indexing, slicing, and data type conversion.
+    * [ ]  Handles missing data effectively using `dropna()` or `fillna()` with appropriate strategies.
+    * [ ]  Identifies and removes duplicate records if necessary using Pandas.
+    * [ ]  Code is efficient, well-documented, and follows Pandas best practices.
+    * [ ]  At least three extracted features
+
+* **Data Aggregation**
+
+    * [ ]  Uses Pandas `groupby()` function effectively to aggregate data and gain insights.
+    * [ ]  Applies a variety of aggregation functions (e.g., `sum()`, `mean()`, `count()`, `min()`, `max()`) to analyze grouped data.
+    * [ ]  Clearly presents and interprets the results of data aggregation.
+    * [ ]  At least 3 aggregations
+
+* **Visualization Quality**
+
+    * [ ]  Creates multiple (3+) high-quality, informative, and visually appealing visualizations using appropriate libraries (e.g., Matplotlib, Seaborn, Plotly).
+    * [ ]  Visualizations are clear, concise, and easy to understand, with appropriate titles, labels, legends, and color schemes.
+    * [ ]  Demonstrates strong understanding of design principles.
+    * [ ]  Provides clear explanations of the insights conveyed by each visualization.
+
+* **Chart Types and Interpretation**
+
+    * [ ]  Uses a diverse range of chart types (e.g., scatter plots, bar charts, histograms, box plots, heatmaps) to provide a comprehensive view of the data.
+    * [ ]  Demonstrates a clear understanding of the strengths and weaknesses of each chart type and selects them strategically.
+    * [ ]  Provides insightful interpretations of the visualizations, connecting them to the data analysis and the problem domain.
+
+* **Dataset and Feature Understanding**
+
+    * [ ]  Uses a dataset that is appropriate for the analysis.
+    * [ ]  Demonstrates a clear understanding of the dataset's characteristics, limitations, and potential biases.
+    * [ ]  Selects and uses a sufficient number of relevant features to support a meaningful analysis.
+
+* **Conclusions and Insights**
+
+    * [ ]  Provides a clear, concise, and insightful summary of the project's key findings and conclusions.
+    * [ ]  Connects the findings to the original problem or question and discusses their implications.
+    * [ ]  Identifies potential limitations of the analysis.
+    * [ ]  Demonstrates a strong understanding of the data's story and effectively communicates it.
+    * [ ]  At least 3 conclusions supported by charts and text.
+
+* **Reproducibility**
+
+    * [ ]  Provides a well-organized and clearly documented notebook or script that allows others to easily reproduce the entire analysis.
+    * [ ]  All dependencies are clearly specified.
+
 </details>
