@@ -188,7 +188,7 @@ On assembling this program, the assignment author found that it was too time con
 📌 **Follow these steps to submit your work:**  
 
 #### **1️⃣ Add, Commit, and Push Your Changes**  
-- Within your python_homework folder, do a git add and a git commit for the files you have created, so that they are added to the `assignment10` branch.
+- Within your python_homework folder, do a git add and a git commit for the files you have created, so that they are added to the `assignment12` branch.
 - Push that branch to GitHub. 
 
 #### **2️⃣ Create a Pull Request**  
