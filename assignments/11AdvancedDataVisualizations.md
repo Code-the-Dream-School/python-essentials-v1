@@ -1,13 +1,13 @@
 # Assignment 11: Advanced Data Visualization
 
-This assignment is to be created in the `assignment11` folder of your `python_homework` directory. Be sure you create an `assignment11` branch before you start this work.
+This assignment is to be created in the `assignment11` folder of your `python-assignment11` directory which is a separate repository. Continue to work in the ``assignment11`` branch.
 
 ---
 
 
 ## **Task 1: Plotting with Pandas**
 1. Create a file called employee_results.py.
-2. Load a DataFrame called employee_results using SQL.  You connect to the `../db/lesson.db` database.  You use SQL to join the employees table with the orders table with the line_items table with the products table.  You then group by employee_id, and you SELECT the last_name and revenue, where revenue is the sum of price * quantity.  Ok, that's a lot of SQL to mess with, so here is the statement you need:
+2. Load a DataFrame called employee_results using SQL.  Copy the `db/lesson.db` database from your `python_homework` folder to your `python-assignment11` folder.  Copy the `db` folder and the `lesson.db` file within it.  This can be done using the `cp -r` command.  In your `assignment11` folder, connect to `../db/lesson.db`. You use SQL to join the employees table with the orders table with the line_items table with the products table.  You then group by employee_id, and you SELECT the last_name and revenue, where revenue is the sum of price * quantity.  Ok, that's a lot of SQL to mess with, so here is the statement you need:
    ```SQL
    SELECT last_name, SUM(price * quantity) AS revenue FROM employees e JOIN orders o ON e.employee_id = o.employee_id JOIN line_items l ON o.order_id = l.order_id JOIN products p ON l.product_id = p.product_id GROUP BY e.employee_id;
    ```
@@ -53,7 +53,7 @@ This assignment is to be created in the `assignment11` folder of your `python_ho
 
 ## **Task 4: A Dashboard with Dash**
 
-Ok, deep breath.  Start by copying `python-assignment11\assignment11\lesson11_c.py` to `python-assignment11\myapp.py`. We can reuse the template.  This is in the root of the project folder because you are going to deploy this to the cloud in Task 5.
+Ok, deep breath.  Start by copying `python-assignment11/assignment11/lesson11_c.py` to `python-assignment11/myapp.py`. We can reuse the template.  This is in the root of the project folder because you are going to deploy this to the cloud in Task 5.
 
 1. The dataset to use is the Plotly built in `gapminder` dataset.  This has, among other things, the per capita GDP for various countries for each year.  For a given country, there will be one row per year.  This means that the 'countries' column has many duplicates.
 2. You want a dropdown that has each unique country name. You create a Series called `countries` that is the list of countries with duplicates removed.  You use this Series to populate the dropdown.  Give the dropdown the initial value of 'Canada'.
@@ -95,6 +95,10 @@ Create a file in the assignment11 folder called reflection.txt, and put in the f
 2. Write a short paragraph discussing the advantages of using dashboards for real-time data exploration.
 3. Explain how interactive tools like Plotly and Dash can improve data communication in professional settings.
 
+## **Task 7: Commit Your Work**
+
+Add and commit all of the files created for the assignment to the `assignment11` branch.
+
 ---
 
 #  Optional Assignment on Streamlit
@@ -135,12 +139,19 @@ source .venv/bin/activate  # on macOS/Linux
 .venv\Scripts\activate     # on Windows
 ```
 
-5. Install necessary libraries:
+5. Create requirements.txt file.  You can use the same requirements.txt file which you used for the Streamlit lesson.
 ```bash
-pip install streamlit pandas matplotlib plotly
+streamlit
+pandas
+plotly
+numpy
+matplotlib
 ```
-
-6. Create a Python file named `streamlit_app.py` in your project folder.
+6. Install the dependencies. Run following command in your vs code terminal.
+```bash
+pip install -r requirements.txt
+```
+7. Create a Python file named `streamlit_app.py` in your project folder.
    This is the main script Streamlit will run when deploying your app.
 
 ## Task 2: Build Your Streamlit Dashboard
@@ -208,8 +219,9 @@ pip install streamlit pandas matplotlib plotly
 ## Task 4: Submit Your Assignment
 
 ### Required Submissions
-- Your **Streamlit Community Cloud app URL** (deployment link), this link is added to the ``service_urls.txt`` file
-- Your **GitHub repository URL**, this link is added to the second link field on the **assignment submission form**
+- Your **Streamlit Community Cloud app URL** (deployment link), this link is added to the ``service_urls.txt`` in the ``assignment11` folder in the `python-assignment11` repo.
+- Your **GitHub repository URL** link is also added to the `service_urls.txt`
+- Add and commit the `service_urls.txt` file in the `assignment11` branch.
 
 ### Resources
 - [Streamlit Cheat Sheet](https://cheat-sheet.streamlit.app/)
@@ -230,21 +242,21 @@ pip install streamlit pandas matplotlib plotly
 📌 **Follow these steps to submit your work:**  
 
 #### **1️⃣ Add, Commit, and Push Your Changes** 
-- Create a file called `service_urls.txt` in the assignment11 folder.  In it, paste the URL for your Render.com service.  If you created a Streamlit service on streamlit.io, put that URL in this file as well. 
-- Within your python_homework folder, do a git add and a git commit for the files you have created, so that they are added to the `assignment11` branch.
+- Create a file called `service_urls.txt` in the assignment11 folder.  In it, paste the URL for your Render.com service.  If you did the Streamlit assignment, make sure the Streamlit github repository url and streamlit.io service url are added to the `service_urls.txt` file as well.
+- Within your `python-assignment11` folder, do a git add and a git commit for the files you have created, so that they are added to the `assignment11` branch.
 - Push that branch to GitHub. 
 
 #### **2️⃣ Create a Pull Request**  
 - Log on to your GitHub account.
-- Open your `python_homework` repository.
+- Open your `python-assignment11` repository.
 - Select your `assignment11` branch.  It should be one or several commits ahead of your main branch.
 - Create a pull request.
 
 #### **3️⃣ Submit Your GitHub Link**  
 - Your browser now has the link to your pull request.  Copy that link. 
 - Paste the URL into the **assignment submission form**.
-- if you did the optional Streamlit assignment, paste the link for that repository into the second link submission field
+- if you did the optional Streamlit assignment, make sure that repository link and the url for the streamlit.io service are included in the `service_urls.txt` file. 
 
-To summarize, a pull request for assignment11 is pasted into the first link submission field.  If you do the streamlit assignment, the link for that repository is pasted into the second link field on the assignment submission form.  You create and commit a file inside the ``assignment11`` folder called ``service_urls.txt``.  This file contains a URL for your render.com service.  If you do the Streamlit lesson, add a second URL for streamlit.io service.
+To summarize, a pull request for the `assignment11` branch in your new `python-assignment11` repository is pasted into the link submission field in the **assignment submission form**.  The `render.com` Dash service is published in `service_urls.txt` file. If you do the streamlit assignment, the link for the `streamlit-assignment` repository and the url for the `streamlit.io` service are included in the `service_urls.txt` file.
 
 ---
