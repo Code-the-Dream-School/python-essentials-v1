@@ -2,7 +2,7 @@
 
 It is good practice to talk about what you have learned and know about project as you will be asked to talk about your experiences in job interviews.  This is why we ask all students to give a short demo of their final projects.  This demo is NOT graded and your performance in the demo will have no bearing on your graduation.  Please record a 3-5 minute presentation that touches on all of the following:
  - [ ] demonstrate the data visualizations you created with your Kaggle project
- - [ ] demonstrate and describe the workings of your Local Data Scraping project done with Streamlit
+ - [ ] demonstrate and describe the workings of your Local Data Scraping project done with Dash or Streamlit
 
 Rubric details for the Kaggle Project and Scraping Project can be seen below.  Be sure both your projects meet the requirements specified for each.
 
