@@ -1,13 +1,13 @@
 # Lesson 14 — Web Scraping and Dashboard Project
 
 ## Lesson Overview
-In this lesson, students will create **four distinct programs** that retrieve baseball history data from the **Major League Baseball History** website and display the results in an interactive dashboard. The project will involve **Selenium** for web scraping, data cleaning, transforming the data into a structured format, storing it in a MySQL database, querying it via command line, and presenting it using **Streamlit** or **Dash** with interactive visualizations.
+In this lesson, students will create **four distinct programs** that retrieve baseball history data from the **Major League Baseball History** website and display the results in an interactive dashboard. The project will involve **Selenium** for web scraping, data cleaning, transforming the data into a structured format, storing it in a SQLite database, querying it via command line, and presenting it using **Streamlit** or **Dash** with interactive visualizations.
 
 **Learning Objective:**  
 By completing this project, students will:
 - Use **Selenium** to scrape data from a website.
 - Clean and transform the raw data into a structured format.
-- Store the data in a **MySQL** database, with each CSV file as a separate table.
+- Store the data in a **SQLite** database, with each CSV file as a separate table.
 - Query the database using **joins** via command line.
 - Build an interactive dashboard using **Streamlit** or **Dash** to display the insights.
 
@@ -25,7 +25,7 @@ By completing this project, students will:
     - User-agent headers for mimicking a browser request.
 
 ### 2. **Database Import Program**  
-- **Goal**: Import the CSV files into a **MySQL** database.
+- **Goal**: Import the CSV files into a **SQLite** database.
 - **Steps**:
   - Create a program that imports each CSV as a separate table in the database.
   - Ensure proper data types (numeric, date, etc.) during the import.
