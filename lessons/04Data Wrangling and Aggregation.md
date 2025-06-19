@@ -1,5 +1,5 @@
 
-# **Lesson 04 — Data Wrangling and Aggregation**
+# **Lesson 05 — Data Wrangling and Aggregation**
 
 ## **Lesson Overview**
 **Learning objective:** Students will learn to manipulate, summarize, and combine datasets in Pandas using selection, aggregation, merging, and transformation methods. They will practice accessing specific data, performing group-level calculations, and combining data from multiple sources.

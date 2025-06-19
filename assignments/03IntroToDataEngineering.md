@@ -1,4 +1,4 @@
-## Lesson 3 Assignment — Intro to Data Engineering
+## Lesson 4 Assignment — Intro to Data Engineering
 ### Data Analysis and Manipulation with Pandas
 
 ### **Objective:**
@@ -6,7 +6,7 @@ In this assignment, you will explore the basic functionalities of the Pandas lib
 
 ### **Step 1: Complete the Coding Tasks**  
 
-Homework for this assignment is created within your `python_homework` folder.  Create an `assignment3` branch and change to the `assignment3` folder.  Write your code in `assignment3.py`.  As with the previous lessons, you will run unit tests on the assignment `pytest -v -x assignment3-test.py`.
+Homework for this assignment is created within your `python_homework` folder.  Create an `assignment4` branch and change to the `assignment4` folder.  Write your code in `assignment4.py`.  As with the previous lessons, you will run unit tests on the assignment `pytest -v -x assignment4-test.py`.
 
 ---
 
@@ -100,13 +100,13 @@ Homework for this assignment is created within your `python_homework` folder.  C
 **Follow these steps to submit your work:**  
 
 #### **1️⃣ Add, Commit, and Push Your Changes**  
-- Within your python_homework folder, do a git add and a git commit for the files you have created, so that they are added to the `assignment3` branch.
+- Within your python_homework folder, do a git add and a git commit for the files you have created, so that they are added to the `assignment4` branch.
 - Push that branch to GitHub. 
 
 #### **2️⃣ Create a Pull Request**  
 - Log on to your GitHub account.
 - Open your `python_homework` repository.
-- Select your `assignment3` branch.  It should be one or several commits ahead of your main branch.
+- Select your `assignment4` branch.  It should be one or several commits ahead of your main branch.
 - Create a pull request.
 
 #### **3️⃣ Submit Your GitHub Link**  

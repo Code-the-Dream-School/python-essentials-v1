@@ -1,4 +1,4 @@
-# **Lesson 08 — Advanced SQL and Database Integration**
+# **Lesson 09 — Advanced SQL and Database Integration**
 
 ## **Lesson Overview**
 **Learning objective:** Students will deepen their understanding of SQL by learning advanced techniques such as subqueries, complex `JOIN`s, aggregation with functions, and using `HAVING` for conditional filtering. This lesson also introduces performance optimization techniques, transactions, parameterized queries, window functions, and more.

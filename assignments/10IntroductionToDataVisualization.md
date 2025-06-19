@@ -1,5 +1,5 @@
 
-# **Assignment 10: Introduction to Data Visualization**
+# **Assignment 11: Introduction to Data Visualization**
 
 This assignment is to be implemented in a Kaggle notebook, using a Kaggle dataset.  As usual, mark the section of code that implements each task with a markdown cell.
 
@@ -14,7 +14,7 @@ This assignment is to be implemented in a Kaggle notebook, using a Kaggle datase
 
 ## **Task 2: Creating the Notebook and Loading Data**
 
-1. Create a Kaggle Notebook called "CTD_Assignment_10".  Add the "Diabetes Health Indicators Dataset".  Run the first cell so that you get the filenames.
+1. Create a Kaggle Notebook called "CTD_Assignment_11".  Add the "Diabetes Health Indicators Dataset".  Run the first cell so that you get the filenames.
 2. Load the one that has "diabetes_012" in the name into a `diabetes` DataFrame.
 3. Print out the first 5 lines of the DataFrame.
 

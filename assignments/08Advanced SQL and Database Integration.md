@@ -12,7 +12,7 @@ Students will deepen their understanding of SQL by learning advanced techniques 
 
 ## **Assignment Instructions**
 
-You create the code for this assignment in your python_homework/assignment8 folder.  You may want to have two VSCode terminal sessions.  In one, you have changed directories to `assignment8`.  This is the session where you will run your code.  In the other terminal session, you will run `sqlcommand.py` from the `python_homework` folder.  You need to have the working directory set differently, so that each program will be able to find `db/lesson.db`.  Be sure to create an `assignment8` git branch before you start.  As usual, mark the code that completes each task with a comment line.
+You create the code for this assignment in your python_homework/assignment9 folder.  You may want to have two VSCode terminal sessions.  In one, you have changed directories to `assignment9`.  This is the session where you will run your code.  In the other terminal session, you will run `sqlcommand.py` from the `python_homework` folder.  You need to have the working directory set differently, so that each program will be able to find `db/lesson.db`.  Be sure to create an `assignment9` git branch before you start.  As usual, mark the code that completes each task with a comment line.
 
 ### **Preparation and Practice**
 
@@ -32,9 +32,9 @@ This lesson combines a lot of concepts that have been presented only briefly. Yo
    Find the total price of each of the first 5 orders.  There are several steps.  You need to join the orders table with the line_items table and the products table.  You need to GROUP_BY the order_id.  You need to select the order_id and the SUM of the product price times the line_item quantity.  Then, you ORDER BY order_id and LIMIT 5.  You don't need a subquery. Print out the order_id and the total price for each of the rows returned.
 
 2. **Deliverable**: 
-   - Within the python_homework folder, create an `assignment8` branch.  Change to the `assignment8` folder.
+   - Within the python_homework folder, create an `assignment9` branch.  Change to the `assignment9` folder.
    - Get the SQL statement working in sqlcommand.
-   - Within the `assignment8` folder, create `advanced_sql.py`. This should open the database, issue the SQL statement, print out the result, and close the database.
+   - Within the `assignment9` folder, create `advanced_sql.py`. This should open the database, issue the SQL statement, print out the result, and close the database.
    - test your program.
 
 ---
@@ -88,13 +88,13 @@ This lesson combines a lot of concepts that have been presented only briefly. Yo
 📌 **Follow these steps to submit your work:**  
 
 #### **1️⃣ Add, Commit, and Push Your Changes**  
-- Within your python_homework folder, do a git add and a git commit for the files you have created, so that they are added to the `assignment8` branch.
+- Within your python_homework folder, do a git add and a git commit for the files you have created, so that they are added to the `assignment9` branch.
 - Push that branch to GitHub. 
 
 #### **2️⃣ Create a Pull Request**  
 - Log on to your GitHub account.
 - Open your `python_homework` repository.
-- Select your `assignment8` branch.  It should be one or several commits ahead of your main branch.
+- Select your `assignment9` branch.  It should be one or several commits ahead of your main branch.
 - Create a pull request.
 
 #### **3️⃣ Submit Your GitHub Link**  

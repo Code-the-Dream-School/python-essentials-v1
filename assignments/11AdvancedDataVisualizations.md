@@ -1,13 +1,13 @@
-# Assignment 11: Advanced Data Visualization
+# Assignment 12: Advanced Data Visualization
 
-This assignment is to be created in the `assignment11` folder of your `python-assignment11` directory which is a separate repository. Continue to work in the ``assignment11`` branch.
+This assignment is to be created in the `assignment12` folder of your `python-assignment12` directory which is a separate repository. Continue to work in the ``assignment12`` branch.
 
 ---
 
 
 ## **Task 1: Plotting with Pandas**
 1. Create a file called employee_results.py.
-2. Load a DataFrame called employee_results using SQL.  Copy the `db/lesson.db` database from your `python_homework` folder to your `python-assignment11` folder.  Copy the `db` folder and the `lesson.db` file within it.  This can be done using the `cp -r` command.  In your `assignment11` folder, connect to `../db/lesson.db`. You use SQL to join the employees table with the orders table with the line_items table with the products table.  You then group by employee_id, and you SELECT the last_name and revenue, where revenue is the sum of price * quantity.  Ok, that's a lot of SQL to mess with, so here is the statement you need:
+2. Load a DataFrame called employee_results using SQL.  Copy the `db/lesson.db` database from your `python_homework` folder to your `python-assignment12` folder.  Copy the `db` folder and the `lesson.db` file within it.  This can be done using the `cp -r` command.  In your `assignment12` folder, connect to `../db/lesson.db`. You use SQL to join the employees table with the orders table with the line_items table with the products table.  You then group by employee_id, and you SELECT the last_name and revenue, where revenue is the sum of price * quantity.  Ok, that's a lot of SQL to mess with, so here is the statement you need:
    ```SQL
    SELECT last_name, SUM(price * quantity) AS revenue FROM employees e JOIN orders o ON e.employee_id = o.employee_id JOIN line_items l ON o.order_id = l.order_id JOIN products p ON l.product_id = p.product_id GROUP BY e.employee_id;
    ```
@@ -53,7 +53,7 @@ This assignment is to be created in the `assignment11` folder of your `python-as
 
 ## **Task 4: A Dashboard with Dash**
 
-Ok, deep breath.  Start by copying `python-assignment11/assignment11/lesson11_c.py` to `python-assignment11/myapp.py`. We can reuse the template.  This is in the root of the project folder because you are going to deploy this to the cloud in Task 5.
+Ok, deep breath.  Start by copying `python-assignment12/assignment12/lesson11_c.py` to `python-assignment12/myapp.py`. We can reuse the template.  This is in the root of the project folder because you are going to deploy this to the cloud in Task 5.
 
 1. The dataset to use is the Plotly built in `gapminder` dataset.  This has, among other things, the per capita GDP for various countries for each year.  For a given country, there will be one row per year.  This means that the 'countries' column has many duplicates.
 2. You want a dropdown that has each unique country name. You create a Series called `countries` that is the list of countries with duplicates removed.  You use this Series to populate the dropdown.  Give the dropdown the initial value of 'Canada'.
@@ -74,7 +74,7 @@ Ok, deep breath.  Start by copying `python-assignment11/assignment11/lesson11_c.
    server = app.server # <-- This is the line you need to add
    ```
 3. Add, commit, and push your changes to GitHub.  If you are using a branch, create a PR and merge that branch with main.
-4. Go to your render.com dashboard and create a new web service.  Provide the public URL of your python-assignment11 repository.  You must specify a unique name.  The default name is the same as your GitHub repository, so that will likely conflict with another student.
+4. Go to your render.com dashboard and create a new web service.  Provide the public URL of your python-assignment12 repository.  You must specify a unique name.  The default name is the same as your GitHub repository, so that will likely conflict with another student.
 5. The "Start Command" for the web service should be changed to read:
    ```
    gunicorn myapp:server
@@ -89,7 +89,7 @@ Ok, deep breath.  Start by copying `python-assignment11/assignment11/lesson11_c.
 ---
 
 ## **Task 6: Reflection**
-Create a file in the assignment11 folder called reflection.txt, and put in the following thoughts:
+Create a file in the assignment12 folder called reflection.txt, and put in the following thoughts:
 
 1. Reflect on the differences between static and interactive visualizations.
 2. Write a short paragraph discussing the advantages of using dashboards for real-time data exploration.
@@ -97,7 +97,7 @@ Create a file in the assignment11 folder called reflection.txt, and put in the f
 
 ## **Task 7: Commit Your Work**
 
-Add and commit all of the files created for the assignment to the `assignment11` branch.
+Add and commit all of the files created for the assignment to the `assignment12` branch.
 
 ---
 
@@ -219,9 +219,9 @@ pip install -r requirements.txt
 ## Task 4: Submit Your Assignment
 
 ### Required Submissions
-- Your **Streamlit Community Cloud app URL** (deployment link), this link is added to the ``service_urls.txt`` in the ``assignment11` folder in the `python-assignment11` repo.
+- Your **Streamlit Community Cloud app URL** (deployment link), this link is added to the ``service_urls.txt`` in the ``assignment12` folder in the `python-assignment12` repo.
 - Your **GitHub repository URL** link is also added to the `service_urls.txt`
-- Add and commit the `service_urls.txt` file in the `assignment11` branch.
+- Add and commit the `service_urls.txt` file in the `assignment12` branch.
 
 ### Resources
 - [Streamlit Cheat Sheet](https://cheat-sheet.streamlit.app/)
@@ -242,14 +242,14 @@ pip install -r requirements.txt
 📌 **Follow these steps to submit your work:**  
 
 #### **1️⃣ Add, Commit, and Push Your Changes** 
-- Create a file called `service_urls.txt` in the assignment11 folder.  In it, paste the URL for your Render.com service.  If you did the Streamlit assignment, make sure the Streamlit github repository url and streamlit.io service url are added to the `service_urls.txt` file as well.
-- Within your `python-assignment11` folder, do a git add and a git commit for the files you have created, so that they are added to the `assignment11` branch.
+- Create a file called `service_urls.txt` in the assignment12 folder.  In it, paste the URL for your Render.com service.  If you did the Streamlit assignment, make sure the Streamlit github repository url and streamlit.io service url are added to the `service_urls.txt` file as well.
+- Within your `python-assignment12` folder, do a git add and a git commit for the files you have created, so that they are added to the `assignment12` branch.
 - Push that branch to GitHub. 
 
 #### **2️⃣ Create a Pull Request**  
 - Log on to your GitHub account.
-- Open your `python-assignment11` repository.
-- Select your `assignment11` branch.  It should be one or several commits ahead of your main branch.
+- Open your `python-assignment12` repository.
+- Select your `assignment12` branch.  It should be one or several commits ahead of your main branch.
 - Create a pull request.
 
 #### **3️⃣ Submit Your GitHub Link**  
@@ -257,6 +257,6 @@ pip install -r requirements.txt
 - Paste the URL into the **assignment submission form**.
 - if you did the optional Streamlit assignment, make sure that repository link and the url for the streamlit.io service are included in the `service_urls.txt` file. 
 
-To summarize, a pull request for the `assignment11` branch in your new `python-assignment11` repository is pasted into the link submission field in the **assignment submission form**.  The `render.com` Dash service is published in `service_urls.txt` file. If you do the streamlit assignment, the link for the `streamlit-assignment` repository and the url for the `streamlit.io` service are included in the `service_urls.txt` file.
+To summarize, a pull request for the `assignment12` branch in your new `python-assignment12` repository is pasted into the link submission field in the **assignment submission form**.  The `render.com` Dash service is published in `service_urls.txt` file. If you do the streamlit assignment, the link for the `streamlit-assignment` repository and the url for the `streamlit.io` service are included in the `service_urls.txt` file.
 
 ---
