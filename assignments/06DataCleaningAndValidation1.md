@@ -4,7 +4,7 @@
 ### **Objective:**
 This assignment gives you practice in several data manipulation techniques. In subsequent sections, the focus is on exploring fundamental data cleaning and validation techniques using the Pandas library in Python. You will learn how to handle missing data, transform data types, remove duplicates, manage outliers, standardize data, encode categorical variables, and validate data ranges.
 
-This assignment is to be created in a Kaggle notebook, as you did for Assignment 4.  This time, create a notebook called CTD_Assignment_6 for code as described below.
+This assignment is to be created in a Kaggle notebook, as you did for Assignment 5.  This time, create a notebook called CTD_Assignment_6 for code as described below.
 
 ### **Tasks:**
 
