@@ -1,4 +1,4 @@
-# Lesson 3 — Intro to Data Engineering
+# Lesson 4 — Intro to Data Engineering
 
 ## Lesson Overview
 

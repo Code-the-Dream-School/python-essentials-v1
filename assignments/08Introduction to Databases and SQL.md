@@ -1,11 +1,11 @@
 Introduction to Databases and SQL**
 
-For this assignment, you create code in your python_homework/assignment7 folder.
+For this assignment, you create code in your python_homework/assignment8 folder.
 
 
 ## **Task 1: Create a New SQLite Database**
-1. Within your python_homework repository, create an `assignment7` git branch.
-2. Make the `assignment7`  folder the working folder.  Within the `assignment7` folder, create a file `sql_intro.py`.
+1. Within your python_homework repository, create an `assignment8` git branch.
+2. Make the `assignment8`  folder the working folder.  Within the `assignment8` folder, create a file `sql_intro.py`.
 3. Write code to connect to a new SQLite database, `../db/magazines.db` and to close the connection.
 4. Execute the script and confirm the database file is created.  Note: All SQL statements should be executed within a `try` block, followed by a corresponing `except` block, because any SQL statement can cause an exception to be raised.
 
@@ -51,13 +51,13 @@ We have publishers that publish magazines.  Each publisher has a unique name, an
 
 You will now use Pandas to create summary data from the `../db/lesson.db` database you populated as part of the lesson.  We want to find out how many times each product has been ordered, and what was the total price paid by product.
 
-1. While still within the `python_homework/assignment7` directory, create a program, `sql_intro_2.py`.
+1. While still within the `python_homework/assignment8` directory, create a program, `sql_intro_2.py`.
 2. Read data into a DataFrame, as described in the lesson.  The SQL statement should retrieve the line_item_id, quantity, product_id, product_name, and price from a JOIN of the line_items table and the product table. Hint: Your `ON` statement would be `ON line_items.product_id = products.product_id`.
 3. Print the first 5 lines of the resulting DataFrame.  Run the program to make sure this much works.
 4. Add a column to the DataFrame called "total".  This is the quantity times the price.  (This is easy: `df['total'] = df['quantity'] * df['price']`.)  Print out the first 5 lines of the DataFrame to make sure this works.
 5. Add groupby() code to group by the product_id.  Use an agg() method that specifies 'count' for the line_item_id column, 'sum' for the total column, and 'first' for the 'product_name'.  Print out the first 5 lines of the resulting DataFrame.  Run the program to see if it is correct so far.
 6. Sort the DataFrame by the product_name column.
-7. Add code to write this DataFrame to a file `order_summary.csv`, which should be written in the `assignment7` directory.  Verify that this file is correct.
+7. Add code to write this DataFrame to a file `order_summary.csv`, which should be written in the `assignment8` directory.  Verify that this file is correct.
 
 As we'll learn in the next lesson, the ordering, grouping, count, and sum operations can be done in SQL, more efficiently than in Pandas.  The key concepts of pandas and SQL overlap very strongly.
 
@@ -68,13 +68,13 @@ As we'll learn in the next lesson, the ordering, grouping, count, and sum operat
 📌 **Follow these steps to submit your work:**  
 
 #### **1️⃣ Add, Commit, and Push Your Changes**  
-- Within your python_homework folder, do a git add and a git commit for the files you have created, so that they are added to the `assignment7` branch.
+- Within your python_homework folder, do a git add and a git commit for the files you have created, so that they are added to the `assignment8` branch.
 - Push that branch to GitHub. 
 
 #### **2️⃣ Create a Pull Request**  
 - Log on to your GitHub account.
 - Open your `python_homework` repository.
-- Select your `assignment7` branch.  It should be one or several commits ahead of your main branch.
+- Select your `assignment8` branch.  It should be one or several commits ahead of your main branch.
 - Create a pull request.
 
 #### **3️⃣ Submit Your GitHub Link**  

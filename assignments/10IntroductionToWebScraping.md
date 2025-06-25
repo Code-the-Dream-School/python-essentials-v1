@@ -6,7 +6,7 @@ You learn to harvest data from a live web site, scraping values from the HTML pa
 
 ## **Assignment Instructions**
 
-You create the code for this assignment in the assignment9 folder within your python_homework folder.  Be sure to create an `assignment9` git branch before you start.  As usual, mark the code that completes each task with a comment line.
+You create the code for this assignment in the assignment10 folder within your python_homework folder.  Be sure to create an `assignment10` git branch before you start.  As usual, mark the code that completes each task with a comment line.
 
 ---
 
@@ -67,9 +67,9 @@ You are going to find where in the HTML page the data you want is located.
 ### **Task 4: Write out the Data**
 Modify your program to do the following:
 
-1. Write the DataFrame to a file called `get_books.csv`, within the assignment9 folder.  Examine the file to see if it looks right.
+1. Write the DataFrame to a file called `get_books.csv`, within the assignment10 folder.  Examine the file to see if it looks right.
 
-2. Write the `results` list out to a file called `get_books.json`, also within the assignment9 folder.  You should write it out in JSON format.  Examine the file to see if it looks right.
+2. Write the `results` list out to a file called `get_books.json`, also within the assignment10 folder.  You should write it out in JSON format.  Examine the file to see if it looks right.
 
 ### **Task 5: Ethical Web Scraping**
 
@@ -77,7 +77,7 @@ Modify your program to do the following:
 Understand the importance of ethical web scraping and `robots.txt` files.
 
 1. Access the `robots.txt` file for Wikipedia: [Wikipedia Robots.txt](https://en.wikipedia.org/robots.txt).
-2. Analyze the file and answer the following questions.  Put your answers in a file called `ethical_scraping.txt` in your python_homework/assignment9 directory
+2. Analyze the file and answer the following questions.  Put your answers in a file called `ethical_scraping.txt` in your python_homework/assignment10 directory
    - Which sections of the website are restricted for crawling?
    - Are there specific rules for certain user agents?
 3. Reflect on why websites use `robots.txt` and write 2–3 sentences explaining its purpose and how it promotes ethical scraping.  Put these in `ethical_scraping.txt` in your python_homework directory.
@@ -92,7 +92,7 @@ Extract a web page section and store the information.
 
 1. Use your browser developer tools to view this page: [https://owasp.org/www-project-top-ten/].  You are going to extract the top 10 security risks reported there.  Figure out how you will find them.
 
-2. Within your python_homework/assignment9 directory, write a script called `owasp_top_10.py`.  Use selenium to read this page.
+2. Within your python_homework/assignment10 directory, write a script called `owasp_top_10.py`.  Use selenium to read this page.
 
 3. Find each of the top 10 vulnerabilities.  Hint: You will need XPath.  For each of the top 10 vulnerabilites, keep the vulnerability title and the href link in a dict.  Accumulate these dict objects in a list.
 
@@ -108,13 +108,13 @@ Extract a web page section and store the information.
 📌 **Follow these steps to submit your work:**  
 
 #### **1️⃣ Add, Commit, and Push Your Changes**  
-- Within your python_homework folder, do a git add and a git commit for the files you have created, so that they are added to the `assignment9` branch.
+- Within your python_homework folder, do a git add and a git commit for the files you have created, so that they are added to the `assignment10` branch.
 - Push that branch to GitHub. 
 
 #### **2️⃣ Create a Pull Request**  
 - Log on to your GitHub account.
 - Open your `python_homework` repository.
-- Select your `assignment9` branch.  It should be one or several commits ahead of your main branch.
+- Select your `assignment10` branch.  It should be one or several commits ahead of your main branch.
 - Create a pull request.
 
 #### **3️⃣ Submit Your GitHub Link**  

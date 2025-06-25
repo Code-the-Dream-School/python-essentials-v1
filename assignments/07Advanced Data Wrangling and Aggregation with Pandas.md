@@ -6,7 +6,7 @@
 
 This assignment is an approximation of a real world data cleaning case.  You have four copies of a dataset, each with errors.  You want to create a single authoritative dataset that cleans all the errors out.  In addition, you'll get practice in using regular expressions for data transformation.
 
-This assignment is to be created in a Kaggle notebook, as you did for Assignments 4 and 5.  This time, create a notebook called CTD_Assignment_6 for code as described below.  As for all assignments that use notebooks, you should create a markdown cell above your code that marks the location where you completed each coding task.
+This assignment is to be created in a Kaggle notebook, as you did for Assignments 5 and 6.  This time, create a notebook called CTD_Assignment_7 for code as described below.  As for all assignments that use notebooks, you should create a markdown cell above your code that marks the location where you completed each coding task.
 
 Complete the tasks below to demonstrate your understanding of data cleaning and validation techniques. Submit your code and outputs for each task.
 

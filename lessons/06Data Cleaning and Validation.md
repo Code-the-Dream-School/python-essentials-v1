@@ -1,5 +1,5 @@
 
-## Lesson 05 — Data Cleaning and Validation I
+## Lesson 06 — Data Cleaning and Validation I
 
 **Lesson Overview**
 

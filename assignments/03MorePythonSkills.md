@@ -1,18 +1,18 @@
-# **Lesson 12: More Python Skills**
+# **Lesson 03: More Python Skills**
 
-## **Assignment 12 Objective**
+## **Assignment 3 Objective**
 
 In this assignment, you will get practice in using decorators, list comprehensions, closures, and custom classes.
 
 ## **Assignment Instructions**
 
-You create the code for this assignment in your python_homework/assignment12 folder.  Be sure to create an `assignment12` git branch before you start.  As usual, mark the code that completes each task with a comment line.
+You create the code for this assignment in your python_homework/assignment3 folder.  Be sure to create an `assignment3` git branch before you start.  As usual, mark the code that completes each task with a comment line.
 
 ---
 
 ## **Task 1: Writing and Testing a Decorator**
 
-1. Within the assignment12 folder, create a file called `log-decorator.py`.  It should contain the following.
+1. Within the assignment3 folder, create a file called `log-decorator.py`.  It should contain the following.
 2. Declare a decorator called logger_decorator.  This should log the name of the called function (`func.__name__`), the input parameters of that were passed, and the value the function returns, to a file `./decorator.log`.  (Logging was described in lesson 1, so review this if you need to do so.)  Functions may have positional arguments, keyword arguments, both, or neither.  So for each invocation of a decorated function, the log would have:
     ```
     function: <the function name>
@@ -40,7 +40,7 @@ You create the code for this assignment in your python_homework/assignment12 fol
 
 ## **Task 2: A Decorator that Takes an Argument**
 
-1. Within your assignment12 folder, write a script called `type-decorator.py`.
+1. Within your assignment3 folder, write a script called `type-decorator.py`.
 2. Declare a decorator called type_converter.  It has one argument called `type_of_output`, which would be a type, like `str` or `int` or `float`.  It should convert the return from `func` to the corresponding type, viz:
    ```python
    x = func(*args, **kwargs)
@@ -63,7 +63,7 @@ You create the code for this assignment in your python_homework/assignment12 fol
 
 ## **Task 3: List Comprehensions Practice**
 
-1. Within the assignment12 folder, create a file called `list-comprehensions.py`. Add code that reads the contents of `../csv/employees.csv` into a DataFrame.
+1. Within the assignment3 folder, create a file called `list-comprehensions.py`. Add code that reads the contents of `../csv/employees.csv` into a DataFrame.
 2. Using a list comprehension, create a list of the employee names, first_name + space + last_name.  The list comprehension should iterate through the rows of the DataFrame.  Print the resulting list.  Hint: If df is your dataframe, df.iterrows() gives an iterable list of rows.  Each row is a tuple, where the first element of the tuple is the index, and the second element is a dict with the key/value pairs from the row.
 3. Using a list comprehension, create another list from the previous list of names.  This list should include only those names that contain the letter "e".  Print this list.
 
@@ -71,14 +71,14 @@ You create the code for this assignment in your python_homework/assignment12 fol
 
 ## **Task 4: Closure Practice**
 
-1. Within the assignment12 folder, create a file called `hangman-closure.py`.
+1. Within the assignment3 folder, create a file called `hangman-closure.py`.
 2. Declare a function called `make_hangman()` that has one argument called secret_word.  It should also declare an empty array called guesses.  Within the function declare a function called hangman_closure() that takes one argument, which should be a letter.  Within the inner function, each time it is called, the letter should be appended to the guesses array.  Then the word should be printed out, with underscores substituted for the letters that haven't been guessed.  So, if secret_word is "alphabet", and guesses is ["a", "h"], then "a__ha__" should be printed out.  The function should return `True` if all the letters have been guessed, and `False` otherwise.  `make_hangman()` should return `hangman_closure`.
 3. Within hangman-closure.py, implement a hangman game that uses make_hangman().  Use the input() function to prompt for the secret word.  Then use the input() function to prompt for each of the guesses, until the full word is guessed.
 4. Test your program by playing a few games.
 
 ## **Task 5: Extending a Class**
 
-1. Within the assignment12 folder, create a file called `print-dataframe-with-headers.py`.
+1. Within the assignment3 folder, create a file called `print-dataframe-with-headers.py`.
 2. Create a class called DFPlus.  It should inherit from the Pandas DataFrame class.  You are going to add a single method to the class.  You do not need an `__init__` method, because you are going to use the one already provided.
 3. You want to create a DFPlus instance by reading in `../csv/products.csv`.  Now we have a problem. pd.read_csv() creates a DataFrame, not a DFPlus.  So here's the sneak path.  This creates a from_csv class method so that you can do `dfp = DFPlus.from_csv("../csv/products.csv")`
 ```python
@@ -99,7 +99,7 @@ class DFPlus(pd.DataFrame):
 
 ## **Task 6: More on Classes**
 
-1. Within the assignment12 folder, create a file called `tictactoe.py`.
+1. Within the assignment3 folder, create a file called `tictactoe.py`.
 2. Within this file, declare a class called TictactoeException.  This should inherit from the Exception class.  Add an `__init__` method that stores an instance variable called `message` and then calls the `__init__` method of the superclass.  This is a common way of creating a new type of exception.
 3. Declare also a class called Board.  This should have an `__init__` function that only has the `self` argument.  It creates a list of lists, 3x3, all git containing " " as a value.  This is stored in the variable self.board_array.  Create instance variables self.turn, which is initialized to "X".  The Board class should have a class variable called valid_moves, with the value:
 ```python
@@ -188,13 +188,13 @@ On assembling this program, the assignment author found that it was too time con
 📌 **Follow these steps to submit your work:**  
 
 #### **1️⃣ Add, Commit, and Push Your Changes**  
-- Within your python_homework folder, do a git add and a git commit for the files you have created, so that they are added to the `assignment12` branch.
+- Within your python_homework folder, do a git add and a git commit for the files you have created, so that they are added to the `assignment3` branch.
 - Push that branch to GitHub. 
 
 #### **2️⃣ Create a Pull Request**  
 - Log on to your GitHub account.
 - Open your `python_homework` repository.
-- Select your `assignment12` branch.  It should be one or several commits ahead of your main branch.
+- Select your `assignment3` branch.  It should be one or several commits ahead of your main branch.
 - Create a pull request.
 
 #### **3️⃣ Submit Your GitHub Link**  

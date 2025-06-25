@@ -1,5 +1,5 @@
 
-# **Lesson 10 — Introduction to Data Visualization**
+# **Lesson 11 — Introduction to Data Visualization**
 
 ## **Lesson Overview**
 **Learning objective:** In this lesson, students will learn to create and customize both basic and advanced data visualizations using Python libraries such as Matplotlib and Seaborn. By the end of this lesson, students will be able to effectively tell stories with data using visual representation, enhancing their ability to communicate insights.

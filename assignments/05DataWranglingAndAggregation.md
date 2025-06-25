@@ -1,4 +1,4 @@
-## Lesson 4 Assignment — Data Wrangling and Manipulation
+## Lesson 5 Assignment — Data Wrangling and Manipulation
 ### Advanced Data Wrangling and Aggregation with Pandas
 
 ### **Objective:**
@@ -13,7 +13,7 @@ With a little setup, you can create Jupyter notebooks in VSCode, and submit them
 ### **Tasks:**
 
 ### **Task 1: Data Selection**
-1. **On the Kaggle site, click on the plus button in the upper left, and create a notebook called CTD_Assignment_4.**  It comes up with a code cell already present.  Leave that one alone, and click on the plus markdown button to add a cell that says "Task 1". You do not have to use markdown formatting directives, however if you do choose to use formatting, it's worth noting that level two headings starting with '## ' are automatically added to the table of contents.  This is how you convey information about your code to your reviewer, Jupyter notebook style.  After adding a markdown cell, click on the plus code button to add another cell.  You add the code for this task to the cell.  As you complete each of the following tasks, run the cell to make sure your code works.  You run the cell by clicking on the arrow at the top left of the cell.
+1. **On the Kaggle site, click on the plus button in the upper left, and create a notebook called CTD_Assignment_5.**  It comes up with a code cell already present.  Leave that one alone, and click on the plus markdown button to add a cell that says "Task 1". You do not have to use markdown formatting directives, however if you do choose to use formatting, it's worth noting that level two headings starting with '## ' are automatically added to the table of contents.  This is how you convey information about your code to your reviewer, Jupyter notebook style.  After adding a markdown cell, click on the plus code button to add another cell.  You add the code for this task to the cell.  As you complete each of the following tasks, run the cell to make sure your code works.  You run the cell by clicking on the arrow at the top left of the cell.
 
 **Note:** The various code cells in a Jupyter notebook are all part of the same program, so you have access to the variables and functions of one cell from each of the ones that follow.  You only need to import Pandas once, for example.  However, Kaggle sessions **time out** if you go to the kitchen for a sandwich or something.  When they time out, your variables go away.  So, if you then run cell 2, which is dependent on something in cell 1, you'll get an error.  To correct this, click on the Run All button at the top of your Kaggle notebook screen, and the entirety of the program runs in the order the cells appear.
 

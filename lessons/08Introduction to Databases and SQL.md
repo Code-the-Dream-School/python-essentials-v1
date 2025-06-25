@@ -1,5 +1,5 @@
 
-# **Lesson 07 — Introduction to Databases and SQL**
+# **Lesson 08 — Introduction to Databases and SQL**
 
 ## **Lesson Overview**
 **Learning objective**: Students will gain foundational knowledge of SQL databases using Python and SQLite. They will define relational schemas, insert and query data using SQL, handle many-to-many relationships, and interact with databases directly from Pandas for analysis and reporting.

@@ -1,5 +1,5 @@
 
-# **Lesson 06 — Data Cleaning and Validation with Pandas**
+# **Lesson 07 — Data Cleaning and Validation with Pandas**
 
 ## **Lesson Overview**
 **Learning objective:** Students will learn to clean and standardize real-world datasets using Pandas. They will handle missing data, outliers, duplicates, inconsistent formatting, and categorical variables, while also applying transformations and basic feature engineering techniques to prepare data for analysis or modeling.

@@ -1,5 +1,5 @@
 
-# **Lesson 09 — Introduction to Web Scraping**
+# **Lesson 10 — Introduction to Web Scraping**
 
 ## **Lesson Overview**
 **Learning objective:** Students will gain a comprehensive understanding of web scraping, focusing on the fundamentals such as HTML structure, DOM representation, and using Python libraries like `Selenium` and `WebDriver Manager` to scrape and extract data from web pages. Additionally, students will explore the ethical aspects of web scraping, including adhering to guidelines provided by `robots.txt` and managing server requests responsibly.

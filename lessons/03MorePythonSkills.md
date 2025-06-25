@@ -1,5 +1,5 @@
 
-# Lesson 12 — More Python Skills
+# Lesson 3 — More Python Skills
 
 ## Lesson Overview
 **Learning objective:** In this lesson, students will learn and apply key advanced Python concepts including object-oriented programming, decorators, list comprehensions, and closures. They will learn how to write cleaner, more modular code using these features, and gain insight into how such patterns are used in real-world frameworks like Dash.
