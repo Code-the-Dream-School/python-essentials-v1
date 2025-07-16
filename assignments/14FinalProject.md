@@ -48,7 +48,7 @@ By completing this project, students will:
   - Dynamically update the visualizations based on user input.
   - Deploy the dashboard on **Render** or **Streamlit.io** for public access.
 
-All four programs will be included in the **GitHub** repository, and the dashboard will be deployed for public access.
+All four programs will be included in a new **GitHub** repository, and the dashboard will be deployed for public access.  This github repo should be separate from any of the other ones created for the class.
 
 ## Data Sources
 

@@ -63,8 +63,8 @@ You create the code for this assignment in your python_homework/assignment3 fold
 
 ## **Task 3: List Comprehensions Practice**
 
-1. Within the assignment3 folder, create a file called `list-comprehensions.py`. Add code that reads the contents of `../csv/employees.csv` into a DataFrame.
-2. Using a list comprehension, create a list of the employee names, first_name + space + last_name.  The list comprehension should iterate through the rows of the DataFrame.  Print the resulting list.  Hint: If df is your dataframe, df.iterrows() gives an iterable list of rows.  Each row is a tuple, where the first element of the tuple is the index, and the second element is a dict with the key/value pairs from the row.
+1. Within the assignment3 folder, create a file called `list-comprehensions.py`. Add code that reads the contents of `../csv/employees.csv` into a list of lists using the csv module.
+2. Using a list comprehension, create a list of the employee names, first_name + space + last_name.  The list comprehension should iterate through the items in the list read from the csv file.  Print the resulting list.  Skip the item created for the heading of the csv file.
 3. Using a list comprehension, create another list from the previous list of names.  This list should include only those names that contain the letter "e".  Print this list.
 
 ---
@@ -78,24 +78,10 @@ You create the code for this assignment in your python_homework/assignment3 fold
 
 ## **Task 5: Extending a Class**
 
-1. Within the assignment3 folder, create a file called `print-dataframe-with-headers.py`.
-2. Create a class called DFPlus.  It should inherit from the Pandas DataFrame class.  You are going to add a single method to the class.  You do not need an `__init__` method, because you are going to use the one already provided.
-3. You want to create a DFPlus instance by reading in `../csv/products.csv`.  Now we have a problem. pd.read_csv() creates a DataFrame, not a DFPlus.  So here's the sneak path.  This creates a from_csv class method so that you can do `dfp = DFPlus.from_csv("../csv/products.csv")`
-```python
-class DFPlus(pd.DataFrame):
-    @property
-    def _constructor(self):
-        return DFPlus
-
-    @classmethod
-    def from_csv(cls, filepath, **kwargs):
-        df = pd.read_csv(filepath, **kwargs)
-        return cls(df)
-```
-4. Within the DFPlus class, declare a function called print_with_headers().  It only takes one argument, self.  When you print a big DataFrame, you can't see the column headers because they scroll up.  This function will provide a way to print the DataFrame giving column headers every 10 lines.  The function will print the whole DataFrame in a loop, printing 10 rows at a time.
-5. Well, how to do this? You need to know the length of the DataFrame.  That's easy: `len(self)`.  Now, how do you get a given 10 rows?  That's easy too.  You have access to `super().iloc` so you can specify the ten line slice you want. And then you just print what you get back, looping until you get to the bottom.
-6. Using the from_csv() class method, create a DFPlus instance from "../csv/products.csv".
-7. Use the `print_with_headers()` method of your DFPlus instance to print the DataFrame.
+1. Within the assignment3 folder, create a file called `extend-point-to-vector.py`.
+2. Create a class called `Point`.  It represents a point in 2d space, with x and y values passed to the `__init__()` method.  It should include methods for equality, string representation, and Euclidian distance to another point.
+3. Create a class called `Vector` which is a subclass of `Point` and uses the same `__init__()` method.  Add a method in the vector class which overrides the string representation so `Vector`s print differently than `Point`s.  Override the `+` operator so that it implements vector addition, summing the `x` and `y` values and returning a new `Vector`.
+4. Print results which demonstrate all of the classes and methods which have been implemented.
 
 ## **Task 6: More on Classes**
 
