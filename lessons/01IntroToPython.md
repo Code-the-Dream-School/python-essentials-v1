@@ -128,11 +128,11 @@ Follow the installation instructions for your operating system:
     - Install the virtualenv package: `pip install virtualenv` (or perhaps `pip3 install virtualenv`).
     - Then, create the virtual environment.
         - Windows users enter the following commands:
-        ```bash
-        python -m venv .venv
-        source .venv/Scripts/activate
-        code .
-        ```
+            ```bash
+            python -m venv .venv
+            source .venv/Scripts/activate
+            code .
+            ```
         - Mac and Linux users enter the following commands:
             ```bash
             python3 -m venv .venv
