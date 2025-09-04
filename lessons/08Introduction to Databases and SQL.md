@@ -98,8 +98,8 @@ SQLite is a file-based database, meaning the database itself is stored in a file
 
 The `sqlite3.connect()` statement in Python creates a database if it does not exist.  Then it connects to that database.
 
-1. Open VSCode for your `python_homework` folder.  As you will create files as part of the lesson, create your `assignment7` branch now.
-2. Open your code editor within your `python_homework/assignment7` folder.  Create a new Python script file called `school_a.py`.  In your VSCode terminal, `cd` to the assignment7 folder.
+1. Open VSCode for your `python_homework` folder.  As you will create files as part of the lesson, create your `assignment8` branch now.
+2. Open your code editor within your `python_homework/assignment8` folder.  Create a new Python script file called `school_a.py`.  In your VSCode terminal, `cd` to the assignment8 folder.
 3. Add the following code to that program to create or connect to a new SQLite database.
 
 ### **Example Code:**
