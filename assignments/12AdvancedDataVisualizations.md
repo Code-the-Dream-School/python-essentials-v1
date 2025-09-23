@@ -53,7 +53,7 @@ This assignment is to be created in the `assignment12` folder of your `python-as
 
 ## **Task 4: A Dashboard with Dash**
 
-Ok, deep breath.  Start by copying `python-assignment12/assignment12/lesson11_c.py` to `python-assignment12/myapp.py`. We can reuse the template.  This is in the root of the project folder because you are going to deploy this to the cloud in Task 5.
+Ok, deep breath.  Start by copying `python-assignment12/assignment12/lesson12_c.py` to `python-assignment12/myapp.py`. We can reuse the template.  This is in the root of the project folder because you are going to deploy this to the cloud in Task 5.
 
 1. The dataset to use is the Plotly built in `gapminder` dataset.  This has, among other things, the per capita GDP for various countries for each year.  For a given country, there will be one row per year.  This means that the 'countries' column has many duplicates.
 2. You want a dropdown that has each unique country name. You create a Series called `countries` that is the list of countries with duplicates removed.  You use this Series to populate the dropdown.  Give the dropdown the initial value of 'Canada'.
@@ -156,6 +156,17 @@ pip install -r requirements.txt
 
 ## Task 2: Build Your Streamlit Dashboard
 
+Choose a dataset from kaggle to work with for your assignment.  Check the data and make sure it's clean, perform any necessary cleaning before proceeding.
+
+### Example Submissions
+1. Canada Dashboard:
+   - App: https://canada.streamlit.app/
+   - Code: https://github.com/parker84/canada-dashboard
+
+2. Dashboard v2:
+   - App: https://dash-board.streamlit.app/
+   - Code: https://github.com/dataprofessor/dashboard-v2
+
 ### Required Components
 
 1. **Title and Description**
@@ -225,15 +236,6 @@ pip install -r requirements.txt
 
 ### Resources
 - [Streamlit Cheat Sheet](https://cheat-sheet.streamlit.app/)
-
-### Example Submissions
-1. Canada Dashboard:
-   - App: https://canada.streamlit.app/
-   - Code: https://github.com/parker84/canada-dashboard
-
-2. Dashboard v2:
-   - App: https://dash-board.streamlit.app/
-   - Code: https://github.com/dataprofessor/dashboard-v2
 
 ---
 

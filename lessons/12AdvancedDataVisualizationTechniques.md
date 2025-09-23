@@ -65,7 +65,7 @@ For the following code examples, you create programs in the `assignment12` folde
 
 ---
 
-## **11.1 Plotting with Pandas**
+## **12.1 Plotting with Pandas**
 
 ### **Overview**
 Pandas simplifies data visualization by providing built-in plotting methods for DataFrames and Series. These plots are ideal for quick data exploration and basic visualizations.
@@ -80,11 +80,11 @@ Pandas simplifies data visualization by providing built-in plotting methods for 
 - **Bar Plots** are ideal when you need to compare quantities between different categories, such as the sales of different products or regions.
 - **Histograms** are useful for analyzing the distribution of numerical data, identifying patterns, skewness, or the range of values.
 
-Within the `assignment12` folder of your `python-assignment12` directory, create `lesson11_a.py`.  This code uses the DataFrame plot() method, which is part of Pandas, but, to actually display the plot, you also need Matplotlib, to do the `show()`.  Your program should contain the following code:
+Within the `assignment12` folder of your `python-assignment12` directory, create `lesson12_a.py`.  This code uses the DataFrame plot() method, which is part of Pandas, but, to actually display the plot, you also need Matplotlib, to do the `show()`.  Your program should contain the following code:
 
 ### **Example Code: Plotting with Pandas**
 
-Create a file called `lesson11_a.py`, with the following content:
+Create a file called `lesson12_a.py`, with the following content:
 
 ```python
 import pandas as pd
@@ -110,10 +110,10 @@ plt.show()
 Try this out.  The behavior of Matplotlib is like what you saw in the previous lesson.  A graphic window appears, and the program stops to wait at that point, until you close the window.
 ---
 
-## **11.2 Interactive Visualizations with Plotly**
+## **12.2 Interactive Visualizations with Plotly**
 
 ### **Overview**
-Plotly is a powerful library for creating interactive, highly customizable plots. It allows for hover tooltips, zooming, and dynamic interactions that improve user experience.  The code below uses a sample dataset that is provided as part of Plotly, but in the general case, you would use a Pandas DataFrame loaded from a CSV file or database.  Within the `assignment12` folder, create `lesson11_b.py` with the following code:
+Plotly is a powerful library for creating interactive, highly customizable plots. It allows for hover tooltips, zooming, and dynamic interactions that improve user experience.  The code below uses a sample dataset that is provided as part of Plotly, but in the general case, you would use a Pandas DataFrame loaded from a CSV file or database.  Within the `assignment12` folder, create `lesson12_b.py` with the following code:
 
 ### **Example Code: Interactive Scatter Plot**
 ```python
@@ -136,10 +136,10 @@ Try it out!  The interactive plot comes up in your browser, and you can hover ov
 
 ---
 
-## **11.3 Building Dashboards with Dash**
+## **12.3 Building Dashboards with Dash**
 
 ### **Overview**
-Dash is a framework for creating interactive web applications in Python. It leverages Plotly for visualizations and allows you to create dashboards that update in real-time based on user input.  When you install Dash, you also install Flask as a dependency.  Flask is a web application server framework, like Node or Rails, but in Python.  When you run a Dash dashboard, the Flask server runs.  Dash pages are dynamic, in that you can add dropdown lists or other controls to affect what is displayed.  Within the `assignment12` folder, create a file `lesson11_c.py`, with the following content:
+Dash is a framework for creating interactive web applications in Python. It leverages Plotly for visualizations and allows you to create dashboards that update in real-time based on user input.  When you install Dash, you also install Flask as a dependency.  Flask is a web application server framework, like Node or Rails, but in Python.  When you run a Dash dashboard, the Flask server runs.  Dash pages are dynamic, in that you can add dropdown lists or other controls to affect what is displayed.  Within the `assignment12` folder, create a file `lesson12_c.py`, with the following content:
 
 ### **Example Code: Simple Dashboard**
 ```python
@@ -256,7 +256,7 @@ To understand Dash and Plotly fully, you need to spend time studying the Plotly 
 
 ---
 
-## **11.4 Reflection**
+## **12.4 Reflection**
 
 ### **Differences Between Static and Interactive Visualizations:**
 - **Static Visualizations:** Easier to create and quicker to render but lack user interaction.
