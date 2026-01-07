@@ -1,0 +1,178 @@
+# Week 7: Data Cleaning with Pandas – Group Mentor Guide
+
+Welcome to Week 7 of the Python course! This week, students are learning:
+
+- Handling missing data with `dropna()` and `fillna()`
+- Data transformation (type conversion, date formatting)
+- Using regular expressions with Pandas for string manipulation
+- Removing duplicates and handling outliers
+- Standardizing data and validating ranges
+- Handling categorical data with encoding
+- Feature engineering basics
+
+Students are working on a complex data cleaning assignment in a Kaggle notebook.
+
+## Warm-Up (5–10 minutes)
+
+Choose one:
+
+**Relationship-Building**  
+- What's the messiest dataset or spreadsheet you've ever worked with?
+- Have you ever had to clean up data manually? What was frustrating about it?
+
+**Check for Understanding (from last week)**  
+- What's the difference between a Series and a DataFrame?
+- How do you select specific columns from a DataFrame?
+- What does `groupby()` do?
+
+## Explore vs. Apply – Session Formats
+
+**Explore Sessions** → Walk through data cleaning techniques with examples  
+**Apply Sessions** → Debug student code, work through regex patterns, troubleshoot the assignment
+
+## Sample Timing for 1-Hour Session
+
+| Time      | Activity                                 |
+|-----------|------------------------------------------|
+| 0:00–0:10 | Warm-up + review last week               |
+| 0:10–0:30 | Explore: demonstrate key techniques      |
+| 0:30–0:50 | Apply: assignment help + live coding     |
+| 0:50–1:00 | Wrap-up + final questions                |
+
+## Check for Understanding (Ask 2–3)
+
+- What's the difference between `dropna()` and `fillna()`?
+- When would you use the median vs the mean to fill missing values?
+- What does a regular expression do?
+- How does `drop_duplicates()` decide which rows to keep?
+- What's the purpose of `groupby()` in the assignment?
+
+## Explore Prompts
+
+Use these to demonstrate key concepts live:
+
+- Let's see what happens when we have missing data – how do we spot it?
+- How does `fillna()` work with different strategies (mean, median, zero)?
+- What's a simple regular expression? Let's match phone numbers together.
+
+*Mini-Demo Ideas:*  
+
+```python
+import pandas as pd
+
+# Missing data example
+df = pd.DataFrame({
+    'name': ['Alice', 'Bob', None, 'David'],
+    'age': [25, None, 30, 35]
+})
+print(df.info())  # Shows null values
+print(df.dropna())  # Removes rows with any null
+print(df.fillna({'name': 'Unknown', 'age': df['age'].mean()}))
+
+# Type conversion
+df['age'] = df['age'].astype(int)
+
+# Basic regex with Pandas
+phones = pd.Series(['(123) 456-7890', '555-123-4567'])
+clean = phones.str.replace(r'\D', '', regex=True)
+print(clean)  # Just digits
+
+# Remove duplicates
+df2 = pd.DataFrame({
+    'name': ['Alice', 'Bob', 'Alice'],
+    'age': [25, 30, 25]
+})
+print(df2.drop_duplicates())
+```
+
+---
+
+## Apply Prompts (Live Coding & Troubleshooting)
+
+### Assignment Hotspots
+* **Regular expressions:** Students often struggle with regex syntax – it's dense and unforgiving
+* **Understanding `groupby()` with `transform()`:** This is a complex pattern that combines multiple concepts
+* **The `fix_anomaly()` function:** Understanding how mode() and voting works
+* **Debugging the edge cases:** Understanding why certain records don't get cleaned properly
+* **Setting up thefuzz:** Import issues or package installation problems in Kaggle
+
+### Try This Live
+
+**Let's walk through the groupby() transform pattern together:**
+
+```python
+# What does this do?
+def fix_anomaly(group):
+    # Remove null values
+    group_na = group.dropna()
+    if group_na.empty:
+        return group.values
+    # Find most common value
+    mode = group_na.mode()
+    if mode.empty:
+        return group.values
+    return mode.iloc[0]
+
+# Apply to each group
+df['Zip'] = df.groupby(['Name', 'Address'])['Zip'].transform(fix_anomaly)
+```
+
+Ask:
+* What is `group` in this function?
+* Why do we drop NA values before finding the mode?
+* What happens if all values are different?
+
+**Let's debug a regex pattern together:**
+
+```python
+# Extract timestamp, level, and message from logs
+pattern = r'\[([^\]]+)\] (\w+): (.+)'
+log = "[2023-10-26 10:00:00] INFO: User logged in"
+result = pd.Series([log]).str.extract(pattern)
+print(result)
+```
+
+Ask:
+* What does `[^\]]+` mean? (Match anything except ])
+* What do the parentheses do? (Create capture groups)
+* How many columns will this create?
+
+## Engagement Strategies (for quiet groups)
+
+* **Think-Pair-Share:** "Take 2 minutes to think about how you'd approach Task 1, then share with a partner"
+* **Live Debug:** "Let's paste your error message and figure it out together"
+* **Explain It Back:** "Can someone explain what `mode()` does in their own words?"
+* **Predict the Output:** "Before we run this, what do you think will happen?"
+
+## Optional Challenges
+
+- Add more sophisticated regex patterns to extract additional information
+- Experiment with different thresholds for the spelling correction (not just 3)
+- Try using `median()` instead of `mode()` for numeric columns
+- Write a function that reports data quality metrics before and after cleaning
+
+## Common Regex Patterns (for reference)
+
+```python
+# Remove non-digits
+r'\D'
+
+# Match email domains
+r'@([\w\.-]+)'
+
+# Match phone numbers
+r'\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}'
+
+# Extract date parts
+r'(\d{4})-(\d{2})-(\d{2})'
+
+# Match word at start
+r'^\w+'
+```
+
+## Mentor To-Do
+- [ ] Run a session using this guide  
+- [ ] Help students understand the voting/mode logic
+- [ ] Support regex debugging (it's okay to look up patterns!)
+- [ ] Discuss why data cleaning assumptions can fail
+- [ ] Submit your [Mentor Session Report](https://airtable.com/appoSRJMlXH9KvE6w/shrp0jjRtoMyTXRzh)
