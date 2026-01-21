@@ -217,4 +217,4 @@ Include ``Markdown`` sections which explain the graphs and analysis.
     * [ ]  Provides a well-organized and clearly documented notebook or script that allows others to easily reproduce the entire analysis.
     * [ ]  All dependencies are clearly specified.
 
-When you are ready to submit your Kaggle and Web Scraping projects, use the [final project submission form](https://airtable.com/appoSRJMlXH9KvE6w/shrBpqHbS6wgInoF9?prefill_Lessons=Python%20100%20v1%3A%20Lesson%2013%20-%20Kaggle%20Dataset%20Project).
+If you would like to submit your Kaggle or Webscraping projects for review before turning in your official final project during week 15, use the [lesson 13 assignment submission form](https://airtable.com/appoSRJMlXH9KvE6w/shrBpqHbS6wgInoF9?prefill_Lessons=Python%20100%20v1%3A%20Lesson%2013%20-%20Kaggle%20Dataset%20Project).
