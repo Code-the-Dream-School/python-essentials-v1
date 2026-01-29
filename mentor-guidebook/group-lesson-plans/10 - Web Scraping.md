@@ -39,7 +39,3 @@ Choose one:
 *   **The Semicolon Challenge:** In Task 3, students must join multiple authors with a semicolon (`;`). Practice the `.join()` method if they are stuck.
 *   **XPath vs. CSS:** If a `div` has no ID or Class, how can we use **XPath axes** like `following-sibling` to find it?
 *   **Environment Setup:** Ensure students have run `pip install selenium webdriver-manager` inside their `python_homework` directory.
-
----
-
-### **Resource 2: Assignment Review Guide**
